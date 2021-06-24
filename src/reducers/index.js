@@ -5,7 +5,9 @@
 //  actions: FETCH_PARTS_OF_SET, PARTS_OWNED
 // themes
 //  actions: FETCH_THEMES
+import { combineReducers } from 'redux'
+import { legoSetReducer } from './legoSetReducer'
 
-export const rootReducer = (state = {}, action) => {
-    return state
-}
+export const rootReducer = combineReducers({
+    legoSets: legoSetReducer
+})
