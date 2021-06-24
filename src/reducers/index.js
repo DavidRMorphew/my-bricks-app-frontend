@@ -7,7 +7,9 @@
 //  actions: FETCH_THEMES
 import { combineReducers } from 'redux'
 import { legoSetReducer } from './legoSetReducer'
+import { loadingReducer } from './loadingReducer'
 
 export const rootReducer = combineReducers({
-    legoSets: legoSetReducer
+    legoSets: legoSetReducer,
+    loading: loadingReducer
 })
