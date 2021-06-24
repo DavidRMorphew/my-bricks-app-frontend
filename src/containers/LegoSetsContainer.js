@@ -8,13 +8,18 @@ class LegoSetsContainer extends Component{
         this.props.fetchLegoSets()
     }
 
+    handleLegoSetLoading = () => {
+        return (this.props.loading) ? "LOADING..." : "LegoSet"
+    }
+
     render(){
         return(
             <div>
                 <h1>Lego Sets!</h1>
+                <p>{this.handleLegoSetLoading()}</p>
             </div>
         )
     }
 }
 
-export default connect(({legoSets})=>({legoSets}), {fetchLegoSets})(LegoSetsContainer)
+export default connect(({legoSets, loading})=>({legoSets, loading}), {fetchLegoSets})(LegoSetsContainer)
