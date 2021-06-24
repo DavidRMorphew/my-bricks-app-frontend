@@ -5,3 +5,7 @@
 //  actions: FETCH_PARTS_OF_SET, PARTS_OWNED
 // themes
 //  actions: FETCH_THEMES
+
+export const rootReducer = (state = {}, action) => {
+    return state
+}
