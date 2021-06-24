@@ -9,14 +9,20 @@ class LegoSetsContainer extends Component{
     }
 
     handleLegoSetLoading = () => {
-        return (this.props.loading) ? "LOADING..." : "LegoSet"
+        return (this.props.loading) ? <p>LOADING...</p> : <ul>{this.renderLegoListTest()}</ul>
+    }
+
+    renderLegoListTest = () => {
+        const renderArray = this.props.legoSets.map((set, index) => <li key={set.id}>{index+1}.) {set.name}</li>)
+        console.log(renderArray)
+        return renderArray
     }
 
     render(){
         return(
             <div>
                 <h1>Lego Sets!</h1>
-                <p>{this.handleLegoSetLoading()}</p>
+                {this.handleLegoSetLoading()}
             </div>
         )
     }
