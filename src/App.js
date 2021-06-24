@@ -1,5 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
+import LegoSetsContainer from './containers/LegoSetsContainer'
 
 class App extends Component {
   
@@ -8,6 +9,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           My Bricks App
+          <LegoSetsContainer />
         </header>
       </div>
       );
