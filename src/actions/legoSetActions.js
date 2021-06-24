@@ -2,8 +2,17 @@ const baseUrl = "http://localhost:3001"
 
 export const fetchLegoSets = () => {
     return (dispatch) => {
+        // dispatch({type: 'LOADING'})
         fetch(`${baseUrl}/lego_sets`)
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => {
+            const sets = data.data.map(legoSet => legoSet.attributes)
+            dispatch({
+                type: 'ADD_SETS', 
+                payload: sets
+            })
+        // dispatch({type: 'STOP_LOADING'})
+            
+        })
     }
 }
