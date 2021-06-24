@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class LegoSetsContainer extends Component{
     render(){
@@ -10,4 +11,4 @@ class LegoSetsContainer extends Component{
     }
 }
 
-export default LegoSetsContainer
+export default connect(({legoSets})=>({legoSets}))(LegoSetsContainer)
