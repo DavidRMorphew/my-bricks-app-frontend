@@ -1,4 +1,7 @@
 
 export const legoSetReducer = (state = [], action) => {
-    return state
+    switch (action.type){
+        default:
+            return state
+    }
 }
