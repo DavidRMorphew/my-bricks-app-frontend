@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/19/Lego_bricks.jpg");
 }
 
 .App-logo {
@@ -27,6 +28,11 @@
 .App-link {
   color: #61dafb;
 }
+
+.container {
+  align-content: space-around
+}
+
 
 @keyframes App-logo-spin {
   from {

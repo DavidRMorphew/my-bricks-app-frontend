@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchLegoSets } from '../actions/legoSetActions'
 import LegoSetCard from '../components/LegoSetCard'
+import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
 
 class LegoSetsContainer extends Component{
@@ -21,16 +22,15 @@ class LegoSetsContainer extends Component{
     // }
 
     renderLegoSetCards = () => (
-        this.props.legoSets.map(set => <LegoSetCard legoSet={set}/>)
+        this.props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set}/>)
     )
 
     render(){
         return(
-            <div>
+            <Container fluid className="container">
                 <h1>Lego Sets!</h1>
-                {this.handleLegoSetLoading()}
-                
-            </div>
+                    {this.handleLegoSetLoading()}
+            </Container>
         )
     }
 }

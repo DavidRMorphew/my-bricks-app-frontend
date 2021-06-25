@@ -16,18 +16,18 @@ class App extends Component {
   return (
       <Router>
           <div className="App">
-            <header className="App-header">
-              <h1>My Bricks</h1>
-              <NavBar/>
-            </header>
-            <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path ="/lego_sets">
-                <LegoSetsContainer />
-              </Route>
-            </Switch>
+              <header className="App-header">
+                <h1>My Bricks</h1>
+                <NavBar/>
+              </header>
+              <Switch>
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route path ="/lego_sets">
+                  <LegoSetsContainer />
+                </Route>
+              </Switch>
           </div>
       </Router>
       );
