@@ -8,7 +8,7 @@ class App extends Component {
   return (
       <div className="App">
         <header className="App-header">
-          My Bricks App
+          <h1>My Bricks App</h1>
           <LegoSetsContainer />
         </header>
       </div>
