@@ -7,21 +7,23 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import About from './components/About'
+
 
 class App extends Component {
   
   render(){
   return (
-      <div className="App">
         <Router>
-        <Switch>
-          <header className="App-header">
-            <h1>My Bricks App</h1>
-          </header>
-            <LegoSetsContainer />
-        </Switch>
+          <Switch>
+            <Route exact path="/">
+              <About />
+            </Route>
+            <Route path ="/lego_sets">
+              <LegoSetsContainer />
+            </Route>
+          </Switch>
         </Router>
-      </div>
       );
   }
 }
