@@ -13,7 +13,7 @@ class LegoSetsContainer extends Component{
     }
 
     renderLegoListTest = () => {
-        const renderArray = this.props.legoSets.map((set, index) => <li key={set.id}>{index+1}.) {set.name}</li>)
+        const renderArray = this.props.legoSets.map((set, index) => (<li key={set.id}><p>{index+1}.) {set.name}</p><img src={set.imageUrl}/></li>))
         console.log(renderArray)
         return renderArray
     }
