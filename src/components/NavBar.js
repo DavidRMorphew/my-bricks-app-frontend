@@ -12,8 +12,8 @@ const NavBar = () => {
       }
 
     return(
-        <div className="App-header">
-            <h1>My Bricks</h1>
+        <div>
+            
             <NavLink
                 to="/about"
                 exact

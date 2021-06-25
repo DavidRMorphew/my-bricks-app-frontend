@@ -16,7 +16,10 @@ class App extends Component {
   return (
       <Router>
           <div className="App">
-            <NavBar/>
+            <header className="App-header">
+              <h1>My Bricks</h1>
+              <NavBar/>
+            </header>
             <Switch>
               <Route path="/about">
                 <About />
