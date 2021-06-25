@@ -4,6 +4,11 @@
   min-height: 100vh;
 }
 
+.over-background {
+  color: white;
+  text-shadow: 2.5px 2.5px black
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
