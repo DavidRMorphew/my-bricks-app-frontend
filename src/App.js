@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import About from './components/About'
 import NavBar from './components/NavBar'
+import Container from 'react-bootstrap/Container'
+
 
 class App extends Component {
   
@@ -20,6 +22,7 @@ class App extends Component {
                 <h1>My Bricks</h1>
                 <NavBar/>
               </header>
+              
               <Switch>
                 <Route path="/about">
                   <About />

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/19/Lego_bricks.jpg");
+  min-height: 100vh;
 }
 
 .App-logo {
