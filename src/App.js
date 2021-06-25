@@ -8,22 +8,25 @@ import {
   Link
 } from "react-router-dom";
 import About from './components/About'
-
+import NavBar from './components/NavBar'
 
 class App extends Component {
   
   render(){
   return (
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <About />
-            </Route>
-            <Route path ="/lego_sets">
-              <LegoSetsContainer />
-            </Route>
-          </Switch>
-        </Router>
+      <Router>
+          <div className="App">
+            <NavBar/>
+            <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path ="/lego_sets">
+                <LegoSetsContainer />
+              </Route>
+            </Switch>
+          </div>
+      </Router>
       );
   }
 }
