@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchLegoSets} from '../actions/legoSetActions'
+import { fetchLegoSets } from '../actions/legoSetActions'
+import LegoSetCard from '../components/LegoSetCard'
 
 class LegoSetsContainer extends Component{
 
@@ -9,14 +10,18 @@ class LegoSetsContainer extends Component{
     }
 
     handleLegoSetLoading = () => {
-        return (this.props.loading) ? <p>LOADING...</p> : <ul>{this.renderLegoListTest()}</ul>
+        return (this.props.loading) ? <p>LOADING...</p> : <div>{this.renderLegoSetCards()}</div>
     }
 
-    renderLegoListTest = () => {
-        const renderArray = this.props.legoSets.map((set, index) => (<li key={set.id}><p>{index+1}.) {set.name}</p><img src={set.imageUrl}/></li>))
-        console.log(renderArray)
-        return renderArray
-    }
+    // renderLegoListTest = () => {
+    //     const renderArray = this.props.legoSets.map((set, index) => (<li key={set.id}><p>{index+1}.) {set.name}</p><img src={set.imageUrl}/></li>))
+    //     console.log(renderArray)
+    //     return renderArray
+    // }
+
+    renderLegoSetCards = () => (
+        this.props.legoSets.map(set => <div key={set.id}><LegoSetCard legoSet={set}/></div>)
+    )
 
     render(){
         return(
