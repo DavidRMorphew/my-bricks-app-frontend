@@ -4,11 +4,11 @@ export const legoSetReducer = (state = [], action) => {
         case 'ADD_SETS':
             return action.payload
         case 'ADDED_TO_OWNED':
-            const setForUpdateId = action.payload.id
-            const setForUpdate = state.find(set => set.id === setForUpdateId)
+            const setForUpdate = state.find(set => set.id === action.payload.id)
+            const updatedSet = {...setForUpdate, owned: action.payload.owned}
             const setForUpdateIndex = state.indexOf(setForUpdate)
             
-            return [...state.slice(0, setForUpdateIndex), setForUpdate, ...state.slice(setForUpdateIndex + 1)]
+            return [...state.slice(0, setForUpdateIndex), updatedSet, ...state.slice(setForUpdateIndex + 1)]
         default:
             return state
     }
