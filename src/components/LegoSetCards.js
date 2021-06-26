@@ -30,11 +30,12 @@ class LegoSetCards extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     const {legoSets, loading} = state
-    console.log(ownProps.filterTerm)
+
     const results = (!ownProps.filterTerm) ? legoSets : legoSets.filter(set => {
         const regex = new RegExp(ownProps.filterTerm, 'i')
         return regex.test(set.name)
     })
+    
     return {
         legoSets: results,
         loading

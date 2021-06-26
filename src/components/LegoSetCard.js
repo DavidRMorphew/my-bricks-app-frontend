@@ -12,9 +12,12 @@ const LegoSetCard = props => {
             <Card.Img src={set.imageUrl}/>
                 <Card.Body>
                     <Card.Title><strong>{set.setNumber}</strong></Card.Title>
-                    <Card.Subtitle>{set.year}</Card.Subtitle>
                         <Card.Text>
-                            Total Bricks: {set.totalBricks}
+                            Year: <strong>{set.year}</strong>
+                            <br></br>
+                            Theme: <strong>{set.themeName}</strong>
+                            <br></br>
+                            Total Bricks: <strong>{set.totalBricks}</strong>
                         </Card.Text>
                 </Card.Body>
         </Card>
