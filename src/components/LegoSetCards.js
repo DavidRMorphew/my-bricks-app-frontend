@@ -1,22 +1,46 @@
+import React, { Component } from 'react'
 import LegoSetCard from '../components/LegoSetCard'
 import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
+import { connect } from 'react-redux'
+import { fetchLegoSets } from '../actions/legoSetActions'
 
-const LegoSetCards = props => {
-    const handleLegoSetLoading = () => {
-        return (props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{renderLegoSetCards()}</CardDeck>
+class LegoSetCards extends Component {
+
+    componentDidMount(){
+        this.props.fetchLegoSets()
+    }
+    
+    handleLegoSetLoading = () => {
+        return (this.props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{this.renderLegoSetCards()}</CardDeck>
     }
 
-    const renderLegoSetCards = () => (
-        props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set}/>)
+    renderLegoSetCards = () => (
+        this.props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set}/>)
     )
-
+    render(){
     return(
         <Container fluid className="container">
                 <h1 className="over-background">Lego Sets!</h1>
-                    {handleLegoSetLoading()}
+                    {this.handleLegoSetLoading()}
         </Container>
     )
+    }
 }
 
-export default LegoSetCards
+const mapStateToProps = (state, ownProps) => {
+    const {legoSets, loading} = state
+    console.log(!ownProps.filterTerm)
+    const results = legoSets.filter(set => {
+
+        console.log(set.name.search(ownProps.filterTerm))
+        return set.name.search(ownProps.filterTerm) !== ''
+})
+    console.log(results)
+    return {
+        legoSets: legoSets,
+        loading
+    }
+}
+
+export default connect(mapStateToProps,{ fetchLegoSets })(LegoSetCards)

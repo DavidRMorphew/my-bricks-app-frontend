@@ -10,54 +10,48 @@ import LegoSetCards from '../components/LegoSetCards'
 
 class LegoSetsContainer extends Component{
 
+    // componentDidMount(){
+    //     this.props.fetchLegoSets()
+    // }
+
     state = {
         filterTerm: ''
     }
 
-    componentDidMount(){
-        this.props.fetchLegoSets()
+    handleFilterInputOnChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
-    // handleLegoSetLoading = () => {
-    //     return (this.props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{this.renderLegoSetCards()}</CardDeck>
-    // }
-
-    // renderLegoSetCards = () => (
-    //     this.props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set}/>)
-    // )
-
-    // render(){
-    //     return(
-    //         <Container fluid className="container">
-    //             <h1 className="over-background">Lego Sets!</h1>
-    //                 {this.handleLegoSetLoading()}
-    //         </Container>
-    //     )
-    // }
-    passFilterTerm = (term) => {
+    handleFilterInputOnClick = e => {
+        e.preventDefault()
         this.setState({
-            filterTerm: term
+            filterTerm: ''
         })
     }
 
     render(){
-        const {legoSets, loading, filterTerm} = this.props
+        const {filterTerm} = this.props
         return(
             <div>
-                <FilterInputComponent passFilterTerm={this.passFilterTerm}/>
-                <LegoSetCards legoSets={legoSets} loading={loading} filterTerm={filterTerm}/>
+                <FilterInputComponent 
+                    handleOnChange={this.handleFilterInputOnChange} 
+                    handleOnClick={this.handleFilterInputOnClick} 
+                    value={this.state.filterTerm}
+                />
+                <LegoSetCards filterTerm={this.state.filterTerm}/>
             </div>
         )
     }
-
 }
 
-const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps)
-    const {legoSets, loading} = state
-    return {
-        legoSets,
-        loading
-    }
-}
-export default connect(mapStateToProps, {fetchLegoSets})(LegoSetsContainer)
+// const mapStateToProps = (state, ownProps) => {
+//     console.log(ownProps)
+//     const {legoSets, loading} = state
+//     return {
+//         legoSets,
+//         loading
+//     }
+// }
+export default connect(null, {fetchLegoSets})(LegoSetsContainer)
