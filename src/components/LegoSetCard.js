@@ -4,9 +4,10 @@ const LegoSetCard = props => {
     const set = props.legoSet
 
     const handleOnClick = e => {
-        e.preventDefault()
+        // e.preventDefault()
         props.addToOwnedSets(set.id)
     }
+
     return(
         <div>
         <Card border="dark" className="my-4" style={{ 
@@ -23,6 +24,8 @@ const LegoSetCard = props => {
                             Theme: <strong>{set.themeName}</strong>
                             <br></br>
                             Total Bricks: <strong>{set.totalBricks}</strong>
+                            <br></br>
+                            Owned: <strong>{set.owned}</strong>
                         </Card.Text>
                         <button onClick={handleOnClick}>Add To Owned</button>
                 </Card.Body>
