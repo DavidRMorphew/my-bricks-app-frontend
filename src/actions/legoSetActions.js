@@ -19,7 +19,7 @@ export const fetchLegoSets = () => {
 export const addToOwnedSets = (id) => {
     return (dispatch) => {
         console.log(id)
-        debugger
+    
         const configObj = {
             method: "PATCH",
             headers: {
@@ -29,10 +29,14 @@ export const addToOwnedSets = (id) => {
             body: JSON.stringify(id)
         }
 
-        fetch(`${baseUrl}/lego_sets/${id}`)
+        fetch(`${baseUrl}/lego_sets/${id}`, configObj)
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            const set = data.data.attributes
+            dispatch({
+                type: 'ADD_TO_OWNED',
+                payload: set
+            })
         })
     }
 }

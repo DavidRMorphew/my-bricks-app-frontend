@@ -2,6 +2,11 @@ import Card from 'react-bootstrap/Card'
 
 const LegoSetCard = props => {
     const set = props.legoSet
+
+    const handleOnClick = e => {
+        e.preventDefault()
+        props.addToOwnedSets(set.id)
+    }
     return(
         <div>
         <Card border="dark" className="my-4" style={{ 
@@ -19,7 +24,7 @@ const LegoSetCard = props => {
                             <br></br>
                             Total Bricks: <strong>{set.totalBricks}</strong>
                         </Card.Text>
-                        <button onClick={() => props.addToOwnedSets(set.id)}>Add To Owned</button>
+                        <button onClick={handleOnClick}>Add To Owned</button>
                 </Card.Body>
         </Card>
         </div>   
