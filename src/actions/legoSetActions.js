@@ -2,7 +2,7 @@ const baseUrl = "http://localhost:3001"
 
 export const addSets = (sets) => ({type: 'ADD_SETS', payload: sets})
 
-export const addedToOwned = (set) => ({type: 'TOGGLED_OWNED_VALUE', payload: set}) 
+export const toggleOwned = (set) => ({type: 'TOGGLED_OWNED_VALUE', payload: set}) 
 
 export const fetchLegoSets = () => {
     return (dispatch) => {
@@ -37,7 +37,7 @@ export const addToOwnedSets = (id) => {
         .then(resp => resp.json())
         .then(data => {
             const set = data.data.attributes
-            dispatch(addedToOwned(set))
+            dispatch(toggleOwned(set))
         })
     }
 }
