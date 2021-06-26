@@ -20,5 +20,19 @@ export const addToOwnedSets = (id) => {
     return (dispatch) => {
         console.log(id)
         debugger
+        const configObj = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify(id)
+        }
+
+        fetch(`${baseUrl}/lego_sets/${id}`)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 }
