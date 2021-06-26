@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchLegoSets } from '../actions/legoSetActions'
+// import { connect } from 'react-redux'
+// import { fetchLegoSets } from '../actions/legoSetActions'
 // import LegoSetCard from '../components/LegoSetCard'
 // import Container from 'react-bootstrap/Container'
 // import CardDeck from 'react-bootstrap/CardDeck'
@@ -53,4 +53,4 @@ class LegoSetsContainer extends Component{
 //         loading
 //     }
 // }
-export default connect(null, {fetchLegoSets})(LegoSetsContainer)
+export default LegoSetsContainer
