@@ -9,7 +9,7 @@ class FilterInputComponent extends Component {
     handleOnChange = e => {
         this.setState({
             [e.target.name]: e.target.value
-        })
+        }, ()=>this.props.passFilterTerm(this.state.filterTerm))
     }
 
     handleOnClick = e => {

@@ -10,6 +10,10 @@ import LegoSetCards from '../components/LegoSetCards'
 
 class LegoSetsContainer extends Component{
 
+    state = {
+        filterTerm: ''
+    }
+
     componentDidMount(){
         this.props.fetchLegoSets()
     }
@@ -30,12 +34,18 @@ class LegoSetsContainer extends Component{
     //         </Container>
     //     )
     // }
+    passFilterTerm = (term) => {
+        this.setState({
+            filterTerm: term
+        })
+    }
+
     render(){
-        const {legoSets, loading} = this.props
+        const {legoSets, loading, filterTerm} = this.props
         return(
             <div>
-                <FilterInputComponent />
-                <LegoSetCards legoSets={legoSets} loading={loading}/>
+                <FilterInputComponent passFilterTerm={this.passFilterTerm}/>
+                <LegoSetCards legoSets={legoSets} loading={loading} filterTerm={filterTerm}/>
             </div>
         )
     }
