@@ -32,10 +32,24 @@ class LegoSetCards extends Component {
 const mapStateToProps = (state, ownProps) => {
     const {legoSets, loading} = state
 
-    const results = (!ownProps.filterTerm) ? legoSets : legoSets.filter(set => {
-        const regex = new RegExp(ownProps.filterTerm, 'i')
-        return (regex.test(set.name) || regex.test(set.themeName) || regex.test(set.setNumber))
-    })
+    // const results = (!ownProps.filterTerm) ? legoSets : legoSets.filter(set => {
+    //     const regex = new RegExp(ownProps.filterTerm, 'i')
+    //     return (regex.test(set.name) || regex.test(set.themeName) || regex.test(set.setNumber))
+    // })
+    let results
+    switch (true){
+        case (!!ownProps.filterTerm):
+            results = legoSets.filter(set => {
+                const regex = new RegExp(ownProps.filterTerm, 'i')
+                return (regex.test(set.name) || regex.test(set.themeName) || regex.test(set.setNumber))
+            })
+            break;
+        case (!!ownProps.subSetTerm):
+            results = legoSets.filter(set => !!set.owned)
+            break;
+        default:
+            results = legoSets
+    }
 
     return {
         legoSets: results,
