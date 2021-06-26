@@ -4,6 +4,7 @@ import { fetchLegoSets } from '../actions/legoSetActions'
 // import LegoSetCard from '../components/LegoSetCard'
 // import Container from 'react-bootstrap/Container'
 // import CardDeck from 'react-bootstrap/CardDeck'
+import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
 
 
@@ -32,7 +33,10 @@ class LegoSetsContainer extends Component{
     render(){
         const {legoSets, loading} = this.props
         return(
-            <LegoSetCards legoSets={legoSets} loading={loading}/>
+            <div>
+                <FilterInputComponent />
+                <LegoSetCards legoSets={legoSets} loading={loading}/>
+            </div>
         )
     }
 
