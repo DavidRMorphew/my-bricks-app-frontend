@@ -32,7 +32,6 @@ class LegoSetsContainer extends Component{
     }
 
     render(){
-        const {filterTerm} = this.props
         return(
             <div>
                 <FilterInputComponent 

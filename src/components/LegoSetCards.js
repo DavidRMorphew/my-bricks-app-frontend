@@ -21,7 +21,7 @@ class LegoSetCards extends Component {
     render(){
     return(
         <Container fluid className="container">
-                <h1 className="over-background">Lego Sets!</h1>
+                <h1 className="over-background">Lego Sets: {this.props.legoSets.length}</h1>
                     {this.handleLegoSetLoading()}
         </Container>
     )
@@ -33,9 +33,9 @@ const mapStateToProps = (state, ownProps) => {
 
     const results = (!ownProps.filterTerm) ? legoSets : legoSets.filter(set => {
         const regex = new RegExp(ownProps.filterTerm, 'i')
-        return regex.test(set.name)
+        return (regex.test(set.name) || regex.test(set.theme_name) || regex.test(set.setNumber))
     })
-    
+
     return {
         legoSets: results,
         loading
