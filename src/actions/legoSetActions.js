@@ -15,3 +15,10 @@ export const fetchLegoSets = () => {
         })
     }
 }
+
+export const addToOwnedSets = (id) => {
+    return (dispatch) => {
+        console.log(id)
+        debugger
+    }
+}

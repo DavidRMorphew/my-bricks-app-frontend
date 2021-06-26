@@ -19,6 +19,7 @@ const LegoSetCard = props => {
                             <br></br>
                             Total Bricks: <strong>{set.totalBricks}</strong>
                         </Card.Text>
+                        <button onClick={() => props.addToOwnedSets(set.id)}>Add To Owned</button>
                 </Card.Body>
         </Card>
         </div>   
