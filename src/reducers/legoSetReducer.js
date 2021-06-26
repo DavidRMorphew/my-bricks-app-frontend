@@ -3,7 +3,7 @@ export const legoSetReducer = (state = [], action) => {
     switch (action.type){
         case 'ADD_SETS':
             return action.payload
-        case 'ADDED_TO_OWNED':
+        case 'TOGGLED_OWNED_VALUE':
             const setForUpdate = state.find(set => set.id === action.payload.id)
             const updatedSet = {...setForUpdate, owned: action.payload.owned}
             const setForUpdateIndex = state.indexOf(setForUpdate)

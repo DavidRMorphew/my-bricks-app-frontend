@@ -12,6 +12,10 @@ const LegoSetCard = props => {
         return !!set.owned ? "Owned" : "Not Owned"
     }
 
+    const ownButtonDisplay = (set) => {
+        return !!set.owned ? "Remove from Owned" : "Add to Owned"
+    }
+
     return(
         <div>
         <Card border="dark" className="my-4" style={{ 
@@ -31,7 +35,7 @@ const LegoSetCard = props => {
                             <br></br>
                             Owned: <strong>{renderOwnedValue(set)}</strong>
                         </Card.Text>
-                        <button onClick={handleOnClick}>Add To Owned</button>
+                        <button onClick={handleOnClick}>{ownButtonDisplay(set)}</button>
                 </Card.Body>
         </Card>
         </div>   

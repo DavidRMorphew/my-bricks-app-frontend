@@ -2,7 +2,7 @@ const baseUrl = "http://localhost:3001"
 
 export const addSets = (sets) => ({type: 'ADD_SETS', payload: sets})
 
-export const addedToOwned = (set) => ({type: 'ADDED_TO_OWNED', payload: set}) 
+export const addedToOwned = (set) => ({type: 'TOGGLED_OWNED_VALUE', payload: set}) 
 
 export const fetchLegoSets = () => {
     return (dispatch) => {
