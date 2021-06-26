@@ -27,6 +27,15 @@ class LegoSetsContainer extends Component{
             </Container>
         )
     }
+
 }
 
-export default connect(({legoSets, loading})=>({legoSets, loading}), {fetchLegoSets})(LegoSetsContainer)
+const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps)
+    const {legoSets, loading} = state
+    return {
+        legoSets,
+        loading
+    }
+}
+export default connect(mapStateToProps, {fetchLegoSets})(LegoSetsContainer)
