@@ -60,6 +60,9 @@ class LegoSetsContainer extends Component{
                     />
                     <LegoSetCards filterTerm={this.state.filterTerm}/>
                 </Route>
+                <Route exact path="/lego_sets/owned">
+                    <LegoSetCards />
+                </Route>
             </Switch>
         )
 
