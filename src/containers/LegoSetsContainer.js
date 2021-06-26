@@ -6,7 +6,12 @@ import React, { Component } from 'react'
 // import CardDeck from 'react-bootstrap/CardDeck'
 import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 class LegoSetsContainer extends Component{
 
@@ -31,17 +36,33 @@ class LegoSetsContainer extends Component{
         })
     }
 
+    // render(){
+    //     return(
+    //         <div>
+    //             <FilterInputComponent 
+    //                 handleOnChange={this.handleFilterInputOnChange} 
+    //                 handleOnClick={this.handleFilterInputOnClick} 
+    //                 value={this.state.filterTerm}
+    //             />
+    //             <LegoSetCards filterTerm={this.state.filterTerm}/>
+    //         </div>
+    //     )
+    // }
+
     render(){
         return(
-            <div>
-                <FilterInputComponent 
-                    handleOnChange={this.handleFilterInputOnChange} 
-                    handleOnClick={this.handleFilterInputOnClick} 
-                    value={this.state.filterTerm}
-                />
-                <LegoSetCards filterTerm={this.state.filterTerm}/>
-            </div>
+            <Switch>
+                <Route exact path="/lego_sets">
+                    <FilterInputComponent 
+                        handleOnChange={this.handleFilterInputOnChange} 
+                        handleOnClick={this.handleFilterInputOnClick} 
+                        value={this.state.filterTerm}
+                    />
+                    <LegoSetCards filterTerm={this.state.filterTerm}/>
+                </Route>
+            </Switch>
         )
+
     }
 }
 
