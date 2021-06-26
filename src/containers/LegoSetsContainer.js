@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchLegoSets } from '../actions/legoSetActions'
-import LegoSetCard from '../components/LegoSetCard'
-import Container from 'react-bootstrap/Container'
-import CardDeck from 'react-bootstrap/CardDeck'
+// import LegoSetCard from '../components/LegoSetCard'
+// import Container from 'react-bootstrap/Container'
+// import CardDeck from 'react-bootstrap/CardDeck'
+import LegoSetCards from '../components/LegoSetCards'
+
 
 class LegoSetsContainer extends Component{
 
@@ -11,20 +13,26 @@ class LegoSetsContainer extends Component{
         this.props.fetchLegoSets()
     }
 
-    handleLegoSetLoading = () => {
-        return (this.props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{this.renderLegoSetCards()}</CardDeck>
-    }
+    // handleLegoSetLoading = () => {
+    //     return (this.props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{this.renderLegoSetCards()}</CardDeck>
+    // }
 
-    renderLegoSetCards = () => (
-        this.props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set}/>)
-    )
+    // renderLegoSetCards = () => (
+    //     this.props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set}/>)
+    // )
 
+    // render(){
+    //     return(
+    //         <Container fluid className="container">
+    //             <h1 className="over-background">Lego Sets!</h1>
+    //                 {this.handleLegoSetLoading()}
+    //         </Container>
+    //     )
+    // }
     render(){
+        const {legoSets, loading} = this.props
         return(
-            <Container fluid className="container">
-                <h1 className="over-background">Lego Sets!</h1>
-                    {this.handleLegoSetLoading()}
-            </Container>
+            <LegoSetCards legoSets={legoSets} loading={loading}/>
         )
     }
 
