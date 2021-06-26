@@ -9,9 +9,9 @@ class LegoSetCards extends Component {
 
     // Here or in App to mount once?
 
-    // componentDidMount(){
-    //     this.props.fetchLegoSets()
-    // }
+    componentDidMount(){
+        this.props.fetchLegoSets()
+    }
     
     handleLegoSetLoading = () => {
         return (this.props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{this.renderLegoSetCards()}</CardDeck>
@@ -59,4 +59,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 // if fetchLegoSets is called in App - not needed here
-export default connect(mapStateToProps, { addToOwnedSets })(LegoSetCards)
+export default connect(mapStateToProps, { fetchLegoSets, addToOwnedSets })(LegoSetCards)

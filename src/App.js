@@ -9,14 +9,10 @@ import {
 } from "react-router-dom";
 import About from './components/About'
 import NavBar from './components/NavBar'
-import { connect } from 'react-redux'
-import { fetchLegoSets } from './actions/legoSetActions'
+// import { connect } from 'react-redux'
+// import { fetchLegoSets } from './actions/legoSetActions'
 
 class App extends Component {
-  
-  componentDidMount(){
-    this.props.fetchLegoSets()
-  }
 
   render(){
   return (
@@ -41,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, {fetchLegoSets})(App);
+export default App;
