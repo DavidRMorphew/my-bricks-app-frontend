@@ -33,7 +33,7 @@ const NavBar = () => {
                     background: "lightgreen",
                     color: "black"
                 }}            >
-                All Lego Sets
+                Lego Sets
             </NavLink>
         </div>
     )
