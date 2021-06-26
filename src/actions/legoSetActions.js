@@ -23,7 +23,6 @@ export const fetchLegoSets = () => {
 
 export const addToOwnedSets = (id) => {
     return (dispatch) => {
-        console.log(id)
     
         const configObj = {
             method: "PATCH",
