@@ -8,8 +8,10 @@
 import { combineReducers } from 'redux'
 import { legoSetReducer } from './legoSetReducer'
 import { loadingReducer } from './loadingReducer'
+import { setPartSpecsReducer } from './setPartSpecsReducer'
 
 export const rootReducer = combineReducers({
     legoSets: legoSetReducer,
-    loading: loadingReducer
+    loading: loadingReducer,
+    setPartSpecs: setPartSpecsReducer
 })
