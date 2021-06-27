@@ -3,7 +3,7 @@ import LegoSetCard from '../components/LegoSetCard'
 import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
 import { connect } from 'react-redux'
-import { fetchLegoSets, addToOwnedSets } from '../actions/legoSetActions'
+import { fetchLegoSets, changeOwnedSetStatus } from '../actions/legoSetActions'
 
 class LegoSetCards extends Component {
 
@@ -18,7 +18,7 @@ class LegoSetCards extends Component {
     }
 
     renderLegoSetCards = () => (
-        this.props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set} addToOwnedSets={this.props.addToOwnedSets}/>)
+        this.props.legoSets.map(set => <LegoSetCard key={set.id} legoSet={set} changeOwnedSetStatus={this.props.changeOwnedSetStatus}/>)
     )
     render(){
         
@@ -59,4 +59,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 // if fetchLegoSets is called in App - not needed here
-export default connect(mapStateToProps, { fetchLegoSets, addToOwnedSets })(LegoSetCards)
+export default connect(mapStateToProps, { fetchLegoSets, changeOwnedSetStatus })(LegoSetCards)

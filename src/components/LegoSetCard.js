@@ -11,7 +11,7 @@ const LegoSetCard = props => {
 
     const handleOnClick = e => {
         // e.preventDefault()
-        props.addToOwnedSets(set.id)
+        props.changeOwnedSetStatus(set.id)
     }
 
     const renderOwnedValue = (set) => {

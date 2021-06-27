@@ -21,7 +21,7 @@ export const fetchLegoSets = () => {
     }
 }
 
-export const addToOwnedSets = (id) => {
+export const changeOwnedSetStatus = (id) => {
     return (dispatch) => {
     
         const configObj = {
