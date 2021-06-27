@@ -6,3 +6,5 @@ const NotFoundErrorDisplay = () => {
         </div>
     )
 }
+
+export default NotFoundErrorDisplay
