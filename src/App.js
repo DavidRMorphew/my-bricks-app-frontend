@@ -29,7 +29,7 @@ class App extends Component {
               </header>
               
               <Switch>
-                <Route path="/about">
+                <Route exact path="/">
                   <About />
                 </Route>
                 <Route path ="/lego_sets">

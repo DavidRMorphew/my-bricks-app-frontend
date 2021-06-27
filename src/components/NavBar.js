@@ -15,7 +15,7 @@ const NavBar = () => {
         <div>
             
             <NavLink
-                to="/about"
+                to="/"
                 exact
                 style={link}
                 activeStyle={{
