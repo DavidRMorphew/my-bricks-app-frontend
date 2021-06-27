@@ -16,6 +16,13 @@ const LegoSetShowDisplay = props => {
         return !!set.owned ? "Remove from Owned" : "Add to Owned"
     }
 
+    const openInstructionsPageInNewTab = (instructionsUrl) => {
+        const newTab = window.open(instructionsUrl, '_blank', 'noopener,noreferrer')
+        if (newTab) {
+            newTab.opener = null
+        }
+    }
+
     return(
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Card 
@@ -34,6 +41,9 @@ const LegoSetShowDisplay = props => {
                     </Card.Text>
                     <Card.Text as="h2">
                         Building Instructions: 
+                            <strong onClick={() => openInstructionsPageInNewTab(set.instructionsUrl)}>
+                                Click Here
+                            </strong>
                     </Card.Text>   
                     <Card.Text as="h2">
                         Total Bricks: <strong>{set.totalBricks}</strong>
