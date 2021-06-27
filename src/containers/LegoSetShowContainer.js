@@ -2,12 +2,15 @@ import React, {Component} from "react"
 
 class LegoSetShowContainer extends Component {
 
-
-
+    
     render(){
-        console.log(this.props.routeInfo.match.params.id)
+        const legoSetId = this.props.routeInfo.match.params.id
+        console.log(legoSetId)
         return(
-            <div>Lego Set Show</div>
+            <div>
+                Lego Set Show
+                
+            </div>
         )
     }
 }
