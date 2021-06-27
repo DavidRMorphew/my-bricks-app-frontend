@@ -3,8 +3,17 @@ import Card from 'react-bootstrap/Card'
 const LegoSetShowDisplay = props => {
     const {set} = props
 
+    const handleOnClick = e => {
+        // e.preventDefault()
+        props.changeOwnedSetStatus(set.id)
+    }
+
     const renderOwnedValue = (set) => {
         return !!set.owned ? "Owned" : "Not Owned"
+    }
+
+    const ownButtonDisplay = (set) => {
+        return !!set.owned ? "Remove from Owned" : "Add to Owned"
     }
 
     return(
@@ -37,7 +46,8 @@ const LegoSetShowDisplay = props => {
                          
                             
                         
-                        
+                    <button onClick={handleOnClick}>{ownButtonDisplay(set)}</button>
+
                     </Card.Body>
             </Card>
         </div>

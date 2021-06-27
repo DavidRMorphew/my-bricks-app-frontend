@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import { connect } from 'react-redux'
+import { changeOwnedSetStatus } from '../actions/legoSetActions'
 import LegoSetShowDisplay from "../components/LegoSetShowDisplay"
 import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
 
@@ -9,7 +10,7 @@ class LegoSetShowContainer extends Component {
     findLegoSet = legoSetId => {
         const legoSet = this.props.legoSets.find(set => set.id === legoSetId)
         if (legoSetId && legoSet) {
-            return <LegoSetShowDisplay set={legoSet}/>
+            return <LegoSetShowDisplay set={legoSet} changeOwnedSetStatus={this.props.changeOwnedSetStatus}/>
         } else {
             return <NotFoundErrorDisplay />
         }
@@ -26,4 +27,4 @@ class LegoSetShowContainer extends Component {
     }
 }
 
-export default connect(({legoSets, loading})=>({legoSets, loading}))(LegoSetShowContainer)
+export default connect(({legoSets, loading})=>({legoSets, loading}), { changeOwnedSetStatus })(LegoSetShowContainer)
