@@ -8,7 +8,7 @@ class LegoSetShowContainer extends Component {
     findLegoSet = legoSetId => {
         const legoSet = this.props.legoSets.find(set => set.id === legoSetId)
         if (legoSetId && legoSet) {
-            return <div>legoSetId</div>
+            return <div className="over-background">{legoSet.name}</div>
         } else {
             return <NotFoundErrorDisplay />
         }

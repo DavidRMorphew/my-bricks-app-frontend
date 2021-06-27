@@ -1,4 +1,10 @@
 import Card from 'react-bootstrap/Card'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 const LegoSetCard = props => {
     const set = props.legoSet
@@ -22,7 +28,7 @@ const LegoSetCard = props => {
             width: '18rem',
             color: 'black' 
             }}>
-            <Card.Header as="h4">{set.name}</Card.Header>
+            <Card.Header as="h4"><Link to={`/lego_sets/${set.id}`}>{set.name}</Link></Card.Header>
             <Card.Img src={set.imageUrl}/>
                 <Card.Body>
                     <Card.Title><strong>{set.setNumber}</strong></Card.Title>
