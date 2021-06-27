@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import { connect } from 'react-redux'
+import LegoSetShowDisplay from "../components/LegoSetShowDisplay"
 import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
 
 class LegoSetShowContainer extends Component {
@@ -8,7 +9,7 @@ class LegoSetShowContainer extends Component {
     findLegoSet = legoSetId => {
         const legoSet = this.props.legoSets.find(set => set.id === legoSetId)
         if (legoSetId && legoSet) {
-            return <div className="over-background">{legoSet.name}</div>
+            return <LegoSetShowDisplay set={legoSet}/>
         } else {
             return <NotFoundErrorDisplay />
         }
