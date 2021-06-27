@@ -11,6 +11,7 @@ import About from './components/About'
 import NavBar from './components/NavBar'
 import { connect } from 'react-redux'
 import { fetchLegoSets } from './actions/legoSetActions'
+import NotFoundErrorDisplay from './components/NotFoundErrorDisplay';
 
 class App extends Component {
 
@@ -34,6 +35,7 @@ class App extends Component {
                 <Route path ="/lego_sets">
                   <LegoSetsContainer />
                 </Route>
+                <Route path="" component={NotFoundErrorDisplay}/>
               </Switch>
           </div>
       </Router>
