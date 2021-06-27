@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 // import CardDeck from 'react-bootstrap/CardDeck'
 import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
+import LegoSetShowContainer from './LegoSetShowContainer'
 import {
     BrowserRouter as Router,
     Switch,
@@ -63,6 +64,7 @@ class LegoSetsContainer extends Component{
                 <Route exact path="/lego_sets/owned">
                     <LegoSetCards subSetTerm={"owned"}/>
                 </Route>
+                <Route path="/lego_sets/:id" component={routeInfo => <LegoSetShowContainer routeInfo={routeInfo} />}/>
             </Switch>
         )
 
