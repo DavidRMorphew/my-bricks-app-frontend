@@ -6,7 +6,8 @@ export const fetchPartsOfSet = (setId) => {
         fetch(`${baseUrl}/${setId}/parts`)
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            const parts = data.data.map(part => part.attributes)
+            console.log(parts)
         })
 
         dispatch({type: 'LOADING_COMPLETE'})
