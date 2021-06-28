@@ -4,7 +4,7 @@ export const addSetPartSpecs = (setPartSpecs) => ({type: 'ADD_SET_PART_SPECS', p
 
 export const fetchSetPartSpecs = (setId) => {
     return (dispatch) => {
-        dispatch({type: 'LOADING'})
+        // dispatch({type: 'LOADING'})
         fetch(`${baseUrl}/${setId}/set_part_specs`)
         .then(resp => resp.json())
         .then(data => {

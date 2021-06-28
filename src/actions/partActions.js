@@ -1,3 +1,5 @@
+import { fetchSetPartSpecs } from "./setPartSpecsActions"
+
 const baseUrl = "http://localhost:3001/lego_sets"
 
 export const addParts = (parts) => ({type: 'ADD_PARTS', payload: parts})
@@ -10,7 +12,8 @@ export const fetchPartsOfSet = (setId) => {
         .then(data => {
             const parts = data.data.map(part => part.attributes)
             dispatch(addParts(parts))
-            dispatch({type: 'LOADING_COMPLETE'})
+            dispatch(fetchSetPartSpecs(setId))
+            // dispatch({type: 'LOADING_COMPLETE'})
         })
 
     }

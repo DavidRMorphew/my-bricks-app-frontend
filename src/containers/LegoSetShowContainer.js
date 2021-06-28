@@ -11,7 +11,7 @@ class LegoSetShowContainer extends Component {
     componentDidMount(){
         const legoSetId = this.props.routeInfo.match.params.id
         this.props.fetchPartsOfSet(legoSetId)
-        this.props.fetchSetPartSpecs(legoSetId)
+        // this.props.fetchSetPartSpecs(legoSetId)
     }
     
     findLegoSet = legoSetId => {
