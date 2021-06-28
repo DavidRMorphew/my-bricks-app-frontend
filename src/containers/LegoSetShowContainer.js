@@ -8,11 +8,16 @@ import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
 
 class LegoSetShowContainer extends Component {
 
+    state = {
+        legoSetId: this.props.routeInfo.match.params.id
+    }
+
     componentDidMount(){
-        const legoSetId = this.props.routeInfo.match.params.id
-        this.props.fetchPartsOfSet(legoSetId)
+        this.props.fetchPartsOfSet(this.state.legoSetId)
         // this.props.fetchSetPartSpecs(legoSetId)
     }
+
+    componentDidUpdate
     
     findLegoSet = legoSetId => {
         const legoSet = this.props.legoSets.find(set => set.id === legoSetId)
