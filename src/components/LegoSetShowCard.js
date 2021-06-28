@@ -38,10 +38,10 @@ const LegoSetShowCard = props => {
                     Theme: <strong>{set.themeName}</strong>
                 </Card.Text>
                 <Card.Text as="h2">
-                    Building Instructions: 
-                        <strong onClick={() => openInstructionsPageInNewTab(set.instructionsUrl)}>
+                    Building Instructions:  
+                        <button onClick={() => openInstructionsPageInNewTab(set.instructionsUrl)}>
                             Click Here
-                        </strong>
+                        </button>
                 </Card.Text>   
                 <Card.Text as="h2">
                     Total Bricks: <strong>{set.totalBricks}</strong>
