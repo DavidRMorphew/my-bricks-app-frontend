@@ -33,7 +33,7 @@ const PartCards = props => {
     }
 
     const renderEachPartCard = () => (
-        parts.map(part => <PartCard key={part.id} part={part} partQuantity={partQuantityOfPart(part)}/>)
+        parts.map(part => <PartCard key={`${set.id}—${part.id}`} part={part} partQuantity={partQuantityOfPart(part)}/>)
     )
 
     // const renderEachPartCard = () => {
