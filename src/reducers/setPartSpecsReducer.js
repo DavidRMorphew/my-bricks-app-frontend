@@ -1,4 +1,4 @@
-export const setPartSpecsReducer = (state = [], action) => {
+const setPartSpecsReducer = (state = [], action) => {
     switch (action.type){
         case 'ADD_SET_PART_SPECS':
             return action.payload
@@ -6,3 +6,5 @@ export const setPartSpecsReducer = (state = [], action) => {
             return state
     }
 }
+
+export default setPartSpecsReducer

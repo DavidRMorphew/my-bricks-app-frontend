@@ -1,4 +1,4 @@
-export const partReducer = (state = [], action) => {
+const partReducer = (state = [], action) => {
     switch (action.type){
         case "ADD_PARTS":
             return action.payload
@@ -6,3 +6,5 @@ export const partReducer = (state = [], action) => {
             return state
     }
 }
+
+export default partReducer

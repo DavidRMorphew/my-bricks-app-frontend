@@ -1,5 +1,5 @@
 
-export const legoSetReducer = (state = [], action) => {
+const legoSetReducer = (state = [], action) => {
     switch (action.type){
         case 'ADD_SETS':
             return action.payload
@@ -13,3 +13,5 @@ export const legoSetReducer = (state = [], action) => {
             return state
     }
 }
+
+export default legoSetReducer

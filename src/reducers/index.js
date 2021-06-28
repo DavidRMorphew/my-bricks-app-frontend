@@ -5,11 +5,11 @@
 //  actions: FETCH_PARTS_OF_SET, PARTS_OWNED
 // themes
 //  actions: FETCH_THEMES
-import { combineReducers } from 'redux'
-import { legoSetReducer } from './legoSetReducer'
-import { loadingReducer } from './loadingReducer'
-import { setPartSpecsReducer } from './setPartSpecsReducer'
-import { partReducer } from './partReducer'
+import combineReducers from 'redux'
+import legoSetReducer from './legoSetReducer'
+import loadingReducer from './loadingReducer'
+import setPartSpecsReducer from './setPartSpecsReducer'
+import partReducer from './partReducer'
 import potentialBuildReducer from './potentialBuildReducer'
 
 export const rootReducer = combineReducers({
