@@ -8,9 +8,9 @@ export const fetchSetPartSpecs = (setId) => {
         fetch(`${baseUrl}/${setId}/set_part_specs`)
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            const setPartSpecs = data.data.map(setPartSpec => setPartSpec.attributes)
+            dispatch(addSetPartSpecs(setPartSpecs))
+            dispatch({type: 'LOADING_COMPLETE'})
         })
-
-        dispatch({type: 'LOADING_COMPLETE'})
     }
 }
