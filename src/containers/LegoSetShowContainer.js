@@ -8,29 +8,30 @@ import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
 
 class LegoSetShowContainer extends Component {
     
-    componentDidMount(){
-        this.props.fetchPartsOfSet(this.props.routeInfo.match.params.id)
-        // this.props.fetchSetPartSpecs(legoSetId)
-    }
+    // componentDidMount(){
+    //     this.props.fetchPartsOfSet(this.props.routeInfo.match.params.id)
+    //     // this.props.fetchSetPartSpecs(legoSetId)
+    // }
 
-    componentDidUpdate(prevProps){
-        if (this.props.routeInfo.match.params.id !== prevProps.routeInfo.match.params.id){
-            debugger
-            this.props.fetchPartsOfSet(this.props.routeInfo.match.params.id)
-        }
-    }
+    // componentDidUpdate(prevProps){
+    //     if (this.props.routeInfo.match.params.id !== prevProps.routeInfo.match.params.id){
+    //         debugger
+    //         this.props.fetchPartsOfSet(this.props.routeInfo.match.params.id)
+    //     }
+    // }
     
-    shouldComponentUpdate(nextProps){
-        if (this.props.routeInfo.match.params.id !== nextProps.routeInfo.match.params.id){
-            return true
-        } else {
-            return false
-        }
-    }
+    // shouldComponentUpdate(nextProps){
+    //     if (this.props.routeInfo.match.params.id !== nextProps.routeInfo.match.params.id){
+    //         return true
+    //     } else {
+    //         return false
+    //     }
+    // }
 
     findLegoSet = legoSetId => {
         const legoSet = this.props.legoSets.find(set => set.id === legoSetId)
         if (legoSetId && legoSet) {
+            this.props.fetchPartsOfSet(legoSetId)
             return <LegoSetShowDisplay set={legoSet} changeOwnedSetStatus={this.props.changeOwnedSetStatus}/>
         } else {
             return <NotFoundErrorDisplay />
@@ -47,4 +48,4 @@ class LegoSetShowContainer extends Component {
     }
 }
 
-export default connect(({legoSets, loading})=>({legoSets, loading}), { changeOwnedSetStatus, fetchSetPartSpecs, fetchPartsOfSet })(LegoSetShowContainer)
+export default connect(({legoSets})=>({legoSets}), { changeOwnedSetStatus, fetchSetPartSpecs, fetchPartsOfSet })(LegoSetShowContainer)

@@ -7,27 +7,28 @@ const PartCards = props => {
     const { parts, setPartSpecs, set } = props
 
     const handlePartAndPartSpecLoading = () => {
-        return (!props.loading && currentPartsDidLoad && currentPartSpecsDidLoad) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
+        return (!props.loading) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
     }
 
     // <h1>Loaded</h1>
 
-    const currentPartsDidLoad = () => {
-        const partCheck = parts.find(part => part.legoSetId === set.id)
-        console.log(partCheck)
-        console.log(parts)
-        return !!partCheck ? true : false
-    }
+    // const currentPartsDidLoad = () => {
+    //     const partCheck = parts.find(part => part.legoSetId === set.id)
+    //     console.log(partCheck)
+    //     console.log(parts)
+    //     return !!partCheck ? true : false
+    // }
     
-    const currentPartSpecsDidLoad = () => {
-        const partSpecCheck = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id))
-        console.log(partSpecCheck)
-        console.log(setPartSpecs)
-        return !!partSpecCheck ? true : false
-    }
+    // const currentPartSpecsDidLoad = () => {
+    //     const partSpecCheck = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id))
+    //     console.log(partSpecCheck)
+    //     console.log(setPartSpecs)
+    //     return !!partSpecCheck ? true : false
+    // }
 
     const partQuantityOfPart = (part) => {
         const setPartSpecOfPart = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id && setPartSpec.partId === part.id))
+        // debugger
         console.log(setPartSpecOfPart.partQuantity)
         return setPartSpecOfPart.partQuantity
     }
