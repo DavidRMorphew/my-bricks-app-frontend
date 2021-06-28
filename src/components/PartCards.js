@@ -2,12 +2,23 @@ import { connect } from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
 
-const PartCards = () => {
+
+
+const PartCards = props => {
+
+    const handlePartAndPartSpecLoading = () => {
+        return (props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{renderEachPartCard()}</CardDeck>
+    }
+
+    const renderEachPartCard = () => {
+        return <div>Part Card Goes here</div>
+    }
+
     return(
         <Container fluid className="container">
-            <h1>Parts go here</h1>
+            {handlePartAndPartSpecLoading()}
         </Container>
     )
 }
 
-export default connect(({parts, setPartSpecs})=>({parts, setPartSpecs}))(PartCards)
+export default connect(({parts, setPartSpecs, loading})=>({parts, setPartSpecs, loading}))(PartCards)
