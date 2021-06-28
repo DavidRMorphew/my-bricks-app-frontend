@@ -9,9 +9,11 @@ import { combineReducers } from 'redux'
 import { legoSetReducer } from './legoSetReducer'
 import { loadingReducer } from './loadingReducer'
 import { setPartSpecsReducer } from './setPartSpecsReducer'
+import { partReducer } from './partReducer'
 
 export const rootReducer = combineReducers({
     legoSets: legoSetReducer,
     loading: loadingReducer,
-    setPartSpecs: setPartSpecsReducer
+    setPartSpecs: setPartSpecsReducer,
+    parts: partReducer
 })
