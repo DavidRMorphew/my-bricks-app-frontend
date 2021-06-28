@@ -27,7 +27,6 @@ class LegoSetShowContainer extends Component {
         const legoSetId = parseInt(this.props.routeInfo.match.params.id)
         return(
             <div>
-                Lego Set Show
                 {this.findLegoSet(legoSetId)}
             </div>
         )
