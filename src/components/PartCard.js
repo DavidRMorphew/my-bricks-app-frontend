@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card'
 
 const PartCard = props => {
-    const {part} = props
+    const {part, partQuantity} = props
     return(
         <div>
         <Card border="dark" className="my-4" style={{ 
@@ -11,7 +11,7 @@ const PartCard = props => {
             <Card.Img src={part.imageUrl}/>
             <Card.body>
                 <Card.text>
-                    {part.partQuantity}
+                    {partQuantity}
                 </Card.text>
             </Card.body>
         </Card>

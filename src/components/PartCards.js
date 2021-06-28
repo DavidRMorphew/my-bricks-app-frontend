@@ -11,14 +11,14 @@ const PartCards = props => {
         return (props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{renderEachPartCard()}</CardDeck>
     }
 
-    const renderEachPartCard = () => {
-        return parts.map(part => {
+    const renderEachPartCard = () => (
+        // const setPartSpecsOfSet = setPartSpecs.filter(setPartSpec => setPartSpec.legoSetId === set.id)
+        parts.map(part => {
             const setPartSpecOfPart = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id && setPartSpec.partId === part.id))
-            debugger
             const partQuantity = setPartSpecOfPart.partQuantity
             return <PartCard part={part} partQuantity={partQuantity}/>
         })
-    }
+    )
 
     return(
         <Container fluid className="container">
