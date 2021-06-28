@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import { connect } from 'react-redux'
 import { changeOwnedSetStatus } from '../actions/legoSetActions'
 import { fetchSetPartSpecs } from "../actions/setPartSpecsActions"
+import { fetchPartsOfSet } from "../actions/partActions"
 import LegoSetShowDisplay from "../components/LegoSetShowDisplay"
 import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
 
@@ -9,6 +10,7 @@ class LegoSetShowContainer extends Component {
 
     componentDidMount(){
         const legoSetId = this.props.routeInfo.match.params.id
+        this.props.fetchPartsOfSet(legoSetId)
         this.props.fetchSetPartSpecs(legoSetId)
     }
     
@@ -32,4 +34,4 @@ class LegoSetShowContainer extends Component {
     }
 }
 
-export default connect(({legoSets, loading})=>({legoSets, loading}), { changeOwnedSetStatus, fetchSetPartSpecs })(LegoSetShowContainer)
+export default connect(({legoSets, loading})=>({legoSets, loading}), { changeOwnedSetStatus, fetchSetPartSpecs, fetchPartsOfSet })(LegoSetShowContainer)
