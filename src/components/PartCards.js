@@ -7,8 +7,7 @@ const PartCards = props => {
     const { parts, setPartSpecs, set } = props
 
     const handlePartAndPartSpecLoading = () => {
-        return (!props.loading) ? <CardDeck>{renderEachPartCard()}</CardDeck>
-        : <h4 className="over-background">LOADING...</h4>
+        return (!props.loading) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
     }
 
     // <h1>Loaded</h1>
@@ -27,17 +26,29 @@ const PartCards = props => {
         return !!partSpecCheck ? true : false
     }
 
-    const renderEachPartCard = () => (
-        // const setPartSpecsOfSet = setPartSpecs.filter(setPartSpec => setPartSpec.legoSetId === set.id)
-        parts.map(part => {
-            const setPartSpecOfPart = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id && setPartSpec.partId === part.id))
-            console.log(setPartSpecs)
-            console.log(setPartSpecOfPart)
-            console.log(setPartSpecOfPart.partQuantity)
+    const partQuantityOfPart = (part) => {
+        const setPartSpecOfPart = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id && setPartSpec.partId === part.id))
+        console.log(setPartSpecOfPart.partQuantity)
+        return setPartSpecOfPart.partQuantity
+    }
 
-            return <PartCard key={part.id} part={part} partQuantity={setPartSpecOfPart.partQuantity}/>
-        })
+    const renderEachPartCard = () => (
+        parts.map(part => <PartCard key={part.id} part={part} partQuantity={partQuantityOfPart(part)}/>)
     )
+
+    // const renderEachPartCard = () => {
+    //     const results = []
+    //     parts.forEach(part => {
+    //         const setPartSpecOfPart = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id && setPartSpec.partId === part.id))
+    //         console.log(setPartSpecs)
+    //         console.log(setPartSpecOfPart)
+    //         console.log(setPartSpecOfPart.partQuantity)
+
+    //         results.push(<PartCard key={part.id} part={part} partQuantity={setPartSpecOfPart.partQuantity}/>)
+    //     })
+    //     console.log(results)
+    //     return results
+    // }
 
     return(
         <Container fluid className="container">
