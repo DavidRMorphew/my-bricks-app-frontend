@@ -7,19 +7,19 @@ const PartCards = props => {
     const { parts, setPartSpecs, set } = props
 
     const handlePartAndPartSpecLoading = () => {
-        return (!props.loading) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
+        return (!props.loading && currentPartsDidLoad && currentPartSpecsDidLoad) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
     }
 
     // <h1>Loaded</h1>
 
-    const partsDidLoad = () => {
+    const currentPartsDidLoad = () => {
         const partCheck = parts.find(part => part.legoSetId === set.id)
         console.log(partCheck)
         console.log(parts)
         return !!partCheck ? true : false
     }
     
-    const partSpecsDidLoad = () => {
+    const currentPartSpecsDidLoad = () => {
         const partSpecCheck = setPartSpecs.find(setPartSpec => (setPartSpec.legoSetId === set.id))
         console.log(partSpecCheck)
         console.log(setPartSpecs)
