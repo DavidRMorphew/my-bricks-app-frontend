@@ -1,6 +1,8 @@
-export default potentialBuildReducer = (state = [], action) => {
+const potentialBuildReducer = (state = [], action) => {
     switch (action.type){
         default:
             return state
     }
 }
+
+export default potentialBuildReducer
