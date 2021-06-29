@@ -8,7 +8,8 @@ export const fetchPotentialBuilds = (strictParam) => {
         fetch(`${baseUrl}/${strictParam}`)
         .then(resp => resp.json())
         .then(data => {
-            console.log(data.data)
+            const searchResults = data.data.map(potBuildSet => potBuildSet.attributes)
+            dispatch(addPotentialBuilds(searchResults))
             dispatch({type: 'LOADING_COMPLETE'})
         })
     }
