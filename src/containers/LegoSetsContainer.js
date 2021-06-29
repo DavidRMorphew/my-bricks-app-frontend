@@ -8,6 +8,7 @@ import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
 import LegoSetShowContainer from './LegoSetShowContainer'
 import PotentialBuildSelection from '../components/PotentialBuildSelection'
+import PotentialBuildSetsResults from '../components/PotentialBuildSetsResults'
 import {
     BrowserRouter as Router,
     Switch,
@@ -67,6 +68,7 @@ class LegoSetsContainer extends Component{
                 </Route>
                 <Route exact path="/lego_sets/potential_builds">
                      <PotentialBuildSelection />
+                     <PotentialBuildSetsResults />
                 </Route>
                 <Route path="/lego_sets/:id" component={routeInfo => <LegoSetShowContainer routeInfo={routeInfo} />}/>
             </Switch>
