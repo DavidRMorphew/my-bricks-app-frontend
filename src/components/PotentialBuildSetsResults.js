@@ -14,14 +14,15 @@ const PotentialBuildSetsResults = props => {
             return(
                     <div>
                         <h1 className="over-background">Potential Build Results: {props.potentialBuilds.length}</h1>
+                        <CardDeck>{renderPotentialBuildCards()}</CardDeck>
                     </div>
                 )
         }
     }
 
-    const renderPotentialBuildCards = () => {
-        props.potentialBuilds.map(potBuildSet => <CardDeck><PotentialBuildSetCard key={`Pot-build-${potBuildSet.id}`} set={potBuildSet}/></CardDeck>)
-    }
+    const renderPotentialBuildCards = () => (
+        props.potentialBuilds.map(potBuildSet => <PotentialBuildSetCard key={`Pot-build-${potBuildSet.id}`} set={potBuildSet}/>)
+    )
 
     return(
         <Container fluid className="container">
