@@ -20,7 +20,7 @@ const PotentialBuildSetsResults = props => {
     }
 
     const renderPotentialBuildCards = () => {
-        props.potentialBuilds.map(potBuildSet => <CardDeck><PotentialBuildSetCard key={`Pot-build-${set.id}`} set={potBuildSet}/></CardDeck>)
+        props.potentialBuilds.map(potBuildSet => <CardDeck><PotentialBuildSetCard key={`Pot-build-${potBuildSet.id}`} set={potBuildSet}/></CardDeck>)
     }
 
     return(
