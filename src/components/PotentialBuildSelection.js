@@ -20,21 +20,17 @@ const PotentialBuildSelection = props => {
             <Row>
                 <Col>
                     <button onClick={() => props.fetchPotentialBuilds("notStrict")}>Find Potential Builds (Color Substitutions)</button>
-                    {/* <h2>Option 1 (Regardless of Color)</h2> */}
                 </Col>
                 <Col>
                     <button onClick={() => props.fetchPotentialBuilds("strict")}>Find Potential Builds (strict color matching)</button>
-                    {/* <h2>Option 2 (Strict Color Matching)</h2> */}
                 </Col>
             </Row>
-            {/* <h4>You have the option of finding matches regardless of part colors (Option 1) or with strict part matching by color (Option 2)</h4> */}
             <br></br>
             <Accordion>
                 <Card style={{backgroundColor: "rgba(0,0,0,0)"}}>
                     <Card.Header>
                         <Accordion.Toggle eventKey="0">
                             <h4>CLICK HERE TO READ HOW IT WORKS</h4>
-                            
                         </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="0">
