@@ -9,7 +9,7 @@ const PotentialBuildSetsResults = props => {
     
     const handleLegoSetLoading = () => {
         if (props.loading) {
-            return <h4 className="over-background">LOADING...Please wait, as this could take a few seconds...</h4> 
+            return <h1 className="over-background">LOADING...Please wait, as this could take a few seconds...<br></br>Please do not change "owned sets" while we search.</h1> 
         } else if (props.potentialBuilds.length > 0) {
             return(
                     <div>

@@ -7,6 +7,9 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 
 const PotentialBuildSelection = props => {
+
+    const disableButtonWhileLoadingValue = () => (!props.loading ? false : true)
+
     return(
         <Container fluid className="container over-background" style={{backgroundColor: "rgba(0,0,0,0.7)"}}>
                 <br></br>
@@ -19,10 +22,20 @@ const PotentialBuildSelection = props => {
             <h1>Please Choose Below:</h1>
             <Row>
                 <Col>
-                    <button onClick={() => props.fetchPotentialBuilds("notStrict")}>Find Potential Builds (Color Substitutions)</button>
+                    <button 
+                        onClick={() => props.fetchPotentialBuilds("notStrict")}
+                        disabled={disableButtonWhileLoadingValue()}
+                    >
+                        Find Potential Builds (Color Substitutions)
+                    </button>
                 </Col>
                 <Col>
-                    <button onClick={() => props.fetchPotentialBuilds("strict")}>Find Potential Builds (strict color matching)</button>
+                    <button 
+                    onClick={() => props.fetchPotentialBuilds("strict")}
+                    disabled={disableButtonWhileLoadingValue()}
+                    >
+                        Find Potential Builds (strict color matching)
+                    </button>
                 </Col>
             </Row>
             <br></br>
