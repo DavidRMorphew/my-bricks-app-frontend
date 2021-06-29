@@ -48,7 +48,7 @@ const NavBar = () => {
                 My Sets
             </NavLink>
             <NavLink   
-                exact to="/lego_sets/owned"
+                exact to="/lego_sets/potential_builds"
                 style={link}
                 activeStyle={{
                     background: "lightgreen",

@@ -65,7 +65,7 @@ class LegoSetsContainer extends Component{
                     <LegoSetCards subSetTerm={"owned"}/>
                 </Route>
                 <Route exact path="/lego_sets/potential_builds">
-                    
+                     
                 </Route>
                 <Route path="/lego_sets/:id" component={routeInfo => <LegoSetShowContainer routeInfo={routeInfo} />}/>
             </Switch>
