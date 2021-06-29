@@ -7,6 +7,7 @@ import React, { Component } from 'react'
 import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
 import LegoSetShowContainer from './LegoSetShowContainer'
+import PotentialBuildSelection from '../components/PotentialBuildSelection'
 import {
     BrowserRouter as Router,
     Switch,
@@ -65,7 +66,7 @@ class LegoSetsContainer extends Component{
                     <LegoSetCards subSetTerm={"owned"}/>
                 </Route>
                 <Route exact path="/lego_sets/potential_builds">
-                     
+                     <PotentialBuildSelection />
                 </Route>
                 <Route path="/lego_sets/:id" component={routeInfo => <LegoSetShowContainer routeInfo={routeInfo} />}/>
             </Switch>
