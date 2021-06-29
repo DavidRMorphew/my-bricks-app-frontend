@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+import { fetchPotentialBuilds } from "../actions/potentialBuildActions"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -24,12 +25,12 @@ const PotentialBuildSelection = props => {
             <Row>
                 <Col>
                     <h2>Option 1 (Regardless of Color)</h2>
-                    <button>Find Potential Builds</button>
+                    <button onClick={() => props.fetchPotentialBuilds("notStrict")}>Find Potential Builds</button>
                 </Col>
                 <Col>
                     <h2>Option 2 (Strict Color Matching)</h2>
                     <h3></h3>
-                    <button>Find Potential Builds (strict color matching)</button>
+                    <button onClick={() => props.fetchPotentialBuilds("strict")}>Find Potential Builds (strict color matching)</button>
                 </Col>
             </Row>
             <br></br>
@@ -37,4 +38,4 @@ const PotentialBuildSelection = props => {
     )
 }
 
-export default connect()(PotentialBuildSelection)
+export default connect(({legoSets, loading, potentialBuilds})=>({legoSets, loading, potentialBuilds}), {fetchPotentialBuilds})(PotentialBuildSelection)

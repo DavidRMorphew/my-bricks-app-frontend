@@ -9,6 +9,7 @@ export const fetchPotentialBuilds = (strictParam) => {
         .then(resp => resp.json())
         .then(data => {
             console.log(data.data)
+            dispatch({type: 'LOADING_COMPLETE'})
         })
     }
 }
