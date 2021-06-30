@@ -51,7 +51,7 @@ const LegoSetShowCard = props => {
                 </Card.Text>  
                 <button onClick={handleOnClick}>{ownButtonDisplay(set)}</button>
             </Card.Body>
-    </Card>
+        </Card>
     )
 }
 

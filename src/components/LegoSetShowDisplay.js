@@ -7,16 +7,16 @@ const LegoSetShowDisplay = props => {
     const {set, changeOwnedSetStatus} = props
 
     return(
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>        
-        <Container fluid>
-        <Row>
-            <LegoSetShowCard set={set} changeOwnedSetStatus={changeOwnedSetStatus}/>
-        </Row>
-        <Row>
-            <PartCards set={set}/>
-        </Row>
-        </Container>
-            </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>        
+            <Container fluid>
+            <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <LegoSetShowCard set={set} changeOwnedSetStatus={changeOwnedSetStatus}/>
+            </Row>
+            <Row>
+                <PartCards set={set}/>
+            </Row>
+            </Container>
+        </div>
     )
 }
 
