@@ -22,7 +22,7 @@ class App extends Component {
   render(){
   return (
       <Router>
-          <div className="App">
+          <div className="App" alt="Image of a pile of colored bricks as a background">
               <header className="App-header">
                 <h1>My Bricks</h1>
                 <NavBar/>

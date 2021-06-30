@@ -10,7 +10,7 @@ const PartCard = props => {
             color: 'black' 
             }}>
             <Card.Header as="h4">Part Number: {part.partNumber}</Card.Header>
-            <Card.Img src={part.imageUrl}/>
+            <Card.Img src={part.imageUrl} alt={`Part Image for ${part.name}`}/>
             <Card.Body>
                 <Card.Text>
                     <strong>Part Name: </strong>{part.name}

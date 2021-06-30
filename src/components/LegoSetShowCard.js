@@ -29,7 +29,7 @@ const LegoSetShowCard = props => {
         style={{ width: '80%' }}
         >
         <Card.Header as="h1">{set.name}</Card.Header>
-        <Card.Img src={set.imageUrl}/>
+        <Card.Img src={set.imageUrl} alt={`Set Image for ${set.name}`}/>
             <Card.Body>
                 <Card.Text as="h2">
                         Year: <strong>{set.year}</strong>
