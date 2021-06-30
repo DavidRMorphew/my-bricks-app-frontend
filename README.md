@@ -12,7 +12,7 @@ Search the database for Lego sets by name, theme, and set-number. Add sets to yo
 
 See this [demo]() on the app's features.
 
-As proof of concept, I have set the seeds file of the backend of this application—[My-Bricks-App-Backend](https://github.com/DavidRMorphew/my-bricks-app-backend)—to harvest and persist almost 740 Lego sets (and their Lego parts) from the [Rebrickable Api](https://rebrickable.com/api/v3/docs/). But, you can add all of nearly 18,000 sets in the Rebrickable Api database into the backend to expand your searches. See the [README](https://github.com/DavidRMorphew/my-bricks-app-backend/blob/main/README.md) instructions in the My-Bricks-App-Backend for more on seeding the data into the database.
+As proof of concept, I harvested close to 740 Lego sets from the [Rebrickable Api](https://rebrickable.com/api/v3/docs/) and persisted the data along with the Lego sets' parts to the backend of this application—[My-Bricks-App-Backend](https://github.com/DavidRMorphew/my-bricks-app-backend). But, you could add all of nearly 18,000 sets in the Rebrickable Api database into the backend to expand your searches using the seeds file. See the [README](https://github.com/DavidRMorphew/my-bricks-app-backend/blob/main/README.md) instructions in the My-Bricks-App-Backend for more on seeding the data into the database.
 
 ## Installation
 To install the program, open your terminal and run the following command:
@@ -60,7 +60,7 @@ This project is designed with collaboration in mind, and contributors are expect
 
 The following are areas open to future development:
 - provide a show page for each part
-- persist search results for different combinations of owned sets to optimize the Potential Builds search feature
+- persist search results for different combinations of owned sets to optimize the `Potential Builds` search feature
 
 Additional suggestions are welcome.
 
