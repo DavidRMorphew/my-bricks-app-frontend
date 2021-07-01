@@ -27,4 +27,4 @@ const LegoSetShowContainer = props => {
     )
 }
 
-export default connect(({legoSets})=>({legoSets}), { changeOwnedSetStatus, fetchSetPartSpecs, fetchPartsOfSet })(LegoSetShowContainer)
+export default connect(({legoSets})=>({legoSets}), { changeOwnedSetStatus, fetchPartsOfSet })(LegoSetShowContainer)
