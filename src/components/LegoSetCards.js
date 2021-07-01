@@ -27,16 +27,17 @@ const LegoSetCards = props =>{
 
 const mapStateToProps = (state, ownProps) => {
     const { legoSets, loading } = state
+    const { filterTerm, subSetTerm } = ownProps
 
     let results
     switch (true){
-        case (!!ownProps.filterTerm):
+        case (!!filterTerm):
             results = legoSets.filter(set => {
-                const regex = new RegExp(ownProps.filterTerm, 'i')
+                const regex = new RegExp(filterTerm, 'i')
                 return (regex.test(set.name) || regex.test(set.themeName) || regex.test(set.setNumber))
             })
             break;
-        case (!!ownProps.subSetTerm):
+        case (!!subSetTerm):
             results = legoSets.filter(set => !!set.owned)
             break;
         default:
