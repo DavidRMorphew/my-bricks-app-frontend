@@ -8,7 +8,9 @@ import Card from 'react-bootstrap/Card'
 
 const PotentialBuildSelection = props => {
 
-    const disableButtonWhileLoadingValue = () => (!props.loading ? false : true)
+    const { loading, fetchPotentialBuilds } = props
+
+    const disableButtonWhileLoadingValue = () => (!loading ? false : true)
 
     return(
         <Container fluid className="container over-background" style={{backgroundColor: "rgba(0,0,0,0.7)"}}>
@@ -23,7 +25,7 @@ const PotentialBuildSelection = props => {
             <Row>
                 <Col>
                     <button 
-                        onClick={() => props.fetchPotentialBuilds("notStrict")}
+                        onClick={() => fetchPotentialBuilds("notStrict")}
                         disabled={disableButtonWhileLoadingValue()}
                     >
                         Find Potential Builds (Color Substitutions)
@@ -31,7 +33,7 @@ const PotentialBuildSelection = props => {
                 </Col>
                 <Col>
                     <button 
-                    onClick={() => props.fetchPotentialBuilds("strict")}
+                    onClick={() => fetchPotentialBuilds("strict")}
                     disabled={disableButtonWhileLoadingValue()}
                     >
                         Find Potential Builds (strict color matching)
@@ -61,4 +63,4 @@ const PotentialBuildSelection = props => {
     )
 }
 
-export default connect(({legoSets, loading, potentialBuilds})=>({legoSets, loading, potentialBuilds}), {fetchPotentialBuilds})(PotentialBuildSelection)
+export default connect(({ loading })=>({ loading }), { fetchPotentialBuilds })(PotentialBuildSelection)
