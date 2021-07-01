@@ -17,7 +17,7 @@ class LegoSetsContainer extends Component{
 
     handleFilterInputOnChange = e => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value // Variable assignment of key and value through descructuring causes noticeable lag
         })
     }
 
