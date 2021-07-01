@@ -24,7 +24,6 @@ class LegoSetsContainer extends Component{
     }
 
     handleFilterInputClearOnClick = e => {
-        e.preventDefault()
         this.setState({
             filterTerm: ''
         })
