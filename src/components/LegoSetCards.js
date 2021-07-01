@@ -26,7 +26,7 @@ const LegoSetCards = props =>{
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const {legoSets, loading} = state
+    const { legoSets, loading } = state
 
     let results
     switch (true){
