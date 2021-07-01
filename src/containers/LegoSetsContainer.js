@@ -16,12 +16,14 @@ class LegoSetsContainer extends Component{
     }
 
     handleFilterInputOnChange = e => {
+        const inputKey = e.target.name
+        const inputValue = e.target.value
         this.setState({
-            [e.target.name]: e.target.value
+            [inputKey]: inputValue
         })
     }
 
-    handleFilterInputOnClick = e => {
+    handleFilterInputClearOnClick = e => {
         e.preventDefault()
         this.setState({
             filterTerm: ''
@@ -34,7 +36,7 @@ class LegoSetsContainer extends Component{
                 <Route exact path="/lego_sets">
                     <FilterInputComponent 
                         handleOnChange={this.handleFilterInputOnChange} 
-                        handleOnClick={this.handleFilterInputOnClick} 
+                        handleOnClick={this.handleFilterInputClearOnClick} 
                         value={this.state.filterTerm}
                     />
                     <LegoSetCards filterTerm={this.state.filterTerm}/>
