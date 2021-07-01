@@ -3,16 +3,10 @@ import LegoSetCard from '../components/LegoSetCard'
 import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
 import { connect } from 'react-redux'
-import { fetchLegoSets, changeOwnedSetStatus } from '../actions/legoSetActions'
+import { changeOwnedSetStatus } from '../actions/legoSetActions'
 
 class LegoSetCards extends Component {
-
-    // Here or in App to mount once?
-
-    // componentDidMount(){
-    //     this.props.fetchLegoSets()
-    // }
-    
+  
     handleLegoSetLoading = () => {
         return (this.props.loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{this.renderLegoSetCards()}</CardDeck>
     }
@@ -34,10 +28,6 @@ class LegoSetCards extends Component {
 const mapStateToProps = (state, ownProps) => {
     const {legoSets, loading} = state
 
-    // const results = (!ownProps.filterTerm) ? legoSets : legoSets.filter(set => {
-    //     const regex = new RegExp(ownProps.filterTerm, 'i')
-    //     return (regex.test(set.name) || regex.test(set.themeName) || regex.test(set.setNumber))
-    // })
     let results
     switch (true){
         case (!!ownProps.filterTerm):
@@ -58,5 +48,5 @@ const mapStateToProps = (state, ownProps) => {
         loading
     }
 }
-// if fetchLegoSets is called in App - not needed here
-export default connect(mapStateToProps, { fetchLegoSets, changeOwnedSetStatus })(LegoSetCards)
+
+export default connect(mapStateToProps, { changeOwnedSetStatus })(LegoSetCards)
