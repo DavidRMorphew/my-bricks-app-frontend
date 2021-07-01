@@ -7,9 +7,9 @@ const LegoSetShowDisplay = props => {
     const {set, changeOwnedSetStatus} = props
 
     return(
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>        
+        <div className="flex-center">        
             <Container fluid>
-            <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Row className="flex-center">
                 <LegoSetShowCard set={set} changeOwnedSetStatus={changeOwnedSetStatus}/>
             </Row>
             <Row>
