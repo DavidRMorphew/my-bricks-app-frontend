@@ -12,8 +12,7 @@ const NavBar = () => {
       }
 
     return(
-        <div>
-            
+        <div>   
             <NavLink
                 to="/"
                 exact
@@ -27,7 +26,6 @@ const NavBar = () => {
             </NavLink>
             <NavLink
                 exact to="/lego_sets"
-                // need to be exact? Probably not for nested routes or show
                 style={link}
                 activeStyle={{
                     background: "lightgreen",
@@ -38,7 +36,6 @@ const NavBar = () => {
             </NavLink>
             <NavLink
                 exact to="/lego_sets/owned"
-                // need to be exact? Probably not for nested routes or show
                 style={link}
                 activeStyle={{
                     background: "lightgreen",
