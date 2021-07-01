@@ -27,7 +27,6 @@ class App extends Component {
                 <h1>My Bricks</h1>
                 <NavBar/>
               </header>
-              
               <Switch>
                 <Route exact path="/">
                   <About />
