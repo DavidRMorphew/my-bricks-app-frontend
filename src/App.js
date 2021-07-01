@@ -1,23 +1,22 @@
 import './App.css';
 import React, {Component} from 'react';
-import LegoSetsContainer from './containers/LegoSetsContainer'
+import { connect } from 'react-redux'
+import { fetchLegoSets } from './actions/legoSetActions'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import About from './components/About'
 import NavBar from './components/NavBar'
-import { connect } from 'react-redux'
-import { fetchLegoSets } from './actions/legoSetActions'
 import NotFoundErrorDisplay from './components/NotFoundErrorDisplay';
+import About from './components/About'
+import LegoSetsContainer from './containers/LegoSetsContainer'
 
 class App extends Component {
 
   componentDidMount(){
     this.props.fetchLegoSets()
-}
+  }
 
   render(){
   return (
