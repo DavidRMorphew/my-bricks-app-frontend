@@ -1,7 +1,5 @@
-import React, {Component} from "react"
 import { connect } from 'react-redux'
 import { changeOwnedSetStatus } from '../actions/legoSetActions'
-import { fetchSetPartSpecs } from "../actions/setPartSpecsActions"
 import { fetchPartsOfSet } from "../actions/partActions"
 import LegoSetShowDisplay from "../components/LegoSetShowDisplay"
 import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
