@@ -6,26 +6,25 @@ import { fetchPartsOfSet } from "../actions/partActions"
 import LegoSetShowDisplay from "../components/LegoSetShowDisplay"
 import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
 
-class LegoSetShowContainer extends Component {
+const LegoSetShowContainer = props => {
+    const { routeInfo, legoSets, changeOwnedSetStatus, fetchPartsOfSet} = props
+    const legoSetId = parseInt(routeInfo.match.params.id)
+    const legoSet = legoSets.find(set => set.id === legoSetId)
     
-    findLegoSet = legoSetId => {
-        const legoSet = this.props.legoSets.find(set => set.id === legoSetId)
+    const renderLegoSetShowDisplay = () => {
         if (legoSetId && legoSet) {
-            this.props.fetchPartsOfSet(legoSetId)
-            return <LegoSetShowDisplay set={legoSet} changeOwnedSetStatus={this.props.changeOwnedSetStatus}/>
+            fetchPartsOfSet(legoSetId)
+            return <LegoSetShowDisplay set={legoSet} changeOwnedSetStatus={changeOwnedSetStatus}/>
         } else {
             return <NotFoundErrorDisplay />
         }
     }
 
-    render(){
-        const legoSetId = parseInt(this.props.routeInfo.match.params.id)
-        return(
-            <div>
-                {this.findLegoSet(legoSetId)}
-            </div>
-        )
-    }
+    return(
+        <div>
+            {renderLegoSetShowDisplay()}
+        </div>
+    )
 }
 
 export default connect(({legoSets})=>({legoSets}), { changeOwnedSetStatus, fetchSetPartSpecs, fetchPartsOfSet })(LegoSetShowContainer)
