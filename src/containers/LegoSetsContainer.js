@@ -1,26 +1,15 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-// import { fetchLegoSets } from '../actions/legoSetActions'
-// import LegoSetCard from '../components/LegoSetCard'
-// import Container from 'react-bootstrap/Container'
-// import CardDeck from 'react-bootstrap/CardDeck'
 import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
 import LegoSetShowContainer from './LegoSetShowContainer'
 import PotentialBuildSelection from '../components/PotentialBuildSelection'
 import PotentialBuildSetsResults from '../components/PotentialBuildSetsResults'
 import {
-    BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
   } from "react-router-dom";
 
 class LegoSetsContainer extends Component{
-
-    // componentDidMount(){
-    //     this.props.fetchLegoSets()
-    // }
 
     state = {
         filterTerm: ''
@@ -38,19 +27,6 @@ class LegoSetsContainer extends Component{
             filterTerm: ''
         })
     }
-
-    // render(){
-    //     return(
-    //         <div>
-    //             <FilterInputComponent 
-    //                 handleOnChange={this.handleFilterInputOnChange} 
-    //                 handleOnClick={this.handleFilterInputOnClick} 
-    //                 value={this.state.filterTerm}
-    //             />
-    //             <LegoSetCards filterTerm={this.state.filterTerm}/>
-    //         </div>
-    //     )
-    // }
 
     render(){
         return(
@@ -77,12 +53,4 @@ class LegoSetsContainer extends Component{
     }
 }
 
-// const mapStateToProps = (state, ownProps) => {
-//     console.log(ownProps)
-//     const {legoSets, loading} = state
-//     return {
-//         legoSets,
-//         loading
-//     }
-// }
 export default LegoSetsContainer
