@@ -1,10 +1,10 @@
 import Card from 'react-bootstrap/Card'
 
 const LegoSetShowCard = props => {
-    const {set} = props
+    const { set, changeOwnedSetStatus } = props
 
     const handleOnClick = e => {
-        props.changeOwnedSetStatus(set.id)
+        changeOwnedSetStatus(set.id)
     }
 
     const renderOwnedValue = (set) => {
@@ -23,33 +23,29 @@ const LegoSetShowCard = props => {
     }
 
     return(
-        <Card 
-        border="dark" 
-        className="my-4"
-        style={{ width: '80%' }}
-        >
-        <Card.Header as="h1">{set.name}</Card.Header>
-        <Card.Img src={set.imageUrl} alt={`Set Image for ${set.name}`}/>
+        <Card className="my-4 border-dark set-show-card">
+        <Card.Header as="h1">{ set.name }</Card.Header>
+        <Card.Img src={ set.imageUrl } alt={`Set Image for ${set.name}`}/>
             <Card.Body>
                 <Card.Text as="h2">
-                        Year: <strong>{set.year}</strong>
+                    Year: <strong>{ set.year }</strong>
                 </Card.Text>
                 <Card.Text as="h2">
-                    Theme: <strong>{set.themeName}</strong>
+                    Theme: <strong>{ set.themeName }</strong>
                 </Card.Text>
                 <Card.Text as="h2">
                     Building Instructions:  
-                        <button onClick={() => openInstructionsPageInNewTab(set.instructionsUrl)}>
+                        <button onClick={ () => openInstructionsPageInNewTab(set.instructionsUrl) }>
                             Click Here
                         </button>
                 </Card.Text>   
                 <Card.Text as="h2">
-                    Total Bricks: <strong>{set.totalBricks}</strong>
+                    Total Bricks: <strong>{ set.totalBricks }</strong>
                 </Card.Text>
                 <Card.Text as="h2">
-                    Owned: <strong>{renderOwnedValue(set)}</strong>
+                    Owned: <strong>{ renderOwnedValue(set) }</strong>
                 </Card.Text>  
-                <button onClick={handleOnClick}>{ownButtonDisplay(set)}</button>
+                <button onClick={ handleOnClick }>{ ownButtonDisplay(set) }</button>
             </Card.Body>
         </Card>
     )
