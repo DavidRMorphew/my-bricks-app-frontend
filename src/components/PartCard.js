@@ -4,11 +4,7 @@ const PartCard = props => {
     const { part, partQuantity } = props
     return(
         <div>
-            
-        <Card border="dark" className="my-4" style={{ 
-            width: '12rem',
-            color: 'black' 
-            }}>
+        <Card className="my-4 border-dark card-deck-part-card" >
             <Card.Header as="h4">Part Number: {part.partNumber}</Card.Header>
             <Card.Img src={part.imageUrl} alt={`Part Image for ${part.name}`}/>
             <Card.Body>
