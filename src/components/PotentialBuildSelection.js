@@ -19,7 +19,7 @@ const PotentialBuildSelection = props => {
             <h1>Potential Builds</h1>
             <h2>Find Out What You can Build With What You Own!</h2>
                 <br></br>
-            <h4>We'll find all the sets in our database that you can build based on all of the parts you already own.</h4>
+            <h4>We'll find all the sets in our database that you can build based on all the parts you already own.</h4>
                 <br></br>
             <h1>Please Choose Below:</h1>
             <Row>
