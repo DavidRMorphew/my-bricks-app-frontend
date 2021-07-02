@@ -50,7 +50,7 @@ Now you can navigate and use the My Bricks app!
 
 ## Visualizing the State Tree
 
-To see the state tree in this app, you can click on the following StateTreeDiagram (or check out the [drawio table](https://github.com/DavidRMorphew/my-bricks-app-frontend/blob/main/StateTreeDiagram.drawio) if you have the [Drawio Integration Extenstion](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)).
+To see the state tree in this app, you can click on the following StateTreeDiagram (or check out the [drawio table](https://github.com/DavidRMorphew/my-bricks-app-frontend/blob/main/StateTreeDiagram.drawio) if you have the [Drawio Integration Extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)).
 
 ![State Tree Diagram](StateTreeDiagram.png)
 
