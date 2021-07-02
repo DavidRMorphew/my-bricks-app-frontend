@@ -6,10 +6,7 @@ const PotentialBuildSetCard = props => {
 
     return(
         <div>
-            <Card border="dark" className="my-4" style={{ 
-            width: '18rem',
-            color: 'black' 
-            }}>
+            <Card className="my-4 border-dark card-deck-set-card" >
             <Card.Header as="h4"><Link to={`/lego_sets/${set.id}`}>{set.name}</Link></Card.Header>
             <Card.Img src={set.imageUrl}/>
                 <Card.Body>
