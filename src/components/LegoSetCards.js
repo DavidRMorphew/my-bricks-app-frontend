@@ -1,4 +1,3 @@
-// import React, { Component } from 'react'
 import LegoSetCard from '../components/LegoSetCard'
 import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
