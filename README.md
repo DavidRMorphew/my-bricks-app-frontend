@@ -48,6 +48,11 @@ npm start
 
 Now you can navigate and use the My Bricks app!
 
+## Visualizing the State Tree
+
+
+![State Tree Diagram](StateTreeDiagram.png)
+
 ## Contributing
 
 Pull requests are welcome. If you want to make major changes, please open an issue first to discuss the proposed change.
