@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card'
 
 const PartCard = props => {
-    const {part} = props
+    const { part, partQuantity } = props
     return(
         <div>
             
@@ -18,7 +18,7 @@ const PartCard = props => {
                     <strong>Part Color: </strong>{part.color}                    
                 </Card.Text>
                 <Card.Text>
-                    <strong>Number in Set: </strong>{props.partQuantity}
+                    <strong>Number in Set: </strong>{partQuantity}
                 </Card.Text>
             </Card.Body>
         </Card>
