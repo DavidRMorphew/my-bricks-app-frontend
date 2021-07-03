@@ -1,7 +1,9 @@
 import Card from 'react-bootstrap/Card'
 
 const PartCard = props => {
+    
     const { part, partQuantity } = props
+    
     return(
         <div>
         <Card className="my-4 border-dark card-deck-part-card" >
