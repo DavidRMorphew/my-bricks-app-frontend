@@ -7,11 +7,11 @@ const LegoSetShowCard = props => {
         changeOwnedSetStatus(set.id)
     }
 
-    const renderOwnedValue = (set) => {
+    const renderOwnedValue = () => {
         return !!set.owned ? "Owned" : "Not Owned"
     }
 
-    const ownButtonDisplay = (set) => {
+    const ownButtonDisplay = () => {
         return !!set.owned ? "Remove from Owned" : "Add to Owned"
     }
 
@@ -43,9 +43,9 @@ const LegoSetShowCard = props => {
                     Total Bricks: <strong>{ set.totalBricks }</strong>
                 </Card.Text>
                 <Card.Text as="h2">
-                    Owned: <strong>{ renderOwnedValue(set) }</strong>
+                    Owned: <strong>{ renderOwnedValue() }</strong>
                 </Card.Text>  
-                <button onClick={ handleOnClick }>{ ownButtonDisplay(set) }</button>
+                <button onClick={ handleOnClick }>{ ownButtonDisplay() }</button>
             </Card.Body>
         </Card>
     )
