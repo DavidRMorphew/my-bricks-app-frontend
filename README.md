@@ -47,7 +47,7 @@ Now you can navigate and use the My Bricks app!
 
 ## Notes On Usage and Seeding the Database
 
-If you change the sets that you own, you'll need to run a new search, since any change in the sets you own clears out the results for the search—to avoid presenting outdated data. Read more my [blog](https://davidrmorphew.medium.com/using-switch-case-in-react-redux-to-make-state-change-dependencies-8ade636a4e39) for more on this.
+If you change the sets that you own, you'll need to run a new search, since any change in the sets you own clears out the results for the search—to avoid presenting outdated data. Read my [blog](https://davidrmorphew.medium.com/using-switch-case-in-react-redux-to-make-state-change-dependencies-8ade636a4e39) for more on this.
 
 As proof of concept, I harvested close to 740 Lego sets from the [Rebrickable Api](https://rebrickable.com/api/v3/docs/) and persisted the data along with the Lego sets' parts to the backend of this application—[My-Bricks-App-Backend](https://github.com/DavidRMorphew/my-bricks-app-backend). But, you could add all of nearly 18,000 sets in the Rebrickable Api database into the backend to expand your searches using the seeds file. See the [README](https://github.com/DavidRMorphew/my-bricks-app-backend/blob/main/README.md) instructions in the My-Bricks-App-Backend for more on seeding the data into the database.
 
@@ -63,7 +63,7 @@ Pull requests are welcome. If you want to make major changes, please open an iss
 
 Please feel free to add and update tests where appropriate.
 
-This project is designed with collaboration in mind, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+Contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## Future Functionality
 
@@ -74,4 +74,4 @@ The following are areas open to future development:
 Additional suggestions are welcome.
 
 ## License
-The app is open source under the terms of the [MIT License](https://github.com/DavidRMorphew/my-bricks-app-frontend/blob/main/LICENSE.txt)
+The app is open source under the terms of the [MIT License](https://github.com/DavidRMorphew/my-bricks-app-frontend/blob/main/LICENSE.txt).
