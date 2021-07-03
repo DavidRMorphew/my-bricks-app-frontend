@@ -21,8 +21,7 @@ class App extends Component {
   render(){
   return (
       <Router>
-          <div className="App background-image">
-              <span role="image" aria-label="Image of a pile of colored bricks as a background"></span>
+          <div className="App background-image" alt="Image of a pile of colored bricks as a background">
               <header className="App-header">
                 <h1>My Bricks</h1>
                 <NavBar/>
