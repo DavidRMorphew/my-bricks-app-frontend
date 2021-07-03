@@ -50,3 +50,11 @@
 .shaded-background {
   background-color: rgba(0,0,0,0.7);
 }
+
+.cyan-text {
+  color: cyan;
+}
+
+.narrow-container {
+  width: 80%
+}
