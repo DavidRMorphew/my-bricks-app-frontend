@@ -4,10 +4,11 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import PartCard from './PartCard'
 
 const PartCards = props => {
-    const { parts, setPartSpecs, set } = props
+
+    const { parts, setPartSpecs, set, loading } = props
 
     const handlePartAndPartSpecLoading = () => {
-        return (!props.loading) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
+        return (!loading) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
     }
 
     const partQuantityOfPart = (part) => {
