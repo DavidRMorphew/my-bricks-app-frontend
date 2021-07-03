@@ -51,6 +51,10 @@
   background-color: rgba(0,0,0,0.7);
 }
 
+.on-shaded-background {
+  background-color: rgba(0,0,0,0);
+}
+
 .cyan-text {
   color: cyan;
 }

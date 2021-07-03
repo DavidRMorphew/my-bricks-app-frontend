@@ -33,8 +33,8 @@ const PotentialBuildSelection = props => {
                 </Col>
                 <Col>
                     <button 
-                    onClick={() => fetchPotentialBuilds("strict")}
-                    disabled={disableButtonWhileLoadingValue()}
+                        onClick={() => fetchPotentialBuilds("strict")}
+                        disabled={disableButtonWhileLoadingValue()}
                     >
                         Find Potential Builds (strict color matching)
                     </button>
@@ -42,7 +42,7 @@ const PotentialBuildSelection = props => {
             </Row>
             <br></br>
             <Accordion>
-                <Card style={{backgroundColor: "rgba(0,0,0,0)"}}>
+                <Card className="on-shaded-background">
                     <Card.Header>
                         <Accordion.Toggle eventKey="0">
                             <h4>CLICK HERE TO READ HOW IT WORKS</h4>
