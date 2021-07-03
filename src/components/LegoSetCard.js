@@ -1,16 +1,10 @@
 import Card from 'react-bootstrap/Card'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LegoSetCard = props => {
     const set = props.legoSet
 
     const handleOnClick = e => {
-        // e.preventDefault()
         props.changeOwnedSetStatus(set.id)
     }
 
