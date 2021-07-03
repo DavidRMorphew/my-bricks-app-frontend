@@ -16,7 +16,7 @@ const About = () => {
     }
 
     return(
-        <Container fluid className="container over-background" style={{backgroundColor: "rgba(0,0,0,0.7)"}}>
+        <Container fluid className="container over-background shaded-background">
             <br></br>
             <h1 className="over-background">About Page</h1>
             <h2>Welcome!</h2>

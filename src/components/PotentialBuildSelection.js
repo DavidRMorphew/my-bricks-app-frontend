@@ -13,7 +13,7 @@ const PotentialBuildSelection = props => {
     const disableButtonWhileLoadingValue = () => (!loading ? false : true)
 
     return(
-        <Container fluid className="container over-background" style={{backgroundColor: "rgba(0,0,0,0.7)"}}>
+        <Container fluid className="container over-background shaded-background">
                 <br></br>
                 <br></br>
             <h1>Potential Builds</h1>

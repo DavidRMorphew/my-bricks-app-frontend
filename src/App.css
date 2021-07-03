@@ -46,3 +46,7 @@
 .set-show-card {
   width: 80%;
 }
+
+.shaded-background {
+  background-color: rgba(0,0,0,0.7);
+}
