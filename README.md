@@ -4,15 +4,12 @@
 
 ## Purpose and Usage
 
-If you are a lover of Lego, you may have found yourself wondering:
-`"What other Lego sets could I build with the ones I already own?" `
+If you are a lover of Lego, you may have found yourself wondering: ***"What other Lego sets could I build with the ones I already own?"***
 With this App, you can answer that question.
 
-Search the database for Lego sets by name, theme, and set-number. Add sets to your collection. Find out what you can build with what you have.
+Search the database for Lego sets by name, theme, and set-number (`Search Lego Sets`). Add sets to your collection (`My Sets`). Find out what you can build with what you have (`Potential Builds`). See this [demo](https://youtu.be/45j-xHOpQgM) on the app's features. 
 
-See this [demo](https://youtu.be/45j-xHOpQgM) on the app's features.
-
-As proof of concept, I harvested close to 740 Lego sets from the [Rebrickable Api](https://rebrickable.com/api/v3/docs/) and persisted the data along with the Lego sets' parts to the backend of this application—[My-Bricks-App-Backend](https://github.com/DavidRMorphew/my-bricks-app-backend). But, you could add all of nearly 18,000 sets in the Rebrickable Api database into the backend to expand your searches using the seeds file. See the [README](https://github.com/DavidRMorphew/my-bricks-app-backend/blob/main/README.md) instructions in the My-Bricks-App-Backend for more on seeding the data into the database.
+For more on the `Potential Builds` feature, which finds sets you can build with what you own, see the [README](https://github.com/DavidRMorphew/my-bricks-app-backend/blob/main/README.md) for the backend. 
 
 ## Installation
 To install the program, open your terminal and run the following command:
@@ -47,6 +44,12 @@ npm start
 ```
 
 Now you can navigate and use the My Bricks app!
+
+## Notes On Usage and Seeding the Database
+
+If you change the sets that you own, you'll need to run a new search, since any change in the sets you own clears out the results for the search—to avoid presenting outdated data. Read more my [blog](https://davidrmorphew.medium.com/using-switch-case-in-react-redux-to-make-state-change-dependencies-8ade636a4e39) for more on this.
+
+As proof of concept, I harvested close to 740 Lego sets from the [Rebrickable Api](https://rebrickable.com/api/v3/docs/) and persisted the data along with the Lego sets' parts to the backend of this application—[My-Bricks-App-Backend](https://github.com/DavidRMorphew/my-bricks-app-backend). But, you could add all of nearly 18,000 sets in the Rebrickable Api database into the backend to expand your searches using the seeds file. See the [README](https://github.com/DavidRMorphew/my-bricks-app-backend/blob/main/README.md) instructions in the My-Bricks-App-Backend for more on seeding the data into the database.
 
 ## Visualizing the State Tree
 
