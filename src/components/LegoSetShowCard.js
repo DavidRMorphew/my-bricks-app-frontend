@@ -44,8 +44,13 @@ const LegoSetShowCard = props => {
                 </Card.Text>
                 <Card.Text as="h2">
                     Owned: <strong>{ renderOwnedValue() }</strong>
+                </Card.Text>
+                <Card.Text as="h2">  
+                    <button onClick={ handleOnClick }>{ ownButtonDisplay() }</button>
+                </Card.Text>
+                <Card.Text  as="h2">
+                    <button>Add Note</button>
                 </Card.Text>  
-                <button onClick={ handleOnClick }>{ ownButtonDisplay() }</button>
             </Card.Body>
         </Card>
     )
