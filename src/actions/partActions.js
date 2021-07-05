@@ -13,7 +13,7 @@ export const fetchPartsOfSet = (setId) => {
             const parts = data.data.map(part => part.attributes)
             dispatch(addParts(parts))
             dispatch(fetchSetPartSpecs(setId))
-            // dispatch({type: 'LOADING_COMPLETE'})
+            // dispatch({type: 'LOADING_COMPLETE'}) // Removed to avoid problems of rendering in PartCards before parts and specs are added to store 
         })
 
     }
