@@ -1,8 +1,4 @@
-const FilterInputComponent = props => {
-    
-    const {handleOnChange, handleOnClick, value} = props
-    
-    return(
+const FilterInputComponent = ({handleOnChange, handleOnClick, value}) => (
         <div>
             <div className="over-background">
                 <br></br>
@@ -15,7 +11,6 @@ const FilterInputComponent = props => {
                 <button onClick={ handleOnClick }>Clear Search</button>
             <br></br>
         </div>
-    )
-}
+)
 
 export default FilterInputComponent
