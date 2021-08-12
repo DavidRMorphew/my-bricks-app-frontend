@@ -1,11 +1,7 @@
 import Card from 'react-bootstrap/Card'
 
-const PartCard = props => {
-    
-    const { part, partQuantity } = props
-    
-    return(
-        <div>
+const PartCard = ({ part, partQuantity }) => (     
+    <div>
         <Card className="my-4 border-dark card-deck-part-card" >
             <Card.Header as="h4">Part Number: {part.partNumber}</Card.Header>
             <Card.Img src={part.imageUrl} alt={`Part Image for ${part.name}`}/>
@@ -20,8 +16,7 @@ const PartCard = props => {
                 </Card.Text>
             </Card.Body>
         </Card>
-        </div>
-    )
-}
+    </div>
+)
 
 export default PartCard

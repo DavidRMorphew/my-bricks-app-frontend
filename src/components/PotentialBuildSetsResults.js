@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import PotentialBuildSetCard from './PotentialBuildSetCard'
 
 
-const PotentialBuildSetsResults = props => {
-    const { loading, potentialBuilds } = props
+const PotentialBuildSetsResults = ({ loading, potentialBuilds }) => {    
     
     const handleLegoSetLoading = () => {
         if (loading) {

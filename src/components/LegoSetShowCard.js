@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card'
 
-const LegoSetShowCard = props => {
-    const { set, changeOwnedSetStatus } = props
+const LegoSetShowCard = ({ set, changeOwnedSetStatus }) => {
 
     const handleOnClick = e => {
         changeOwnedSetStatus(set.id)

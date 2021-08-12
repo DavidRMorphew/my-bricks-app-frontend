@@ -6,9 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 
-const PotentialBuildSelection = props => {
-
-    const { loading, fetchPotentialBuilds } = props
+const PotentialBuildSelection = ({ loading, fetchPotentialBuilds }) => {
 
     const disableButtonWhileLoadingValue = () => (!loading ? false : true)
 

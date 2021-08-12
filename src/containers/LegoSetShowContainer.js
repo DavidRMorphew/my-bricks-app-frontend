@@ -4,8 +4,7 @@ import { fetchPartsOfSet } from "../actions/partActions"
 import LegoSetShowDisplay from "../components/LegoSetShowDisplay"
 import NotFoundErrorDisplay from '../components/NotFoundErrorDisplay'
 
-const LegoSetShowContainer = props => {
-    const { routeInfo, legoSets, changeOwnedSetStatus, fetchPartsOfSet} = props
+const LegoSetShowContainer = ({ routeInfo, legoSets, changeOwnedSetStatus, fetchPartsOfSet }) => {
     const legoSetId = parseInt(routeInfo.match.params.id)
     const legoSet = legoSets.find(set => set.id === legoSetId)
     

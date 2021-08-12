@@ -4,9 +4,7 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import { connect } from 'react-redux'
 import { changeOwnedSetStatus } from '../actions/legoSetActions'
 
-const LegoSetCards = props =>{
-    
-    const { legoSets, loading, changeOwnedSetStatus } = props
+const LegoSetCards = ({ legoSets, loading, changeOwnedSetStatus }) =>{
   
     const handleLegoSetLoading = () => {
         return (loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{renderLegoSetCards()}</CardDeck>

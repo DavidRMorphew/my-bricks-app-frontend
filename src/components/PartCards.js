@@ -3,9 +3,7 @@ import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
 import PartCard from './PartCard'
 
-const PartCards = props => {
-
-    const { parts, setPartSpecs, set, loading } = props
+const PartCards = ({ parts, setPartSpecs, set, loading }) => {
 
     const handlePartAndPartSpecLoading = () => {
         return (!loading) ? <CardDeck>{renderEachPartCard()}</CardDeck> : <h4 className="over-background">LOADING...</h4>
