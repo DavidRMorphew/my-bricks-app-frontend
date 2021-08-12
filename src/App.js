@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { fetchLegoSets } from './actions/legoSetActions'
 import {
@@ -12,33 +12,29 @@ import NotFoundErrorDisplay from './components/NotFoundErrorDisplay';
 import About from './components/About'
 import LegoSetsContainer from './containers/LegoSetsContainer'
 
-class App extends Component {
+const App = ({ fetchLegoSets }) => {
 
-  componentDidMount(){
-    this.props.fetchLegoSets()
-  }
+  useEffect(()=>{fetchLegoSets()}, [])
 
-  render(){
   return (
-      <Router>
-          <div className="App background-image" alt="Image of a pile of colored bricks as a background">
-              <header className="App-header">
-                <h1>My Bricks</h1>
-                <NavBar/>
-              </header>
-              <Switch>
-                <Route exact path="/">
-                  <About />
-                </Route>
-                <Route path ="/lego_sets">
-                  <LegoSetsContainer />
-                </Route>
-                <Route path="" component={NotFoundErrorDisplay}/>
-              </Switch>
-          </div>
-      </Router>
-      );
-  }
+    <Router>
+        <div className="App background-image" alt="Image of a pile of colored bricks as a background">
+            <header className="App-header">
+              <h1>My Bricks</h1>
+              <NavBar/>
+            </header>
+            <Switch>
+              <Route exact path="/">
+                <About />
+              </Route>
+              <Route path ="/lego_sets">
+                <LegoSetsContainer />
+              </Route>
+              <Route path="" component={NotFoundErrorDisplay}/>
+            </Switch>
+        </div>
+    </Router>
+    )
 }
 
 export default connect(null, {fetchLegoSets})(App);
