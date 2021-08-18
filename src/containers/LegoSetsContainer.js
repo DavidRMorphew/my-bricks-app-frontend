@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
+import { useState } from 'react'
 import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
 import LegoSetShowContainer from './LegoSetShowContainer'
@@ -9,34 +10,38 @@ import {
     Route
   } from "react-router-dom";
 
-class LegoSetsContainer extends Component{
+const LegoSetsContainer = () => {
     
-    state = {
-        filterTerm: ''
+    // state = {
+    //     filterTerm: ''
+    // }
+
+    const [filterTerm, setFilterTerm] = useState('')
+
+    const handleFilterInputOnChange = e => {
+        // this.setState({
+        //     [e.target.name]: e.target.value
+        // })
+        setFilterTerm(e.target.value)
     }
 
-    handleFilterInputOnChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value // Variable assignment of key and value through descructuring causes noticeable lag
-        })
+    const handleFilterInputClearOnClick = e => {
+        // this.setState({
+        //     filterTerm: ''
+        // })
+        setFilterTerm('')
     }
 
-    handleFilterInputClearOnClick = e => {
-        this.setState({
-            filterTerm: ''
-        })
-    }
-
-    render(){
+    // render(){
         return(
             <Switch>
                 <Route exact path="/lego_sets">
                     <FilterInputComponent 
-                        handleOnChange={ this.handleFilterInputOnChange } 
-                        handleOnClick={ this.handleFilterInputClearOnClick } 
-                        value={ this.state.filterTerm }
+                        handleOnChange={ handleFilterInputOnChange } 
+                        handleOnClick={ handleFilterInputClearOnClick } 
+                        value={ filterTerm }
                     />
-                    <LegoSetCards filterTerm={ this.state.filterTerm }/>
+                    <LegoSetCards filterTerm={ filterTerm }/>
                 </Route>
                 <Route exact path="/lego_sets/owned">
                     <LegoSetCards subSetTerm={ "owned" }/>
@@ -49,7 +54,7 @@ class LegoSetsContainer extends Component{
             </Switch>
         )
 
-    }
+    // }
 }
 
 export default LegoSetsContainer
