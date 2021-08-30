@@ -10,7 +10,7 @@ export const fetchLegoSets = () => {
         fetch(baseUrl)
         .then(resp => resp.json())
         .then(data => {
-            const sets = data.data.map(legoSet => legoSet.attributes) // Madeline Stark said this is OK.
+            const sets = data.data.map(legoSet => legoSet.attributes)
             dispatch(addSets(sets))
             dispatch({type: 'LOADING_COMPLETE'})
         })

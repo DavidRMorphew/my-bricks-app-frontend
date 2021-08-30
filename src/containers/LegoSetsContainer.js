@@ -1,4 +1,4 @@
-// import React, { Component } from 'react'
+import React from 'react'
 import { useState } from 'react'
 import FilterInputComponent from '../components/FilterInputComponent'
 import LegoSetCards from '../components/LegoSetCards'
