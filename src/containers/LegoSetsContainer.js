@@ -11,50 +11,37 @@ import {
   } from "react-router-dom";
 
 const LegoSetsContainer = () => {
-    
-    // state = {
-    //     filterTerm: ''
-    // }
 
     const [filterTerm, setFilterTerm] = useState('')
 
     const handleFilterInputOnChange = e => {
-        // this.setState({
-        //     [e.target.name]: e.target.value
-        // })
         setFilterTerm(e.target.value)
     }
 
     const handleFilterInputClearOnClick = e => {
-        // this.setState({
-        //     filterTerm: ''
-        // })
         setFilterTerm('')
     }
 
-    // render(){
-        return(
-            <Switch>
-                <Route exact path="/lego_sets">
-                    <FilterInputComponent 
-                        handleOnChange={ handleFilterInputOnChange } 
-                        handleOnClick={ handleFilterInputClearOnClick } 
-                        value={ filterTerm }
-                    />
-                    <LegoSetCards filterTerm={ filterTerm }/>
-                </Route>
-                <Route exact path="/lego_sets/owned">
-                    <LegoSetCards subSetTerm={ "owned" }/>
-                </Route>
-                <Route exact path="/lego_sets/potential_builds">
-                     <PotentialBuildSelection />
-                     <PotentialBuildSetsResults />
-                </Route>
-                <Route path="/lego_sets/:id" component={ routeInfo => <LegoSetShowContainer routeInfo={ routeInfo } /> }/>
-            </Switch>
-        )
-
-    // }
+    return(
+        <Switch>
+            <Route exact path="/lego_sets">
+                <FilterInputComponent 
+                    handleOnChange={ handleFilterInputOnChange } 
+                    handleOnClick={ handleFilterInputClearOnClick } 
+                    value={ filterTerm }
+                />
+                <LegoSetCards filterTerm={ filterTerm }/>
+            </Route>
+            <Route exact path="/lego_sets/owned">
+                <LegoSetCards subSetTerm={ "owned" }/>
+            </Route>
+            <Route exact path="/lego_sets/potential_builds">
+                    <PotentialBuildSelection />
+                    <PotentialBuildSetsResults />
+            </Route>
+            <Route path="/lego_sets/:id" component={ routeInfo => <LegoSetShowContainer routeInfo={ routeInfo } /> }/>
+        </Switch>
+    )
 }
 
 export default LegoSetsContainer

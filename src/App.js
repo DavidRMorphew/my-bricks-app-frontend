@@ -14,7 +14,7 @@ import LegoSetsContainer from './containers/LegoSetsContainer'
 
 const App = ({ fetchLegoSets }) => {
 
-  useEffect(()=>{fetchLegoSets()}, [])
+  useEffect(()=>{fetchLegoSets()}, [fetchLegoSets])
 
   return (
     <Router>
