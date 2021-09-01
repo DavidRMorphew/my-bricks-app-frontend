@@ -9,7 +9,7 @@ With this App, you can answer that question.
 
 Search the database for Lego sets by name, theme, and set-number (`Search Lego Sets`). Add sets to your collection (`My Sets`). Find out what you can build with what you have (`Potential Builds`). For the app's features, see the following demo: 
 
-<a href="https://www.youtube.com/watch?feature=player_embedded&v=45j-xHOpQgM" target="_blank"><img src="http://img.youtube.com/vi/45j-xHOpQgM/0.jpg" alt="My Bricks App Thumbnail" width="400" height="300" border="10" /></a> 
+<a href="https://www.youtube.com/watch?feature=player_embedded&v=45j-xHOpQgM" target="_blank" align="center"><img src="http://img.youtube.com/vi/45j-xHOpQgM/0.jpg" alt="My Bricks App Thumbnail" width="400" height="300" border="10" /></a> 
 
 For more on the `Potential Builds` feature, which finds sets you can build with what you own, see the [README](https://github.com/DavidRMorphew/my-bricks-app-backend/blob/main/README.md) for the backend. 
 
