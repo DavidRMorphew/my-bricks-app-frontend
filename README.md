@@ -1,6 +1,7 @@
 # My Bricks App
-
-![Image of Lego Logo](https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg)
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg" alt="Lego Logo"/>
+</div>
 
 ## Purpose and Usage
 
