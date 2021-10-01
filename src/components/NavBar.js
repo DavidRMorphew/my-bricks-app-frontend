@@ -9,6 +9,7 @@ const NavBar = () => {
         textDecoration: 'none',
         color: 'white',
         display: 'flex',
+        justifyContent: 'center',
         flex: 1
       }
 
@@ -33,7 +34,7 @@ const NavBar = () => {
                     color: "black"
                 }}            
             >
-                Search Lego Sets
+                Search
             </NavLink>
             <NavLink
                 exact to="/lego_sets/owned"
@@ -43,7 +44,7 @@ const NavBar = () => {
                     color: "black"
                 }}
             >
-                My Sets
+                Owned
             </NavLink>
             <NavLink   
                 exact to="/lego_sets/potential_builds"
@@ -53,7 +54,7 @@ const NavBar = () => {
                     color: "black"
                 }}
             >
-                Potential Builds   
+                Builds   
             </NavLink>
         </div>
     )
