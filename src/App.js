@@ -20,7 +20,7 @@ const App = ({ fetchLegoSets }) => {
     <Router>
         <div className="App background-image" alt="Image of a pile of colored bricks as a background">
             <header className="App-header">
-              <h1>My Bricks</h1>
+              <h1 className="title">My Bricks</h1>
               <NavBar/>
             </header>
             <Switch>
