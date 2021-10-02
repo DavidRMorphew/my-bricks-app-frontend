@@ -12,13 +12,28 @@ const Register = () => {
 
     return(
         <Container fluid className="container over-background shaded-background">
+            <br></br>
             <form>
                 <label>
                     Name:
                     <br></br>
                     <input type="text" name="name" value={formData.name} onChange={handleChange}/>
                 </label>
+                <br></br>
+                <label>
+                    Email:
+                    <br></br>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange}/>
+                </label>
+                <br></br>
+                <label>
+                    Password:
+                    <br></br>
+                    <input type="password" name="password" value={formData.password} onChange={handleChange}/>
+                </label>
             </form>
+            <br></br>
+            <br></br>
         </ Container>
     )
 }
