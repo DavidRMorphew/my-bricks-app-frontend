@@ -13,12 +13,13 @@ const Register = ({ registerUser }) => {
         });
     
     const handleChange = e => {
-        setFormData({[e.target.name]: e.target.value})
+        setFormData({...formData, [e.target.name]: e.target.value})
     }
 
     const handleSubmit = e => {
         e.preventDefault()
-        registerUser(formData)
+        console.log(formData)
+        // registerUser(formData)
         setFormData({
             name: '', 
             email: '', 
