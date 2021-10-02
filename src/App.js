@@ -31,10 +31,10 @@ const App = ({ fetchLegoSets }) => {
               <Route path ="/lego_sets">
                 <LegoSetsContainer />
               </Route>
-              <Route path="" component={NotFoundErrorDisplay}/>
               <Route path="/register">
                 <Register />
               </Route>
+              <Route path="" component={NotFoundErrorDisplay}/>
             </Switch>
         </div>
     </Router>
