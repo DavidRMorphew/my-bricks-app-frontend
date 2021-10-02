@@ -11,9 +11,9 @@ const Register = () => {
     }
 
     return(
-        <Container fluid className="container over-background shaded-background">
+        <Container fluid className="narrow-container over-background shaded-background">
             <br></br>
-            <form>
+            <form className="form-font">
                 <label>
                     Name:
                     <br></br>
