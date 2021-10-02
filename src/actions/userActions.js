@@ -1,3 +1,5 @@
+export const setUser = user => ({type: 'SET_USER', payload: user})
+
 export const registerUser = user => {
     const url = 'http://localhost:3001/users'
     return (dispatch) => {
