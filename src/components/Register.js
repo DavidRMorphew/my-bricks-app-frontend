@@ -30,19 +30,19 @@ const Register = () => {
                 <label>
                     Name:
                     <br></br>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange}/>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required/>
                 </label>
                 <br></br>
                 <label>
                     Email:
                     <br></br>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange}/>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required/>
                 </label>
                 <br></br>
                 <label>
                     Password:
                     <br></br>
-                    <input type="password" name="password" value={formData.password} onChange={handleChange}/>
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} required/>
                 </label>
                 <br></br>
                 <br></br>
