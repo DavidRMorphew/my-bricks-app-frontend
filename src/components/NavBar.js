@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom'
 const NavBar = () => {
 
     const link = {
-        width: '100px',
         padding: '12px',
         margin: '0 6px 6px',
         background: 'teal',
         textDecoration: 'none',
         color: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        flex: 1
       }
 
     return(
@@ -32,7 +34,7 @@ const NavBar = () => {
                     color: "black"
                 }}            
             >
-                Search Lego Sets
+                Search
             </NavLink>
             <NavLink
                 exact to="/lego_sets/owned"
@@ -42,7 +44,7 @@ const NavBar = () => {
                     color: "black"
                 }}
             >
-                My Sets
+                Owned
             </NavLink>
             <NavLink   
                 exact to="/lego_sets/potential_builds"
@@ -52,7 +54,7 @@ const NavBar = () => {
                     color: "black"
                 }}
             >
-                Potential Builds   
+                Builds   
             </NavLink>
         </div>
     )
