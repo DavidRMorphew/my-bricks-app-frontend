@@ -4,16 +4,29 @@ import { useState } from 'react'
 
 const Register = () => {
 
-    const [formData, setFormData] = useState({name: '', email: '', password: ''});
+    const [formData, setFormData] = useState({
+            name: '', 
+            email: '', 
+            password: ''
+        });
     
     const handleChange = e => {
         setFormData({[e.target.name]: e.target.value})
     }
 
+    const handleSubmit = e => {
+        e.preventDefault()
+        setFormData({
+            name: '', 
+            email: '', 
+            password: ''
+        });
+    }
+
     return(
         <Container fluid className="narrow-container over-background shaded-background">
             <br></br>
-            <form className="form-font">
+            <form className="form-font" onSubmit={handleSubmit}>
                 <label>
                     Name:
                     <br></br>
@@ -31,6 +44,9 @@ const Register = () => {
                     <br></br>
                     <input type="password" name="password" value={formData.password} onChange={handleChange}/>
                 </label>
+                <br></br>
+                <br></br>
+                <input type="submit" name="submit" value="Submit"/>
             </form>
             <br></br>
             <br></br>
