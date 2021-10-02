@@ -11,6 +11,7 @@ import NavBar from './components/NavBar'
 import NotFoundErrorDisplay from './components/NotFoundErrorDisplay';
 import About from './components/About'
 import LegoSetsContainer from './containers/LegoSetsContainer'
+import Register from './components/Register'
 
 const App = ({ fetchLegoSets }) => {
 
@@ -31,6 +32,9 @@ const App = ({ fetchLegoSets }) => {
                 <LegoSetsContainer />
               </Route>
               <Route path="" component={NotFoundErrorDisplay}/>
+              <Route path="/register">
+                <Register />
+              </Route>
             </Switch>
         </div>
     </Router>
