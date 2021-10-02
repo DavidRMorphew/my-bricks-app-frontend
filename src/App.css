@@ -23,6 +23,10 @@
   color: white;
 }
 
+.title {
+  font-size: 60px;
+}
+
 .container {
   align-content: space-around
 }
