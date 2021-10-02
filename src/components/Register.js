@@ -1,8 +1,10 @@
 import Container from 'react-bootstrap/Container'
 import { Link } from "react-router-dom";
 import { useState } from 'react'
+import { connect } from 'react-redux'
+import { registerUser } from '../actions/userActions'
 
-const Register = () => {
+const Register = ({ registerUser }) => {
 
     const [formData, setFormData] = useState({
             name: '', 
@@ -16,6 +18,7 @@ const Register = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        registerUser(formData)
         setFormData({
             name: '', 
             email: '', 
@@ -54,4 +57,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default connect(null, { registerUser })(Register)

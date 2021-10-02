@@ -13,6 +13,9 @@ export const registerUser = user => {
         }
         fetch(url, configObj)
         .then(resp => resp.json())
-        .then(userData => console.log(userData))
+        .then(userData => {
+            console.log(userData)
+            dispatch(setUser(userData))
+        })
     }
 }
