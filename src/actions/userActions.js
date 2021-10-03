@@ -9,13 +9,14 @@ export const registerUser = user => {
                 "Content-Type": "application/json",
                 "Accepts": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify({user})
         }
         fetch(url, configObj)
         .then(resp => resp.json())
         .then(userData => {
-            console.log(userData)
-            dispatch(setUser(userData))
+            console.log(userData.data.attributes)
+            const newUser = userData.data.attributes
+            dispatch(setUser(newUser))
         })
     }
 }
