@@ -12,6 +12,7 @@ import NotFoundErrorDisplay from './components/NotFoundErrorDisplay';
 import About from './components/About'
 import LegoSetsContainer from './containers/LegoSetsContainer'
 import Register from './components/Register'
+import Login from './components/Login'
 
 const App = ({ fetchLegoSets }) => {
 
@@ -33,6 +34,9 @@ const App = ({ fetchLegoSets }) => {
               </Route>
               <Route path="/register">
                 <Register />
+              </Route>
+              <Route path="/login">
+                <Login />
               </Route>
               <Route path="" component={NotFoundErrorDisplay}/>
             </Switch>
