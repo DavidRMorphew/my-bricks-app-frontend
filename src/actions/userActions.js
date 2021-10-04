@@ -14,8 +14,8 @@ export const registerUser = user => {
         fetch(url, configObj)
         .then(resp => resp.json())
         .then(userData => {
-            console.log(userData.data.attributes)
-            const newUser = userData.data.attributes
+            localStorage.setItem("token", userData.jwt)
+            const newUser = userData.user.data.attributes
             dispatch(setUser(newUser))
         })
     }
