@@ -1,10 +1,12 @@
 import Container from 'react-bootstrap/Container'
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from 'react'
 import { connect } from 'react-redux'
 import { registerUser } from '../actions/userActions'
 
 const Register = ({ registerUser }) => {
+
+    let history = useHistory();
 
     const [formData, setFormData] = useState({
             name: '', 
@@ -52,6 +54,8 @@ const Register = ({ registerUser }) => {
                 <br></br>
                 <input type="submit" name="submit" value="Submit"/>
             </form>
+            <h3>or</h3>
+            <button className="form-font" onClick={() => history.push('/login')}>Log In</button>
             <br></br>
             <br></br>
         </ Container>
