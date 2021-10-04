@@ -59,8 +59,8 @@ export const logOutUser = (user) => {
         }
         fetch(url, configObj)
         .then(resp => resp.json())
-        .then(userData => {
-            console.log(userData)
+        .then(logoutStatus => {
+            console.log(logoutStatus)
             localStorage.removeItem("token")
             dispatch(removeUser())
         })
