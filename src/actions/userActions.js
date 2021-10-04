@@ -21,3 +21,23 @@ export const registerUser = (user, history) => {
         })
     }
 }
+
+const logInUser = (user) => {
+    return (dispatch) => {
+        const url = 'http://localhost:3001/login'
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify({user})
+        }
+        fetch(url, configObj)
+        .then(resp => resp.json())
+        .then(userData => {
+            // set user
+            console.log(userData.data.attributes)
+        })
+    }
+}
