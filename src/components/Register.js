@@ -32,6 +32,8 @@ const Register = ({ registerUser }) => {
     return(
         <Container fluid className="narrow-container over-background shaded-background">
             <br></br>
+            <h1>Register</h1>
+            <br></br>
             <form className="form-font" onSubmit={handleSubmit}>
                 <label>
                     Name:
