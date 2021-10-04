@@ -1,5 +1,7 @@
 export const setUser = user => ({type: 'SET_USER', payload: user})
 
+export const removeUser = () => ({type: 'REMOVE_USER'})
+
 export const registerUser = (user, history) => {
     const url = 'http://localhost:3001/users'
     return (dispatch) => {
@@ -44,3 +46,4 @@ export const logInUser = (user, history) => {
         })
     }
 }
+
