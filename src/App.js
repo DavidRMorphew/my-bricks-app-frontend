@@ -14,12 +14,15 @@ import LegoSetsContainer from './containers/LegoSetsContainer'
 import Register from './components/Register'
 import Login from './components/Login'
 
-const App = ({ fetchLegoSets }) => {
+const App = ({ fetchLegoSets, user }) => {
 
   useEffect(()=>{fetchLegoSets()}, [fetchLegoSets])
 
+  const loggedIn = JSON.stringify(user) !== "{}" ? true : false
+
   return (
     <Router>
+      {console.log(loggedIn)}
         <div className="App background-image" alt="Image of a pile of colored bricks as a background">
             <header className="App-header">
               <h1 className="title">My Bricks</h1>
@@ -45,4 +48,4 @@ const App = ({ fetchLegoSets }) => {
     )
 }
 
-export default connect(null, {fetchLegoSets})(App);
+export default connect(({ user }) => ({ user }), { fetchLegoSets })(App);
