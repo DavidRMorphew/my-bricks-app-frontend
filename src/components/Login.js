@@ -20,7 +20,7 @@ const Register = ({ logInUser }) => {
     const handleSubmit = e => {
         e.preventDefault()
         console.log(formData)
-        logInUser(formData)
+        logInUser(formData, history)
         setFormData({
             email: '', 
             password: ''

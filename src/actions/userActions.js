@@ -22,7 +22,7 @@ export const registerUser = (user, history) => {
     }
 }
 
-export const logInUser = (user) => {
+export const logInUser = (user, history) => {
     return (dispatch) => {
         const url = 'http://localhost:3001/login'
         const configObj = {
@@ -40,6 +40,7 @@ export const logInUser = (user) => {
             const loggedInUser = userData.user.data.attributes
             console.log(loggedInUser)
             dispatch(setUser(loggedInUser))
+            history.push('/')
         })
     }
 }
