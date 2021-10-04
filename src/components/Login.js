@@ -2,9 +2,9 @@ import Container from 'react-bootstrap/Container'
 import { useHistory } from "react-router-dom";
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { /* loginUser action */ } from '../actions/userActions'
+import { logInUser } from '../actions/userActions'
 
-const Register = ({ /* loginUser action */ }) => {
+const Register = ({ logInUser }) => {
 
     let history = useHistory();
 
@@ -20,7 +20,7 @@ const Register = ({ /* loginUser action */ }) => {
     const handleSubmit = e => {
         e.preventDefault()
         console.log(formData)
-        // login dispatch
+        logInUser(formData)
         setFormData({
             email: '', 
             password: ''
@@ -56,4 +56,4 @@ const Register = ({ /* loginUser action */ }) => {
     )
 }
 
-export default connect(null, { /* loginUser action */ })(Register)
+export default connect(null, { logInUser })(Register)

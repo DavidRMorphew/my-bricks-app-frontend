@@ -22,7 +22,7 @@ export const registerUser = (user, history) => {
     }
 }
 
-const logInUser = (user) => {
+export const logInUser = (user) => {
     return (dispatch) => {
         const url = 'http://localhost:3001/login'
         const configObj = {
@@ -36,8 +36,10 @@ const logInUser = (user) => {
         fetch(url, configObj)
         .then(resp => resp.json())
         .then(userData => {
-            // set user
-            console.log(userData.data.attributes)
+            localStorage.setItem("token", userData.jwt)
+            const loggedInUser = userData.user.data.attributes
+            console.log(loggedInUser)
+            dispatch(setUser(loggedInUser))
         })
     }
 }
