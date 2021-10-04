@@ -1,6 +1,6 @@
 export const setUser = user => ({type: 'SET_USER', payload: user})
 
-export const registerUser = user => {
+export const registerUser = (user, history) => {
     const url = 'http://localhost:3001/users'
     return (dispatch) => {
         const configObj = {
@@ -17,6 +17,7 @@ export const registerUser = user => {
             localStorage.setItem("token", userData.jwt)
             const newUser = userData.user.data.attributes
             dispatch(setUser(newUser))
+            history.push('/')
         })
     }
 }
