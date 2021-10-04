@@ -27,6 +27,7 @@ const App = ({ fetchLegoSets, user }) => {
             <header className="App-header">
               <h1 className="title">My Bricks</h1>
               <NavBar/>
+              { loggedIn ? <button>Log Out</button> : null}
             </header>
             <Switch>
               <Route exact path="/">
