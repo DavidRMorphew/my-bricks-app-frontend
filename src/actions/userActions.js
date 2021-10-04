@@ -61,6 +61,8 @@ export const logOutUser = (user) => {
         .then(resp => resp.json())
         .then(userData => {
             console.log(userData)
+            localStorage.removeItem("token")
+            dispatch(removeUser())
         })
     }
 }

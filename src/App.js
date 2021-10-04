@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { fetchLegoSets } from './actions/legoSetActions'
+import { logOutUser } from './actions/userActions'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +15,7 @@ import LegoSetsContainer from './containers/LegoSetsContainer'
 import Register from './components/Register'
 import Login from './components/Login'
 
-const App = ({ fetchLegoSets, user }) => {
+const App = ({ fetchLegoSets, user, logOutUser }) => {
 
   useEffect(()=>{fetchLegoSets()}, [fetchLegoSets])
 
@@ -27,7 +28,7 @@ const App = ({ fetchLegoSets, user }) => {
             <header className="App-header">
               <h1 className="title">My Bricks</h1>
               <NavBar/>
-              { loggedIn ? <button>Log Out</button> : null}
+              { loggedIn ? <button onClick={logOutUser}>Log Out</button> : null}
             </header>
             <Switch>
               <Route exact path="/">
@@ -49,4 +50,4 @@ const App = ({ fetchLegoSets, user }) => {
     )
 }
 
-export default connect(({ user }) => ({ user }), { fetchLegoSets })(App);
+export default connect(({ user }) => ({ user }), { fetchLegoSets, logOutUser })(App);
