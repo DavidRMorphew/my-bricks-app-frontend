@@ -47,3 +47,20 @@ export const logInUser = (user, history) => {
     }
 }
 
+export const logOutUser = (user) => {
+    const url = 'http://localhost:3001/logout'
+    return (dispatch) => {
+        const token = localStorage.getItem("token")
+        const configObj = {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+        fetch(url, configObj)
+        .then(resp => resp.json())
+        .then(userData => {
+            console.log(userData)
+        })
+    }
+}
