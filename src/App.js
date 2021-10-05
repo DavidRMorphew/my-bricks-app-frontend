@@ -7,6 +7,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   useHistory
 } from "react-router-dom";
 import NavBar from './components/NavBar'
@@ -33,14 +34,14 @@ const App = ({ fetchLegoSets, user, logOutUser, alreadyLoggedInCheck }) => {
             <header className="App-header">
               <h1 className="title">My Bricks</h1>
               <NavBar/>
-              { loggedIn ? <button onClick={logOutUser(history)}>Log Out</button> : null}
+              { loggedIn ? <button onClick={logOutUser}>Log Out</button> : null}
             </header>
             <Switch>
               <Route exact path="/">
                 <About />
               </Route>
               <Route path ="/lego_sets">
-                <LegoSetsContainer />
+              { loggedIn ? <LegoSetsContainer /> : <Redirect to='/login' /> }
               </Route>
               <Route path="/register">
                 <Register />

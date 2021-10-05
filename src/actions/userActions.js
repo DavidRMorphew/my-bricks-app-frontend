@@ -47,7 +47,7 @@ export const logInUser = (user, history) => {
     }
 }
 
-export const logOutUser = (history) => {
+export const logOutUser = () => {
     const url = 'http://localhost:3001/logout'
     return (dispatch) => {
         const token = localStorage.getItem("token")
@@ -63,7 +63,6 @@ export const logOutUser = (history) => {
             localStorage.removeItem("token")
             console.log(logoutStatus)
             dispatch(removeUser())
-            history.push('/login')
         })
     }
 }
