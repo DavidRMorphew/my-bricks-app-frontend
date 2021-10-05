@@ -60,9 +60,37 @@ export const logOutUser = (user) => {
         fetch(url, configObj)
         .then(resp => resp.json())
         .then(logoutStatus => {
-            console.log(logoutStatus)
             localStorage.removeItem("token")
             dispatch(removeUser())
         })
+    }
+}
+
+export const alreadyLoggedInCheck = () => {
+    const url = 'http://localhost:3001/logged_in'
+    return (dispatch) => {
+        const token = localStorage.getItem("token")
+        if (token){
+            fetch(url, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(resp => {
+                if (!resp.ok){
+                    throw Error(resp.statusText)
+                } else {
+                    return resp.json()
+                }
+            })
+            .then(userData => {
+                if (!userData.error){
+                    const loggedInUser = userData.data.attributes
+                    console.log(loggedInUser)
+                    dispatch(setUser(loggedInUser))
+                }
+            })
+            .catch(error => console.log(error))
+        }
     }
 }

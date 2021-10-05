@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { fetchLegoSets } from './actions/legoSetActions'
-import { logOutUser } from './actions/userActions'
+import { logOutUser, alreadyLoggedInCheck } from './actions/userActions'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,9 +15,11 @@ import LegoSetsContainer from './containers/LegoSetsContainer'
 import Register from './components/Register'
 import Login from './components/Login'
 
-const App = ({ fetchLegoSets, user, logOutUser }) => {
+const App = ({ fetchLegoSets, user, logOutUser, alreadyLoggedInCheck }) => {
 
-  useEffect(()=>{fetchLegoSets()}, [fetchLegoSets])
+  useEffect(()=>{ fetchLegoSets() }, [fetchLegoSets])
+
+  useEffect(() => { alreadyLoggedInCheck() }, [])
 
   const loggedIn = JSON.stringify(user) !== "{}" ? true : false
 
@@ -50,4 +52,4 @@ const App = ({ fetchLegoSets, user, logOutUser }) => {
     )
 }
 
-export default connect(({ user }) => ({ user }), { fetchLegoSets, logOutUser })(App);
+export default connect(({ user }) => ({ user }), { fetchLegoSets, logOutUser, alreadyLoggedInCheck })(App);
