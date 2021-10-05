@@ -47,7 +47,7 @@ export const logInUser = (user, history) => {
     }
 }
 
-export const logOutUser = (user) => {
+export const logOutUser = (history) => {
     const url = 'http://localhost:3001/logout'
     return (dispatch) => {
         const token = localStorage.getItem("token")
@@ -62,11 +62,12 @@ export const logOutUser = (user) => {
         .then(logoutStatus => {
             localStorage.removeItem("token")
             dispatch(removeUser())
+            history.push('/login')
         })
     }
 }
 
-export const alreadyLoggedInCheck = () => {
+export const alreadyLoggedInCheck = (history) => {
     const url = 'http://localhost:3001/logged_in'
     return (dispatch) => {
         const token = localStorage.getItem("token")
@@ -88,6 +89,7 @@ export const alreadyLoggedInCheck = () => {
                     const loggedInUser = userData.data.attributes
                     console.log(loggedInUser)
                     dispatch(setUser(loggedInUser))
+                    history.push('/')
                 }
             })
             .catch(error => console.log(error))

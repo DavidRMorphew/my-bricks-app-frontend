@@ -6,7 +6,8 @@ import { logOutUser, alreadyLoggedInCheck } from './actions/userActions'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useHistory
 } from "react-router-dom";
 import NavBar from './components/NavBar'
 import NotFoundErrorDisplay from './components/NotFoundErrorDisplay';
@@ -17,9 +18,11 @@ import Login from './components/Login'
 
 const App = ({ fetchLegoSets, user, logOutUser, alreadyLoggedInCheck }) => {
 
+  let history = useHistory();
+
   useEffect(()=>{ fetchLegoSets() }, [fetchLegoSets])
 
-  useEffect(() => { alreadyLoggedInCheck() }, [])
+  useEffect(() => { alreadyLoggedInCheck(history) }, [])
 
   const loggedIn = JSON.stringify(user) !== "{}" ? true : false
 
@@ -30,7 +33,7 @@ const App = ({ fetchLegoSets, user, logOutUser, alreadyLoggedInCheck }) => {
             <header className="App-header">
               <h1 className="title">My Bricks</h1>
               <NavBar/>
-              { loggedIn ? <button onClick={logOutUser}>Log Out</button> : null}
+              { loggedIn ? <button onClick={logOutUser(history)}>Log Out</button> : null}
             </header>
             <Switch>
               <Route exact path="/">
