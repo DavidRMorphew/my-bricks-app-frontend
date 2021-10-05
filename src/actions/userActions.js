@@ -61,6 +61,7 @@ export const logOutUser = (history) => {
         .then(resp => resp.json())
         .then(logoutStatus => {
             localStorage.removeItem("token")
+            console.log(logoutStatus)
             dispatch(removeUser())
             history.push('/login')
         })
