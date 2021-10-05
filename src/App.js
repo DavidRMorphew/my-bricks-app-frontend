@@ -2,33 +2,52 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { fetchLegoSets } from './actions/legoSetActions'
+import { logOutUser, alreadyLoggedInCheck } from './actions/userActions'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect,
+  useHistory
 } from "react-router-dom";
 import NavBar from './components/NavBar'
 import NotFoundErrorDisplay from './components/NotFoundErrorDisplay';
 import About from './components/About'
 import LegoSetsContainer from './containers/LegoSetsContainer'
+import Register from './components/Register'
+import Login from './components/Login'
 
-const App = ({ fetchLegoSets }) => {
+const App = ({ fetchLegoSets, user, logOutUser, alreadyLoggedInCheck }) => {
 
-  useEffect(()=>{fetchLegoSets()}, [fetchLegoSets])
+  let history = useHistory();
+
+  useEffect(()=>{ fetchLegoSets() }, [fetchLegoSets])
+
+  useEffect(() => { alreadyLoggedInCheck(history) }, [])
+
+  const loggedIn = JSON.stringify(user) !== "{}" ? true : false
 
   return (
     <Router>
+      {console.log(loggedIn)}
         <div className="App background-image" alt="Image of a pile of colored bricks as a background">
             <header className="App-header">
               <h1 className="title">My Bricks</h1>
               <NavBar/>
+              { loggedIn ? <button onClick={logOutUser}>Log Out</button> : null}
             </header>
             <Switch>
               <Route exact path="/">
                 <About />
               </Route>
               <Route path ="/lego_sets">
-                <LegoSetsContainer />
+              { loggedIn ? <LegoSetsContainer /> : <Redirect to='/login' /> }
+              </Route>
+              <Route path="/register">
+                <Register />
+              </Route>
+              <Route path="/login">
+                <Login />
               </Route>
               <Route path="" component={NotFoundErrorDisplay}/>
             </Switch>
@@ -37,4 +56,4 @@ const App = ({ fetchLegoSets }) => {
     )
 }
 
-export default connect(null, {fetchLegoSets})(App);
+export default connect(({ user }) => ({ user }), { fetchLegoSets, logOutUser, alreadyLoggedInCheck })(App);
