@@ -36,6 +36,7 @@ const mapStateToProps = (state, ownProps) => {
             break;
         case (!!subSetTerm):
             results = legoSets.filter(set => !!set.owned)
+            // change to filter where users includes user
             break;
         default:
             results = legoSets
