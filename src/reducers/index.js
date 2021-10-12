@@ -5,6 +5,7 @@ import setPartSpecsReducer from './setPartSpecsReducer'
 import partReducer from './partReducer'
 import potentialBuildReducer from './potentialBuildReducer'
 import userReducer from './userReducer'
+import ownedSetsReducer from './ownedSetsReducer'
 
 export const rootReducer = combineReducers({
     legoSets: legoSetReducer,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
     setPartSpecs: setPartSpecsReducer,
     parts: partReducer,
     potentialBuilds: potentialBuildReducer,
-    user: userReducer
+    user: userReducer,
+    ownedSets: ownedSetsReducer
 })
