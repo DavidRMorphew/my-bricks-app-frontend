@@ -1,3 +1,5 @@
+import { fetchUserOwnedSets } from './ownedPartsActions' // Added
+
 export const setUser = user => ({type: 'SET_USER', payload: user})
 
 export const removeUser = () => ({type: 'REMOVE_USER'})
@@ -19,6 +21,7 @@ export const registerUser = (user, history) => {
             localStorage.setItem("token", userData.jwt)
             const newUser = userData.user.data.attributes
             dispatch(setUser(newUser))
+            dispatch(fetchUserOwnedSets()) // Added post registration and login
             history.push('/')
         })
     }
@@ -42,6 +45,7 @@ export const logInUser = (user, history) => {
             const loggedInUser = userData.user.data.attributes
             console.log(loggedInUser)
             dispatch(setUser(loggedInUser))
+            dispatch(fetchUserOwnedSets()) // Added post registration and login
             history.push('/')
         })
     }
