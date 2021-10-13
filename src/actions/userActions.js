@@ -93,6 +93,7 @@ export const alreadyLoggedInCheck = (history) => {
                     const loggedInUser = userData.data.attributes
                     console.log(loggedInUser)
                     dispatch(setUser(loggedInUser))
+                    dispatch(fetchUserOwnedSets()) // Added post registration and login
                     history.push('/')
                 }
             })
