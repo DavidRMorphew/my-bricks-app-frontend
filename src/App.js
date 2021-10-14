@@ -21,7 +21,7 @@ const App = ({ fetchLegoSets, user, logOutUser, alreadyLoggedInCheck }) => {
 
   let history = useHistory();
 
-  useEffect(()=>{ fetchLegoSets() }, [fetchLegoSets])
+  // useEffect(()=>{ fetchLegoSets() }, [fetchLegoSets])
 
   useEffect(() => { alreadyLoggedInCheck(history) }, [])
 

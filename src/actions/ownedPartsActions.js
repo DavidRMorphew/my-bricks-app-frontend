@@ -5,12 +5,18 @@ export const addOwnedSets = (ownedSets) => ({type: 'ADD_OWNED_SETS', payload: ow
 // Add authorization header for current_user method on backend to work
 
 export const fetchUserOwnedSets = () => {
+    console.log("fetch owned sets")
     return (dispatch) => {
-        fetch(baseUrl)
+        const token = localStorage.getItem("token")
+        fetch(baseUrl, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+        })
         .then(resp => resp.json())
         .then(ownedSetsData => {
             console.log(ownedSetsData)
-            dispatch(addOwnedSets(ownedSetsData))
+            dispatch(addOwnedSets(ownedSetsData.data.attributes))
         })
     }
 }
