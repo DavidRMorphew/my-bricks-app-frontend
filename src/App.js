@@ -29,7 +29,6 @@ const App = ({ fetchLegoSets, user, logOutUser, alreadyLoggedInCheck }) => {
 
   return (
     <Router>
-      {console.log(loggedIn)}
         <div className="App background-image" alt="Image of a pile of colored bricks as a background">
             <header className="App-header">
               <h1 className="title">My Bricks</h1>
