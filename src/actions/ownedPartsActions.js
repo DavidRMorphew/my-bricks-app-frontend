@@ -15,8 +15,9 @@ export const fetchUserOwnedSets = () => {
         })
         .then(resp => resp.json())
         .then(ownedSetsData => {
-            console.log(ownedSetsData)
-            dispatch(addOwnedSets(ownedSetsData.data.attributes))
+            const ownedSets = ownedSetsData.data.map(ownedSet => ownedSet.attributes)
+            console.log(ownedSets)
+            dispatch(addOwnedSets(ownedSets))
         })
     }
 }
