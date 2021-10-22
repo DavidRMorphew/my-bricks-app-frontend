@@ -30,7 +30,7 @@ export const addOwnedSet = (legoSetId) => {
                 "Content-Type": "application/json",
                 "Accepts": "application/json"
             },
-            body: JSON.stringify(legoSetId)
+            body: JSON.stringify({legoSetId})
         }
 
         fetch(baseUrl, configObj)
@@ -38,4 +38,3 @@ export const addOwnedSet = (legoSetId) => {
         .then(ownedSetData => console.log(ownedSetData))
     }
 }
-
