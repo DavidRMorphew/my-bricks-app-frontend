@@ -37,6 +37,9 @@ export const createOwnedSetEntry = (legoSetId) => {
 
         fetch(baseUrl, configObj)
         .then(resp => resp.json())
-        .then(ownedSetData => console.log(ownedSetData))
+        .then(newOwnedSetData => {
+            const newOwnedSet = newOwnedSetData.data.attributes
+            dispatch(addNewOwnedSet(newOwnedSet))
+        })
     }
 }
