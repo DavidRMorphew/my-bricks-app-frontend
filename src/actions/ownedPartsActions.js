@@ -2,6 +2,8 @@ const baseUrl = "http://localhost:3001/owned_sets"
 
 export const addOwnedSets = (ownedSets) => ({type: 'ADD_OWNED_SETS', payload: ownedSets})
 
+const addNewOwnedSet = (newOwnedSet) => ({type: 'ADD_NEW_OWNED_SET', payload: newOwnedSet})
+
 export const fetchUserOwnedSets = () => {
     console.log("fetch owned sets")
     return (dispatch) => {
