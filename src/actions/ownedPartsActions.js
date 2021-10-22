@@ -43,3 +43,20 @@ export const createOwnedSetEntry = (legoSetId) => {
         })
     }
 }
+
+export const destroyOwnedSetEntry = (ownedSetId) => {
+    return (dispatch) => {
+        const token = localStorage.getItem("token")
+
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+
+        fetch(`${baseUrl}/${ownedSetId}`, configObj)
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+    }
+}
