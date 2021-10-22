@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
 import { connect } from 'react-redux'
 // import { changeOwnedSetStatus } from '../actions/legoSetActions'
-import { addOwnedSet } from '../actions/ownedPartsActions'
+import { createOwnedSetEntry } from '../actions/ownedPartsActions'
 
-const LegoSetCards = ({ legoSets, ownedSets, addOwnedSet, loading }) =>{
+const LegoSetCards = ({ legoSets, ownedSets, createOwnedSetEntry, loading }) =>{
   
     const handleLegoSetLoading = () => {
         return (loading) ? <h4 className="over-background">LOADING...</h4> : <CardDeck>{renderLegoSetCards()}</CardDeck>
@@ -14,7 +14,7 @@ const LegoSetCards = ({ legoSets, ownedSets, addOwnedSet, loading }) =>{
     const changeOwnedSetStatus = (legoSetId) => {
         console.log(legoSetId)
         console.log(!!ownedSets.find(set => set.legoSetId === legoSetId))
-        return !!ownedSets.find(set => set.legoSetId === legoSetId) ? console.log("remove set") : addOwnedSet(legoSetId)
+        return !!ownedSets.find(set => set.legoSetId === legoSetId) ? console.log("remove set") : createOwnedSetEntry(legoSetId)
     }
 
     const renderLegoSetCards = () => (
@@ -56,4 +56,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, { addOwnedSet })(LegoSetCards)
+export default connect(mapStateToProps, { createOwnedSetEntry })(LegoSetCards)

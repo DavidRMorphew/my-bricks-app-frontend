@@ -19,7 +19,7 @@ export const fetchUserOwnedSets = () => {
     }
 }
 
-export const addOwnedSet = (legoSetId) => {
+export const createOwnedSetEntry = (legoSetId) => {
     return (dispatch) => {
         const token = localStorage.getItem("token")
 
