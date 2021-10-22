@@ -4,6 +4,8 @@ export const addOwnedSets = (ownedSets) => ({type: 'ADD_OWNED_SETS', payload: ow
 
 const addNewOwnedSet = (newOwnedSet) => ({type: 'ADD_NEW_OWNED_SET', payload: newOwnedSet})
 
+const removeOwnedSet = (ownedSetId) => ({type: 'REMOVE_OWNED_SET', payload: ownedSetId})
+
 export const fetchUserOwnedSets = () => {
     console.log("fetch owned sets")
     return (dispatch) => {
@@ -57,6 +59,10 @@ export const destroyOwnedSetEntry = (ownedSetId) => {
 
         fetch(`${baseUrl}/${ownedSetId}`, configObj)
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => { 
+            console.log(data)
+            dispatch(removeOwnedSet(ownedSetId))
+        })
+
     }
 }
