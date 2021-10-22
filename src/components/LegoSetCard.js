@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const LegoSetCard = ({legoSet, changeOwnedSetStatus}) => {
     
     const handleOnClick = e => {
+        console.log("click")
         changeOwnedSetStatus(legoSet.id)
     }
 

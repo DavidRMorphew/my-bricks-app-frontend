@@ -18,3 +18,24 @@ export const fetchUserOwnedSets = () => {
         })
     }
 }
+
+export const addOwnedSet = (legoSetId) => {
+    return (dispatch) => {
+        const token = localStorage.getItem("token")
+
+        const configObj = {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify(legoSetId)
+        }
+
+        fetch(baseUrl, configObj)
+        .then(resp => resp.json())
+        .then(ownedSetData => console.log(ownedSetData))
+    }
+}
+
