@@ -2,7 +2,6 @@ import LegoSetCard from '../components/LegoSetCard'
 import Container from 'react-bootstrap/Container'
 import CardDeck from 'react-bootstrap/CardDeck'
 import { connect } from 'react-redux'
-// import { changeOwnedSetStatus } from '../actions/legoSetActions'
 import { createOwnedSetEntry, destroyOwnedSetEntry } from '../actions/ownedPartsActions'
 
 const LegoSetCards = ({ legoSets, ownedSets, createOwnedSetEntry, destroyOwnedSetEntry, loading }) =>{
@@ -12,7 +11,6 @@ const LegoSetCards = ({ legoSets, ownedSets, createOwnedSetEntry, destroyOwnedSe
     }
 
     const changeOwnedSetStatus = (legoSetId) => {
-        console.log(legoSetId)
         const ownedSet = ownedSets.find(set => set.legoSetId === legoSetId)
         console.log(!!ownedSet)
         return !!ownedSet ? destroyOwnedSetEntry(ownedSet.id) : createOwnedSetEntry(legoSetId)
