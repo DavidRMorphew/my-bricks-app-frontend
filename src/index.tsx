@@ -6,17 +6,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
-import { legacy_createStore, applyMiddleware } from "redux";
-import { thunk } from "redux-thunk";
 import { rootReducer } from "./reducers/index";
-import { composeWithDevTools } from "@redux-devtools/extension";
+import { configureStore } from "@reduxjs/toolkit";
 
-const store = legacy_createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const setupStore = () =>
+  configureStore({
+    reducer: rootReducer,
+  });
+
+const store = setupStore();
 const container = document.getElementById("root");
-const root = createRoot(container);
+const root = createRoot(container!);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -24,5 +24,8 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+
+// Move to separate file with store
+export type AppDispatch = typeof store.dispatch;
 
 reportWebVitals();
