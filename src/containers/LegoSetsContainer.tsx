@@ -1,10 +1,11 @@
-import React, { useDeferredValue } from "react";
+import { ChangeEventHandler, MouseEventHandler, useDeferredValue } from "react";
 import { useState } from "react";
 import FilterInputComponent from "../components/FilterInputComponent";
-import LegoSetCards from "../components/LegoSetCards";
+import LegoSetCards from "../components/LegoSets/LegoSetCards";
 import LegoSetShowContainer from "./LegoSetShowContainer";
-import PotentialBuildSelection from "../components/PotentialBuildSelection";
-import PotentialBuildSetsResults from "../components/PotentialBuildSetsResults";
+import PotentialBuildSelection from "../components/PotentialBuilds/PotentialBuildSelection";
+import PotentialBuildSetsResults from "../components/PotentialBuilds/PotentialBuildSetsResults";
+// @ts-ignore
 import { Switch, Route } from "react-router-dom";
 
 const LegoSetsContainer = () => {
@@ -12,11 +13,15 @@ const LegoSetsContainer = () => {
 
   const deferredFilterTerm = useDeferredValue(filterTerm);
 
-  const handleFilterInputOnChange = (e) => {
+  const handleFilterInputOnChange: ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
     setFilterTerm(e.target.value);
   };
 
-  const handleFilterInputClearOnClick = (e) => {
+  const handleFilterInputClearOnClick: MouseEventHandler<
+    HTMLButtonElement
+  > = () => {
     setFilterTerm("");
   };
 
@@ -37,12 +42,9 @@ const LegoSetsContainer = () => {
         <PotentialBuildSelection />
         <PotentialBuildSetsResults />
       </Route>
-      <Route
-        path="/lego_sets/:id"
-        component={(routeInfo) => (
-          <LegoSetShowContainer routeInfo={routeInfo} />
-        )}
-      />
+      <Route path="/lego_sets/:id">
+        <LegoSetShowContainer />
+      </Route>
     </Switch>
   );
 };
