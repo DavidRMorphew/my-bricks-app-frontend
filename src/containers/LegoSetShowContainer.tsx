@@ -4,7 +4,6 @@ import { fetchPartsOfSet } from "../actions/partActions";
 import LegoSetShowDisplay from "../components/LegoSets/LegoSetShowDisplay";
 import NotFoundErrorDisplay from "../components/NotFoundErrorDisplay";
 import { LegoSet } from "../components/LegoSets/types";
-// @ts-ignore
 import { useParams } from "react-router-dom";
 
 interface LegoSetShowContainerProps {

@@ -8,11 +8,11 @@ const LegoSetShowCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
   };
 
   const renderOwnedValue = () => {
-    return !!legoSet.owned ? "Owned" : "Not Owned";
+    return legoSet.owned ? "Owned" : "Not Owned";
   };
 
   const ownButtonDisplay = () => {
-    return !!legoSet.owned ? "Remove from Owned" : "Add to Owned";
+    return legoSet.owned ? "Remove from Owned" : "Add to Owned";
   };
 
   const openInstructionsPageInNewTab = (instructionsUrl: string) => {

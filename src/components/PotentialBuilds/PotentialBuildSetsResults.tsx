@@ -18,7 +18,7 @@ const PotentialBuildSetsResults = ({
       return (
         <h1 className="over-background">
           LOADING...Please wait, as this could take a few seconds...<br></br>
-          Please do not change "owned sets" while we search.
+          Please do not change owned sets while we search.
         </h1>
       );
     } else if (potentialBuilds.length > 0) {

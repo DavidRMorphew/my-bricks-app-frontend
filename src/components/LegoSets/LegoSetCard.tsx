@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-// @ts-ignore
 import { Link } from "react-router-dom";
 import type { LegoSet, LegoSetProps } from "./types";
 import { MouseEventHandler } from "react";
@@ -10,11 +9,11 @@ const LegoSetCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
   };
 
   const renderOwnedValue = (legoSet: LegoSet) => {
-    return !!legoSet.owned ? "Owned" : "Not Owned";
+    return legoSet.owned ? "Owned" : "Not Owned";
   };
 
   const ownButtonDisplay = (legoSet: LegoSet) => {
-    return !!legoSet.owned ? "Remove from Owned" : "Add to Owned";
+    return legoSet.owned ? "Remove from Owned" : "Add to Owned";
   };
 
   return (

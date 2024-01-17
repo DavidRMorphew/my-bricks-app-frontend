@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-// @ts-ignore
 import { Link } from "react-router-dom";
 import { LegoSet } from "../LegoSets/types";
 

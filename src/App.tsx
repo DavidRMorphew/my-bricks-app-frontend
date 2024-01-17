@@ -2,7 +2,6 @@ import "./App.css";
 import { useEffect } from "react";
 import { ConnectedProps, connect } from "react-redux";
 import { fetchLegoSets } from "./actions/legoSetActions";
-// @ts-ignore
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import NotFoundErrorDisplay from "./components/NotFoundErrorDisplay";

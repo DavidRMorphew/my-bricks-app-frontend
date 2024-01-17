@@ -1,4 +1,3 @@
-// @ts-ignore
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {

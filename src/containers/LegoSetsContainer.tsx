@@ -5,7 +5,6 @@ import LegoSetCards from "../components/LegoSets/LegoSetCards";
 import LegoSetShowContainer from "./LegoSetShowContainer";
 import PotentialBuildSelection from "../components/PotentialBuilds/PotentialBuildSelection";
 import PotentialBuildSetsResults from "../components/PotentialBuilds/PotentialBuildSetsResults";
-// @ts-ignore
 import { Switch, Route } from "react-router-dom";
 
 const LegoSetsContainer = () => {

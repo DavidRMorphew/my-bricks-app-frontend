@@ -20,8 +20,8 @@ const PotentialBuildSelection = ({
       <h2>Find Out What You can Build With What You Own!</h2>
       <br></br>
       <h4>
-        We'll find all the sets in our database that you can build based on all
-        the parts you already own.
+        We will find all the sets in our database that you can build based on
+        all the parts you already own.
       </h4>
       <br></br>
       <h1>Please Choose Below:</h1>
@@ -53,7 +53,7 @@ const PotentialBuildSelection = ({
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <h4>Lego sets' parts are filtered for matching, excluding: </h4>
+              <h4>Parts of lego sets are filtered for matching, excluding: </h4>
               <h5>Minifigures and Figures,</h5> <h5>Accessories,</h5>{" "}
               <h5>Non-lego parts</h5>
               <br></br>
