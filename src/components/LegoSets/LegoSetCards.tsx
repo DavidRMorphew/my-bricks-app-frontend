@@ -52,7 +52,7 @@ const mapStateToProps = (
   switch (true) {
     case !!filterTerm:
       results = legoSets.filter((set: LegoSet) => {
-        const regex = new RegExp(filterTerm, "i");
+        const regex = new RegExp(filterTerm as string, "i");
         return (
           regex.test(set.name) ||
           regex.test(set.themeName) ||
