@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 
 const About = () => {
-  const openLinkInNewTab = (linkName) => {
+  const openLinkInNewTab = (linkName: string) => {
     let url;
     if (linkName === "railsApi") {
       url = "https://github.com/DavidRMorphew/my-bricks-app-backend";
