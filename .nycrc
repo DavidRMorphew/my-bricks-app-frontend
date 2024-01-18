@@ -1,0 +1,24 @@
+{
+  "extends": ["@istanbuljs/nyc-config-typescript", "nyc-config-tsx"],
+  "cache": false,
+  "check-coverage": true,
+  "extension": [".tsx", ".ts"],
+  "include": ["**"],
+  "exclude": [
+    "build/**",
+    "coverage/**",
+    "**/*.d.ts",
+    "**/*.test.ts",
+    "src/reportWebVitals.js",
+    "*.config.*",
+    "src/setupTests.ts",
+    "**/types.ts",
+    "**/constants/",
+    "**/__test__/"
+  ],
+  "sourceMap": true,
+  "reporter": ["html", "text", "text-summary"],
+  "all": true,
+  "instrument": true,
+  "excludeNodeModules": true
+}
