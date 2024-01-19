@@ -4,6 +4,7 @@ import CardDeck from "react-bootstrap/CardDeck";
 import { connect } from "react-redux";
 import { changeOwnedSetStatus } from "../../actions/legoSetActions";
 import { LegoSet } from "./types";
+import { textLabels } from "../../constants";
 
 interface LegoSetCardsProps {
   legoSets: LegoSet[];
@@ -18,7 +19,7 @@ const LegoSetCards = ({
 }: LegoSetCardsProps) => {
   const handleLegoSetLoading = () => {
     return loading ? (
-      <h4 className="over-background">LOADING...</h4>
+      <h4 className="over-background">{textLabels.loadingLabel}</h4>
     ) : (
       <CardDeck>{renderLegoSetCards()}</CardDeck>
     );
