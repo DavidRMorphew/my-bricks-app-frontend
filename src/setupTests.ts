@@ -5,6 +5,10 @@ import * as matchers from "@testing-library/jest-dom/matchers";
 
 expect.extend(matchers);
 
+afterAll(() => {
+  jest.resetModules();
+});
+
 afterEach(() => {
   cleanup();
 });
