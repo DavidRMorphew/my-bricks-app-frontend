@@ -1,12 +1,13 @@
 import Container from "react-bootstrap/Container";
+import { urls } from "../constants";
 
 const About = () => {
   const openLinkInNewTab = (linkName: string) => {
     let url;
     if (linkName === "railsApi") {
-      url = "https://github.com/DavidRMorphew/my-bricks-app-backend";
+      url = urls.railsBackendGitHubUrl;
     } else if (linkName === "rebrickableApi") {
-      url = "https://rebrickable.com/api/v3/docs/";
+      url = urls.rebrickableApiDocumentationUrl;
     }
     const newTab = window.open(url, "_blank", "noopener,noreferrer");
     if (newTab) {
