@@ -1,8 +1,12 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
-import type { Config } from "jest";
+import { Config } from "jest";
+
 const config: Config = {
-  preset: "ts-jest",
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
+  moduleDirectories: ["utils"],
+  collectCoverage: false,
+  coverageProvider: "v8",
+  collectCoverageFrom: ["**/*.{ts, tsx}", "!<rootDir>/src/constants/*.ts"],
+  coveragePathIgnorePatterns: ["/src/constants/", "types.ts"],
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
 };
 
