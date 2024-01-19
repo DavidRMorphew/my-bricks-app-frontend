@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import { Part } from "./types";
+import { textLabels } from "../../constants";
 
 interface PartCardProps {
   part: Part;
@@ -9,18 +10,23 @@ interface PartCardProps {
 const PartCard = ({ part, partQuantity }: PartCardProps) => (
   <div>
     <Card className="my-4 border-dark card-deck-part-card">
-      <Card.Header as="h4">Part Number: {part.partNumber}</Card.Header>
-      <Card.Img src={part.imageUrl} alt={`Part Image for ${part.name}`} />
+      <Card.Header as="h4">
+        {textLabels.partNumberLabel}
+        {part.partNumber}
+      </Card.Header>
+      {part.imageUrl && (
+        <Card.Img src={part.imageUrl} alt={`Part Image for ${part.name}`} />
+      )}
       <Card.Body>
-        <Card.Text>
-          <strong>Part Name: </strong>
+        <Card.Text data-testid={`${part.partNumber}-part-name-and-color`}>
+          <strong>{textLabels.partNameLabel}</strong>
           {part.name}
           <br></br>
-          <strong>Part Color: </strong>
+          <strong>{textLabels.partColorLabel}</strong>
           {part.color}
         </Card.Text>
-        <Card.Text>
-          <strong>Number in Set: </strong>
+        <Card.Text data-testid={`${part.partNumber}-part-quantity`}>
+          <strong>{textLabels.partQuantityLabel}</strong>
           {partQuantity}
         </Card.Text>
       </Card.Body>
