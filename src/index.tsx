@@ -3,16 +3,9 @@ import { createRoot } from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-
 import { Provider } from "react-redux";
-import { rootReducer } from "./reducers/index";
-import { configureStore } from "@reduxjs/toolkit";
-
-const setupStore = () =>
-  configureStore({
-    reducer: rootReducer,
-  });
+import reportWebVitals from "./reportWebVitals";
+import { setupStore } from "./store/store";
 
 const store = setupStore();
 const container = document.getElementById("root");
@@ -24,8 +17,5 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-// Move to separate file with store
-export type AppDispatch = typeof store.dispatch;
 
 reportWebVitals();

@@ -16,14 +16,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": ["node", "jest"],
-    "sourceMap": true
+    "sourceMap": true,
+    "paths": { "test-utils": ["./src/utils/test-utils"] }
   },
   "include": [
     "src",
     "**/*.tsx",
     "**/*.ts",
     "jest.config.ts",
-    "src/setupTests.ts"
+    "src/setupTests.ts",
+    "src/store/store.ts"
   ],
   "exclude": ["src/__test__"]
 }
