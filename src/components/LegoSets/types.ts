@@ -7,7 +7,7 @@ export type LegoSet = {
   setNumber: string;
   themeName: string;
   totalBricks: number;
-  year: string;
+  year: number;
 };
 
 export type LegoSetProps = {
