@@ -10,5 +10,6 @@ afterAll(() => {
 });
 
 afterEach(() => {
+  jest.resetAllMocks();
   cleanup();
 });
