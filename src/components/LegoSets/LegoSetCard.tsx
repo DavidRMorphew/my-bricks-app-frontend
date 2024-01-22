@@ -43,13 +43,17 @@ const LegoSetCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
             <strong>{legoSet.setNumber}</strong>
           </Card.Title>
           <Card.Text>
-            Year: <strong>{legoSet.year}</strong>
+            {textLabels.yearLabel}
+            <strong>{legoSet.year}</strong>
             <br></br>
-            Theme: <strong>{legoSet.themeName}</strong>
+            {textLabels.themeLabel}
+            <strong>{legoSet.themeName}</strong>
             <br></br>
-            Total Bricks: <strong>{legoSet.totalBricks}</strong>
+            {textLabels.totalBricks}
+            <strong>{legoSet.totalBricks}</strong>
             <br></br>
-            Owned: <strong>{renderOwnedValue(legoSet)}</strong>
+            {textLabels.ownedLabel}
+            <strong>{renderOwnedValue(legoSet)}</strong>
           </Card.Text>
           <button
             data-testid="lego-set-toggle-owned-button"
