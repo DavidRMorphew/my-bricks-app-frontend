@@ -6,7 +6,7 @@ import { changeOwnedSetStatus } from "../../actions/legoSetActions";
 import { LegoSet } from "./types";
 import { textLabels } from "../../constants";
 import Button from "../Shared/ButtonComponent";
-import { Suspense, useCallback } from "react";
+import { useCallback } from "react";
 import Loading from "../Shared/Loading";
 
 interface LegoSetCardsProps {
@@ -20,30 +20,10 @@ const LegoSetCards = ({
   loading,
   changeOwnedSetStatus,
 }: LegoSetCardsProps) => {
-  const handleLegoSetLoading = () => {
-    return loading ? (
-      <h4 className="over-background">{textLabels.loadingLabel}</h4>
-    ) : (
-      <CardDeck>{renderLegoSetCards()}</CardDeck>
-    );
-  };
-
   const handleChangeOwnedStatus = useCallback(
     (legoSetId: number) => () => changeOwnedSetStatus(legoSetId),
     [changeOwnedSetStatus]
   );
-
-  const renderLegoSetCards = () =>
-    legoSets.map((set) => (
-      <LegoSetCard key={set.id} legoSet={set}>
-        <Button
-          data-testid="lego-set-toggle-owned-button"
-          onClick={handleChangeOwnedStatus(set.id)}
-        >
-          {set.owned ? textLabels.removeFromOwned : textLabels.addToOwned}
-        </Button>
-      </LegoSetCard>
-    ));
 
   return (
     <Container fluid className="container">
