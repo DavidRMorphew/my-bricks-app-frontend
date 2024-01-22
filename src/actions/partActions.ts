@@ -1,5 +1,5 @@
 import { fetchSetPartSpecs } from "./setPartSpecsActions";
-import { AppDispatch } from "..";
+import { AppDispatch } from "../store/store";
 import { Part } from "../components/LegoParts/types";
 const baseUrl = "http://localhost:3001/lego_sets";
 

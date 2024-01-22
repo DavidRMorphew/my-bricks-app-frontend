@@ -1,5 +1,5 @@
 import { LegoSet } from "../components/LegoSets/types";
-import { AppDispatch } from "..";
+import { AppDispatch } from "../store/store";
 
 interface LegoSetData {
   attributes: LegoSet;

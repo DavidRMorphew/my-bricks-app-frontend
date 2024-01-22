@@ -8,6 +8,9 @@ import NotFoundErrorDisplay from "./components/NotFoundErrorDisplay";
 import About from "./components/About";
 import LegoSetsContainer from "./containers/LegoSetsContainer";
 
+const connector = connect(null, { fetchLegoSets });
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
 const App = ({ fetchLegoSets }: PropsFromRedux) => {
   useEffect(() => {
     fetchLegoSets();
@@ -33,8 +36,5 @@ const App = ({ fetchLegoSets }: PropsFromRedux) => {
     </Router>
   );
 };
-
-const connector = connect(null, { fetchLegoSets });
-type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export default connect(null, { fetchLegoSets })(App);

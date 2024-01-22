@@ -15,7 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node", "jest"]
+    "types": ["node", "jest"],
+    "sourceMap": true,
+    "paths": { "test-utils": ["./src/utils/test-utils"] }
   },
   "include": [
     "src",
@@ -23,7 +25,7 @@
     "**/*.ts",
     "jest.config.ts",
     "src/setupTests.ts",
-    "testing"
+    "src/store/store.ts"
   ],
   "exclude": ["src/__test__"]
 }

@@ -1,4 +1,4 @@
-import { AppDispatch } from "..";
+import { AppDispatch } from "../store/store";
 import { SetPartSpec } from "../components/LegoParts/types";
 const baseUrl = "http://localhost:3001/lego_sets";
 

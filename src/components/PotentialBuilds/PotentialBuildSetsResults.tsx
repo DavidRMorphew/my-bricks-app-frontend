@@ -3,6 +3,7 @@ import CardDeck from "react-bootstrap/CardDeck";
 import { connect } from "react-redux";
 import PotentialBuildSetCard from "./PotentialBuildSetCard";
 import { LegoSet } from "../LegoSets/types";
+import { textLabels } from "../../constants";
 
 interface PotentialBuildSetsResultsProps {
   loading: boolean;
@@ -17,7 +18,8 @@ const PotentialBuildSetsResults = ({
     if (loading) {
       return (
         <h1 className="over-background">
-          LOADING...Please wait, as this could take a few seconds...<br></br>
+          {textLabels.loadingLabel}Please wait, as this could take a few
+          seconds...<br></br>
           Please do not change owned sets while we search.
         </h1>
       );
