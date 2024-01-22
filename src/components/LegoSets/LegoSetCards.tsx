@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import { changeOwnedSetStatus } from "../../actions/legoSetActions";
 import { LegoSet } from "./types";
 import { textLabels } from "../../constants";
+import Button from "../Shared/ButtonComponent";
+import { Suspense, useCallback } from "react";
+import Loading from "../Shared/Loading";
 
 interface LegoSetCardsProps {
   legoSets: LegoSet[];
@@ -25,19 +28,42 @@ const LegoSetCards = ({
     );
   };
 
+  const handleChangeOwnedStatus = useCallback(
+    (legoSetId: number) => () => changeOwnedSetStatus(legoSetId),
+    [changeOwnedSetStatus]
+  );
+
   const renderLegoSetCards = () =>
     legoSets.map((set) => (
-      <LegoSetCard
-        key={set.id}
-        legoSet={set}
-        changeOwnedSetStatus={changeOwnedSetStatus}
-      />
+      <LegoSetCard key={set.id} legoSet={set}>
+        <Button
+          data-testid="lego-set-toggle-owned-button"
+          onClick={handleChangeOwnedStatus(set.id)}
+        >
+          {set.owned ? textLabels.removeFromOwned : textLabels.addToOwned}
+        </Button>
+      </LegoSetCard>
     ));
 
   return (
     <Container fluid className="container">
       <h1 className="over-background">Lego Sets: {legoSets.length}</h1>
-      {handleLegoSetLoading()}
+      {loading ? (
+        <Loading />
+      ) : (
+        <CardDeck>
+          {legoSets.map((set) => (
+            <LegoSetCard key={set.id} legoSet={set}>
+              <Button
+                data-testid="lego-set-toggle-owned-button"
+                onClick={handleChangeOwnedStatus(set.id)}
+              >
+                {set.owned ? textLabels.removeFromOwned : textLabels.addToOwned}
+              </Button>
+            </LegoSetCard>
+          ))}
+        </CardDeck>
+      )}
     </Container>
   );
 };

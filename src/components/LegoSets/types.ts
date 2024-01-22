@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type LegoSet = {
   id: number;
   imageUrl: string;
@@ -12,5 +14,5 @@ export type LegoSet = {
 
 export type LegoSetProps = {
   legoSet: LegoSet;
-  changeOwnedSetStatus: (id: number) => void;
-};
+  children: ReactNode;
+}
