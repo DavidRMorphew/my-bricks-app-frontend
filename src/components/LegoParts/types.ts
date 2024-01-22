@@ -1,13 +1,12 @@
 export type Part = {
   color: string;
   id: number;
-  imageUrl: string;
+  imageUrl: string | null;
   name: string;
   partNumber: string;
 };
 
 export type SetPartSpec = {
-  id: number;
   legoSetId: number;
   partId: number;
   partQuantity: number;
