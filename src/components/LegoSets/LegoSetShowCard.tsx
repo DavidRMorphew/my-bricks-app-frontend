@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import { LegoSetProps } from "./types";
 import { MouseEventHandler } from "react";
+import { textLabels } from "../../constants";
 
 const LegoSetShowCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
   const handleOnClick: MouseEventHandler<HTMLButtonElement> = () => {
@@ -8,11 +9,11 @@ const LegoSetShowCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
   };
 
   const renderOwnedValue = () => {
-    return legoSet.owned ? "Owned" : "Not Owned";
+    return legoSet.owned ? textLabels.owned : textLabels.notOwned;
   };
 
   const ownButtonDisplay = () => {
-    return legoSet.owned ? "Remove from Owned" : "Add to Owned";
+    return legoSet.owned ? textLabels.removeFromOwned : textLabels.addToOwned;
   };
 
   const openInstructionsPageInNewTab = (instructionsUrl: string) => {
@@ -32,26 +33,30 @@ const LegoSetShowCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
       <Card.Img src={legoSet.imageUrl} alt={`Set Image for ${legoSet.name}`} />
       <Card.Body>
         <Card.Text as="h2">
-          Year: <strong>{legoSet.year}</strong>
+          {textLabels.yearLabel}
+          <strong>{legoSet.year}</strong>
         </Card.Text>
         <Card.Text as="h2">
-          Theme: <strong>{legoSet.themeName}</strong>
+          {textLabels.themeLabel}
+          <strong>{legoSet.themeName}</strong>
         </Card.Text>
         <Card.Text as="h2">
-          Building Instructions:
+          {textLabels.buildingInstructionsLabel}
           <button
             onClick={() =>
               openInstructionsPageInNewTab(legoSet.instructionsUrl)
             }
           >
-            Click Here
+            {textLabels.clickHereLabel}
           </button>
         </Card.Text>
         <Card.Text as="h2">
-          Total Bricks: <strong>{legoSet.totalBricks}</strong>
+          {textLabels.totalBricks}
+          <strong>{legoSet.totalBricks}</strong>
         </Card.Text>
         <Card.Text as="h2">
-          Owned: <strong>{renderOwnedValue()}</strong>
+          {textLabels.ownedLabel}
+          <strong>{renderOwnedValue()}</strong>
         </Card.Text>
         <Card.Text as="h2">
           <button onClick={handleOnClick}>{ownButtonDisplay()}</button>
