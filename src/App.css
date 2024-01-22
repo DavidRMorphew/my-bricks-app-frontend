@@ -10,7 +10,7 @@
 
 .over-background {
   color: white;
-  text-shadow: 2.5px 2.5px black
+  text-shadow: 2.5px 2.5px black;
 }
 
 .App-header {
@@ -27,13 +27,17 @@
   font-size: 60px;
 }
 
+.large-font {
+  font-size: 35px;
+}
+
 .container {
-  align-content: space-around
+  align-content: space-around;
 }
 
 .flex-center {
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -52,11 +56,11 @@
 }
 
 .shaded-background {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .on-shaded-background {
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .cyan-text {
@@ -64,5 +68,5 @@
 }
 
 .narrow-container {
-  width: 80%
+  width: 80%;
 }

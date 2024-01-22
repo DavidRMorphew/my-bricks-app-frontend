@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PotentialBuildSetCard from "./PotentialBuildSetCard";
 import { LegoSet } from "../LegoSets/types";
 import { textLabels } from "../../constants";
+import Loading from "../Shared/Loading";
 
 interface PotentialBuildSetsResultsProps {
   loading: boolean;
@@ -17,11 +18,13 @@ const PotentialBuildSetsResults = ({
   const handleLegoSetLoading = () => {
     if (loading) {
       return (
-        <h1 className="over-background">
-          {textLabels.loadingLabel}Please wait, as this could take a few
-          seconds...<br></br>
-          Please do not change owned sets while we search.
-        </h1>
+        <>
+          <Loading />
+          <h1 className="over-background">
+            Please wait, as this could take a few seconds...<br></br>
+            Please do not change owned sets while we search.
+          </h1>
+        </>
       );
     } else if (potentialBuilds.length > 0) {
       return (

@@ -5,6 +5,7 @@ import PartCard from "./PartCard";
 import { Part, SetPartSpec } from "./types";
 import { LegoSet } from "../LegoSets/types";
 import { textLabels } from "../../constants";
+import Loading from "../Shared/Loading";
 
 interface PartCardsProps {
   parts: Part[];
@@ -18,7 +19,7 @@ const PartCards = ({ parts, setPartSpecs, set, loading }: PartCardsProps) => {
     return !loading ? (
       <CardDeck>{renderEachPartCard()}</CardDeck>
     ) : (
-      <h4 className="over-background">{textLabels.loadingLabel}</h4>
+      <Loading />
     );
   };
 
