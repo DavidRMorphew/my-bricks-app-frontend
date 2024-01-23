@@ -6,7 +6,7 @@ interface PotentialBuildData {
   attributes: LegoSet;
 }
 
-type StrictParam = "strict" | "notStrict";
+export type StrictParam = "strict" | "notStrict";
 
 export const addPotentialBuilds = (searchResults: LegoSet[]) => ({
   type: "ADD_POTENTIAL_BUILDS",
