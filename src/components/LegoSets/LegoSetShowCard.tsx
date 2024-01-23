@@ -1,14 +1,8 @@
 import Card from "react-bootstrap/Card";
-import { LegoSetProps } from "./types";
-import { useMemo } from "react";
 import { textLabels } from "../../constants";
+import type { LegoSetProps } from "./types";
 
 const LegoSetShowCard = ({ children, legoSet }: LegoSetProps) => {
-  const ownedValueDisplay = useMemo(
-    () => (legoSet.owned ? textLabels.owned : textLabels.notOwned),
-    [legoSet.owned]
-  );
-
   const openInstructionsPageInNewTab = (instructionsUrl: string) => {
     const newTab = window.open(
       instructionsUrl,
@@ -47,11 +41,7 @@ const LegoSetShowCard = ({ children, legoSet }: LegoSetProps) => {
           {textLabels.totalBricks}
           <strong>{legoSet.totalBricks}</strong>
         </Card.Text>
-        <Card.Text as="h2">
-          {textLabels.ownedLabel}
-          <strong>{ownedValueDisplay}</strong>
-        </Card.Text>
-        <Card.Text as="h2">{children}</Card.Text>
+        {children}
       </Card.Body>
     </Card>
   );
