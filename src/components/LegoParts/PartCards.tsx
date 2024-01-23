@@ -1,11 +1,11 @@
-import { connect } from "react-redux";
 import Container from "react-bootstrap/Container";
 import CardDeck from "react-bootstrap/CardDeck";
 import PartCard from "./PartCard";
-import { Part, SetPartSpec } from "./types";
-import { LegoSet } from "../LegoSets/types";
-import { textLabels } from "../../constants";
 import Loading from "../Shared/Loading";
+import { connect } from "react-redux";
+import { titles } from "../../constants";
+import type { Part, SetPartSpec } from "./types";
+import type { LegoSet } from "../LegoSets/types";
 
 interface PartCardsProps {
   parts: Part[];
@@ -15,14 +15,6 @@ interface PartCardsProps {
 }
 
 const PartCards = ({ parts, setPartSpecs, set, loading }: PartCardsProps) => {
-  const handlePartAndPartSpecLoading = () => {
-    return !loading ? (
-      <CardDeck>{renderEachPartCard()}</CardDeck>
-    ) : (
-      <Loading />
-    );
-  };
-
   const partQuantityOfPart = (part: Part) => {
     const setPartSpecOfPart = setPartSpecs.find(
       (setPartSpec: SetPartSpec) =>
@@ -31,7 +23,7 @@ const PartCards = ({ parts, setPartSpecs, set, loading }: PartCardsProps) => {
     return setPartSpecOfPart?.partQuantity ?? 0;
   };
 
-  const renderEachPartCard = () =>
+  const renderPartCards = () =>
     parts.map((part) => (
       <PartCard
         key={`${set.id}—${part.id}`}
@@ -42,8 +34,8 @@ const PartCards = ({ parts, setPartSpecs, set, loading }: PartCardsProps) => {
 
   return (
     <Container fluid className="container">
-      <h1 className="over-background">Parts of Set</h1>
-      {handlePartAndPartSpecLoading()}
+      <h1 className="over-background">{titles.parts}</h1>
+      {loading ? <Loading /> : <CardDeck>{renderPartCards()}</CardDeck>}
     </Container>
   );
 };
