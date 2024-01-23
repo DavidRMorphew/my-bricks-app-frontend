@@ -5,11 +5,14 @@ import LegoSetShowDisplay from "../components/LegoSets/LegoSetShowDisplay";
 import NotFoundErrorDisplay from "../components/NotFoundErrorDisplay";
 import { LegoSet } from "../components/LegoSets/types";
 import { useParams } from "react-router-dom";
+import { useEffect, useMemo } from "react";
+import { SetPartSpec } from "../components/LegoParts/types";
 
 interface LegoSetShowContainerProps {
   legoSets: LegoSet[];
   changeOwnedSetStatus: (id: number) => void;
   fetchPartsOfSet: (id: number) => void;
+  setPartSpecs: SetPartSpec[];
 }
 
 interface Params {
@@ -20,29 +23,49 @@ const LegoSetShowContainer = ({
   legoSets,
   changeOwnedSetStatus,
   fetchPartsOfSet,
+  setPartSpecs,
 }: LegoSetShowContainerProps) => {
   const { id } = useParams<Params>();
-  const legoSetId = parseInt(id);
-  const legoSet = legoSets.find((set) => set.id === legoSetId);
+  const legoSetId = useMemo(() => parseInt(id), [id]);
+  const legoSet = useMemo(
+    () => legoSets.find((set) => set.id === legoSetId),
+    [legoSets, legoSetId]
+  );
 
-  const renderLegoSetShowDisplay = () => {
-    if (legoSetId && legoSet) {
+  const areLegoSetPartsAndSpecsAlreadyLoaded = useMemo(
+    () => setPartSpecs?.[0]?.legoSetId === legoSetId,
+    [legoSetId, setPartSpecs]
+  );
+
+  useEffect(() => {
+    if (legoSet && !areLegoSetPartsAndSpecsAlreadyLoaded) {
       fetchPartsOfSet(legoSetId);
-      return (
+    }
+  }, [
+    legoSetId,
+    fetchPartsOfSet,
+    areLegoSetPartsAndSpecsAlreadyLoaded,
+    legoSet,
+  ]);
+
+  return (
+    <div>
+      {legoSet ? (
         <LegoSetShowDisplay
           legoSet={legoSet}
           changeOwnedSetStatus={changeOwnedSetStatus}
         />
-      );
-    } else {
-      return <NotFoundErrorDisplay />;
-    }
-  };
-
-  return <div>{renderLegoSetShowDisplay()}</div>;
+      ) : (
+        <NotFoundErrorDisplay />
+      )}
+    </div>
+  );
 };
 
-export default connect(({ legoSets }) => ({ legoSets }), {
-  changeOwnedSetStatus,
-  fetchPartsOfSet,
-})(LegoSetShowContainer);
+export default connect(
+  ({ legoSets, setPartSpecs }) => ({ legoSets, setPartSpecs }),
+  {
+    changeOwnedSetStatus,
+    fetchPartsOfSet,
+  }
+)(LegoSetShowContainer);

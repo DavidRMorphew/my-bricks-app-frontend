@@ -1,7 +1,9 @@
+import Button from "../Shared/ButtonComponent";
 import Card from "react-bootstrap/Card";
-import { useHistory } from "react-router-dom";
-import { LegoSet } from "../LegoSets/types";
 import { textLabels } from "../../constants";
+import { useCallback } from "react";
+import { useHistory } from "react-router-dom";
+import type { LegoSet } from "../LegoSets/types";
 
 interface PotentialBuildsSetCardProps {
   set: LegoSet;
@@ -10,13 +12,16 @@ interface PotentialBuildsSetCardProps {
 const PotentialBuildSetCard = ({ set }: PotentialBuildsSetCardProps) => {
   const history = useHistory();
 
-  const handleClick = () => history.push(`/lego_sets/${set.id}`);
+  const navigateToSelectedSetShowView = useCallback(
+    () => history.push(`/lego_sets/${set.id}`),
+    [set.id, history]
+  );
 
   return (
     <div>
       <Card className="my-4 border-dark card-deck-set-card">
         <Card.Header as="h4">
-          <button onClick={handleClick}>{set.name}</button>
+          <Button onClick={navigateToSelectedSetShowView}>{set.name}</Button>
         </Card.Header>
         <Card.Img src={set.imageUrl} />
         <Card.Body>

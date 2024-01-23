@@ -1,16 +1,33 @@
-import { ConnectedProps, connect } from "react-redux";
-import { fetchPotentialBuilds } from "../../actions/potentialBuildActions";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
+import Button from "../Shared/ButtonComponent";
+import { connect } from "react-redux";
+import {
+  fetchPotentialBuilds,
+  type StrictParam,
+} from "../../actions/potentialBuildActions";
+import { useCallback } from "react";
+
+interface PotentialBuildSelectionProps {
+  loading: boolean;
+  fetchPotentialBuilds: (isStrict: StrictParam) => void;
+}
 
 const PotentialBuildSelection = ({
   loading,
   fetchPotentialBuilds,
-}: PropsFromRedux) => {
-  const disableButtonWhileLoadingValue = () => (!loading ? false : true);
+}: PotentialBuildSelectionProps) => {
+  const fetchPotentialBuildsWithoutStrictColorMatching = useCallback(
+    () => fetchPotentialBuilds("notStrict"),
+    [fetchPotentialBuilds]
+  );
+  const fetchPotentialBuildsWithStrictColorMatching = useCallback(
+    () => fetchPotentialBuilds("strict"),
+    [fetchPotentialBuilds]
+  );
 
   return (
     <Container fluid className="container over-background shaded-background">
@@ -27,20 +44,20 @@ const PotentialBuildSelection = ({
       <h1>Please Choose Below:</h1>
       <Row>
         <Col>
-          <button
-            onClick={() => fetchPotentialBuilds("notStrict")}
-            disabled={disableButtonWhileLoadingValue()}
+          <Button
+            onClick={fetchPotentialBuildsWithoutStrictColorMatching}
+            disabled={loading}
           >
             Find Potential Builds (Color Substitutions)
-          </button>
+          </Button>
         </Col>
         <Col>
-          <button
-            onClick={() => fetchPotentialBuilds("strict")}
-            disabled={disableButtonWhileLoadingValue()}
+          <Button
+            onClick={fetchPotentialBuildsWithStrictColorMatching}
+            disabled={loading}
           >
             Find Potential Builds (strict color matching)
-          </button>
+          </Button>
         </Col>
       </Row>
       <br></br>
@@ -70,12 +87,6 @@ const PotentialBuildSelection = ({
   );
 };
 
-const mapState = ({ loading }: { loading: boolean }) => ({ loading });
-
-const connector = connect(mapState, {
+export default connect(({ loading }) => ({ loading }), {
   fetchPotentialBuilds,
-});
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-export default connector(PotentialBuildSelection);
+})(PotentialBuildSelection);

@@ -1,9 +1,9 @@
-import Container from "react-bootstrap/Container";
 import CardDeck from "react-bootstrap/CardDeck";
-import { connect } from "react-redux";
+import Container from "react-bootstrap/Container";
+import Loading from "../Shared/Loading";
 import PotentialBuildSetCard from "./PotentialBuildSetCard";
-import { LegoSet } from "../LegoSets/types";
-import { textLabels } from "../../constants";
+import { connect } from "react-redux";
+import type { LegoSet } from "../LegoSets/types";
 
 interface PotentialBuildSetsResultsProps {
   loading: boolean;
@@ -17,13 +17,15 @@ const PotentialBuildSetsResults = ({
   const handleLegoSetLoading = () => {
     if (loading) {
       return (
-        <h1 className="over-background">
-          {textLabels.loadingLabel}Please wait, as this could take a few
-          seconds...<br></br>
-          Please do not change owned sets while we search.
-        </h1>
+        <>
+          <Loading />
+          <h1 className="over-background">
+            Please wait, as this could take a few seconds...<br></br>
+            Please do not change owned sets while we search.
+          </h1>
+        </>
       );
-    } else if (potentialBuilds.length > 0) {
+    } else if (potentialBuilds.length) {
       return (
         <div>
           <h1 className="over-background">

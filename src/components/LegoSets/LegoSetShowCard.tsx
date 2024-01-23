@@ -1,21 +1,8 @@
 import Card from "react-bootstrap/Card";
-import { LegoSetProps } from "./types";
-import { MouseEventHandler } from "react";
 import { textLabels } from "../../constants";
+import type { LegoSetProps } from "./types";
 
-const LegoSetShowCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
-  const handleOnClick: MouseEventHandler<HTMLButtonElement> = () => {
-    changeOwnedSetStatus(legoSet.id);
-  };
-
-  const renderOwnedValue = () => {
-    return legoSet.owned ? textLabels.owned : textLabels.notOwned;
-  };
-
-  const ownButtonDisplay = () => {
-    return legoSet.owned ? textLabels.removeFromOwned : textLabels.addToOwned;
-  };
-
+const LegoSetShowCard = ({ children, legoSet }: LegoSetProps) => {
   const openInstructionsPageInNewTab = (instructionsUrl: string) => {
     const newTab = window.open(
       instructionsUrl,
@@ -54,13 +41,7 @@ const LegoSetShowCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
           {textLabels.totalBricks}
           <strong>{legoSet.totalBricks}</strong>
         </Card.Text>
-        <Card.Text as="h2">
-          {textLabels.ownedLabel}
-          <strong>{renderOwnedValue()}</strong>
-        </Card.Text>
-        <Card.Text as="h2">
-          <button onClick={handleOnClick}>{ownButtonDisplay()}</button>
-        </Card.Text>
+        {children}
       </Card.Body>
     </Card>
   );

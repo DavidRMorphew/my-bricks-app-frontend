@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
-import { Part } from "./types";
 import { textLabels } from "../../constants";
+import type { Part } from "./types";
 
 interface PartCardProps {
   part: Part;

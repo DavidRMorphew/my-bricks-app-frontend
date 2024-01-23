@@ -1,40 +1,31 @@
+import Button from "../Shared/ButtonComponent";
 import Card from "react-bootstrap/Card";
-import { useHistory } from "react-router-dom";
-import type { LegoSet, LegoSetProps } from "./types";
 import { textLabels } from "../../constants";
+import { useCallback } from "react";
+import { useHistory } from "react-router-dom";
+import type { LegoSetProps } from "./types";
 
-type OnClickActionType = "toggleOwnedStatus" | "navigate";
-
-const LegoSetCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
+const LegoSetCard = ({ children, legoSet }: LegoSetProps) => {
   const history = useHistory();
 
-  const handleOnClick = (actionType: OnClickActionType) => {
-    actionType === "toggleOwnedStatus"
-      ? changeOwnedSetStatus(legoSet.id)
-      : history.push(`/lego_sets/${legoSet.id}`);
-  };
-
-  const renderOwnedValue = (legoSet: LegoSet) => {
-    return legoSet.owned ? textLabels.owned : textLabels.notOwned;
-  };
-
-  const ownButtonDisplay = (legoSet: LegoSet) => {
-    return legoSet.owned ? textLabels.removeFromOwned : textLabels.addToOwned;
-  };
+  const navigateToSelectedSetShowView = useCallback(
+    () => history.push(`/lego_sets/${legoSet.id}`),
+    [legoSet.id, history]
+  );
 
   return (
     <div>
       <Card className="my-4 border-dark card-deck-set-card">
         <Card.Header as="h4">
-          <button
+          <Button
             data-testid="lego-set-name-button"
-            onClick={() => handleOnClick("navigate")}
+            onClick={navigateToSelectedSetShowView}
           >
             {legoSet.name}
-          </button>
+          </Button>
         </Card.Header>
         <Card.Img
-          onClick={() => handleOnClick("navigate")}
+          onClick={navigateToSelectedSetShowView}
           src={legoSet.imageUrl}
           alt={`Set Image for ${legoSet.name}`}
         />
@@ -52,15 +43,8 @@ const LegoSetCard = ({ legoSet, changeOwnedSetStatus }: LegoSetProps) => {
             {textLabels.totalBricks}
             <strong>{legoSet.totalBricks}</strong>
             <br></br>
-            {textLabels.ownedLabel}
-            <strong>{renderOwnedValue(legoSet)}</strong>
+            {children}
           </Card.Text>
-          <button
-            data-testid="lego-set-toggle-owned-button"
-            onClick={() => handleOnClick("toggleOwnedStatus")}
-          >
-            {ownButtonDisplay(legoSet)}
-          </button>
         </Card.Body>
       </Card>
     </div>
