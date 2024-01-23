@@ -1,10 +1,9 @@
-import Container from "react-bootstrap/Container";
 import CardDeck from "react-bootstrap/CardDeck";
-import { connect } from "react-redux";
-import PotentialBuildSetCard from "./PotentialBuildSetCard";
-import { LegoSet } from "../LegoSets/types";
-import { textLabels } from "../../constants";
+import Container from "react-bootstrap/Container";
 import Loading from "../Shared/Loading";
+import PotentialBuildSetCard from "./PotentialBuildSetCard";
+import { connect } from "react-redux";
+import type { LegoSet } from "../LegoSets/types";
 
 interface PotentialBuildSetsResultsProps {
   loading: boolean;
@@ -26,7 +25,7 @@ const PotentialBuildSetsResults = ({
           </h1>
         </>
       );
-    } else if (potentialBuilds.length > 0) {
+    } else if (potentialBuilds.length) {
       return (
         <div>
           <h1 className="over-background">
