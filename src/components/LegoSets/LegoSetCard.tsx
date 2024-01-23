@@ -1,24 +1,16 @@
+import Button from "../Shared/ButtonComponent";
 import Card from "react-bootstrap/Card";
+import { textLabels } from "../../constants";
+import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import type { LegoSetProps } from "./types";
-import { textLabels } from "../../constants";
-import { useCallback, useMemo } from "react";
-import Button from "../Shared/ButtonComponent";
 
-const LegoSetCard = ({
-  children,
-  legoSet,
-}: LegoSetProps) => {
+const LegoSetCard = ({ children, legoSet }: LegoSetProps) => {
   const history = useHistory();
 
   const navigateToSelectedSetShowView = useCallback(
     () => history.push(`/lego_sets/${legoSet.id}`),
     [legoSet.id, history]
-  );
-
-  const ownedValueDisplay = useMemo(
-    () => (legoSet.owned ? textLabels.owned : textLabels.notOwned),
-    [legoSet.owned]
   );
 
   return (
@@ -51,10 +43,8 @@ const LegoSetCard = ({
             {textLabels.totalBricks}
             <strong>{legoSet.totalBricks}</strong>
             <br></br>
-            {textLabels.ownedLabel}
-            <strong>{ownedValueDisplay}</strong>
+            {children}
           </Card.Text>
-          {children}
         </Card.Body>
       </Card>
     </div>

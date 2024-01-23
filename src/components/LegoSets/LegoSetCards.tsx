@@ -1,13 +1,13 @@
-import LegoSetCard from "./LegoSetCard";
+import Button from "../Shared/ButtonComponent";
 import Container from "react-bootstrap/Container";
 import CardDeck from "react-bootstrap/CardDeck";
-import { connect } from "react-redux";
-import { changeOwnedSetStatus } from "../../actions/legoSetActions";
-import { LegoSet } from "./types";
-import { textLabels } from "../../constants";
-import Button from "../Shared/ButtonComponent";
-import { useCallback } from "react";
+import LegoSetCard from "./LegoSetCard";
 import Loading from "../Shared/Loading";
+import { changeOwnedSetStatus } from "../../actions/legoSetActions";
+import { connect } from "react-redux";
+import { textLabels, titles } from "../../constants";
+import { useCallback } from "react";
+import type { LegoSet } from "./types";
 
 interface LegoSetCardsProps {
   legoSets: LegoSet[];
@@ -27,13 +27,17 @@ const LegoSetCards = ({
 
   return (
     <Container fluid className="container">
-      <h1 className="over-background">Lego Sets: {legoSets.length}</h1>
+      <h1 className="over-background">{titles.legoSets}{legoSets.length}</h1>
       {loading ? (
         <Loading />
       ) : (
         <CardDeck>
           {legoSets.map((set) => (
             <LegoSetCard key={set.id} legoSet={set}>
+              {textLabels.ownedLabel}
+              <strong>
+                {set.owned ? textLabels.owned : textLabels.notOwned}
+              </strong>
               <Button
                 data-testid="lego-set-toggle-owned-button"
                 onClick={handleChangeOwnedStatus(set.id)}
@@ -48,13 +52,19 @@ const LegoSetCards = ({
   );
 };
 
-const mapStateToProps = (
-  state: { legoSets: LegoSet[]; loading: boolean },
-  ownProps: { filterTerm?: string; subSetTerm?: string }
-) => {
-  const { legoSets, loading } = state;
-  const { filterTerm, subSetTerm } = ownProps;
+interface MapStateToPropsStateProps {
+  legoSets: LegoSet[];
+  loading: boolean;
+}
+interface MapStateToPropsOwnProps {
+  filterTerm?: string;
+  subSetTerm?: string;
+}
 
+const mapStateToProps = (
+  { legoSets, loading }: MapStateToPropsStateProps,
+  { filterTerm, subSetTerm }: MapStateToPropsOwnProps
+) => {
   let results;
   switch (true) {
     case !!filterTerm:
@@ -68,7 +78,7 @@ const mapStateToProps = (
       });
       break;
     case !!subSetTerm:
-      results = legoSets.filter((set: LegoSet) => !!set.owned);
+      results = legoSets.filter((set: LegoSet) => set.owned);
       break;
     default:
       results = legoSets;
