@@ -1,5 +1,5 @@
-import { textLabels } from "../../constants";
 import Spinner from "react-bootstrap/Spinner";
+import { textLabels } from "../../constants";
 
 const Loading = () => (
   <>

@@ -1,7 +1,7 @@
-import { screen, render } from "@testing-library/react";
 import PartCard from "../PartCard";
-import { Part } from "../types";
+import { screen, render } from "@testing-library/react";
 import { textLabels } from "../../../constants";
+import type { Part } from "../types";
 
 const mockPart: Part = {
   partNumber: "4276b",
