@@ -3,16 +3,27 @@ import { textLabels } from "../../../constants";
 import { mockLegoSet } from "../../../mocks/mockLegoData";
 import userEvent from "@testing-library/user-event";
 import LegoSetShowCard from "../LegoSetShowCard";
+import Button from "../../Shared/ButtonComponent";
 
 const mockChangedOwnedStatus = jest.fn();
 
 describe("LegoSetShowCard component", () => {
   it("As a user, I expect to see appropriate LegoSet information on page load", () => {
     render(
-      <LegoSetShowCard
-        legoSet={mockLegoSet}
-        changeOwnedSetStatus={mockChangedOwnedStatus}
-      />
+      <LegoSetShowCard legoSet={mockLegoSet}>
+        {textLabels.ownedLabel}
+        <strong>
+          {mockLegoSet.owned ? textLabels.owned : textLabels.notOwned}
+        </strong>
+        <Button
+          data-testid="lego-set-toggle-owned-button"
+          onClick={mockChangedOwnedStatus(mockLegoSet.id)}
+        >
+          {mockLegoSet.owned
+            ? textLabels.removeFromOwned
+            : textLabels.addToOwned}
+        </Button>
+      </LegoSetShowCard>
     );
 
     expect(screen.getByText(mockLegoSet.year));
@@ -22,10 +33,20 @@ describe("LegoSetShowCard component", () => {
   });
   it("As a user, I expect the changedOwnedStatus function to be called when I click on  the button to changed the owned status", async () => {
     render(
-      <LegoSetShowCard
-        legoSet={mockLegoSet}
-        changeOwnedSetStatus={mockChangedOwnedStatus}
-      />
+      <LegoSetShowCard legoSet={mockLegoSet}>
+        {textLabels.ownedLabel}
+        <strong>
+          {mockLegoSet.owned ? textLabels.owned : textLabels.notOwned}
+        </strong>
+        <Button
+          data-testid="lego-set-toggle-owned-button"
+          onClick={mockChangedOwnedStatus(mockLegoSet.id)}
+        >
+          {mockLegoSet.owned
+            ? textLabels.removeFromOwned
+            : textLabels.addToOwned}
+        </Button>
+      </LegoSetShowCard>
     );
     const changeOwnedStatusButton = screen.getByText(
       textLabels.removeFromOwned
@@ -37,10 +58,20 @@ describe("LegoSetShowCard component", () => {
     const windowOpenSpy = jest.spyOn(window, "open");
     windowOpenSpy.mockImplementation(jest.fn());
     render(
-      <LegoSetShowCard
-        legoSet={mockLegoSet}
-        changeOwnedSetStatus={mockChangedOwnedStatus}
-      />
+      <LegoSetShowCard legoSet={mockLegoSet}>
+        {textLabels.ownedLabel}
+        <strong>
+          {mockLegoSet.owned ? textLabels.owned : textLabels.notOwned}
+        </strong>
+        <Button
+          data-testid="lego-set-toggle-owned-button"
+          onClick={mockChangedOwnedStatus(mockLegoSet.id)}
+        >
+          {mockLegoSet.owned
+            ? textLabels.removeFromOwned
+            : textLabels.addToOwned}
+        </Button>
+      </LegoSetShowCard>
     );
     const seeBuildingInstructionsButton = screen.getByText(
       textLabels.clickHereLabel
