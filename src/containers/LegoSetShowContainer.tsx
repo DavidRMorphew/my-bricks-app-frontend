@@ -1,12 +1,12 @@
+import LegoSetShowDisplay from "../components/LegoSets/LegoSetShowDisplay";
+import NotFoundErrorDisplay from "../components/NotFoundErrorDisplay";
 import { connect } from "react-redux";
 import { changeOwnedSetStatus } from "../actions/legoSetActions";
 import { fetchPartsOfSet } from "../actions/partActions";
-import LegoSetShowDisplay from "../components/LegoSets/LegoSetShowDisplay";
-import NotFoundErrorDisplay from "../components/NotFoundErrorDisplay";
-import { LegoSet } from "../components/LegoSets/types";
 import { useParams } from "react-router-dom";
 import { useEffect, useMemo } from "react";
-import { SetPartSpec } from "../components/LegoParts/types";
+import type { LegoSet } from "../components/LegoSets/types";
+import type { SetPartSpec } from "../components/LegoParts/types";
 
 interface LegoSetShowContainerProps {
   legoSets: LegoSet[];
