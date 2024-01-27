@@ -1,10 +1,11 @@
+import { describe, it, vi } from "vitest";
 import { screen, render } from "@testing-library/react";
 import { mockLegoSet } from "../../../mocks/mockLegoData";
 import userEvent from "@testing-library/user-event";
 
-const mockUseHistoryPush = jest.fn();
+const mockUseHistoryPush = vi.fn();
 
-jest.mock("react-router-dom", () => ({
+vi.mock("react-router-dom", () => ({
   useHistory: () => ({ push: mockUseHistoryPush }),
 }));
 import PotentialBuildSetCard from "../PotentialBuildSetCard";
