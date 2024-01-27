@@ -1,4 +1,4 @@
-import { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 const loadingReducer = (state = false, action: PayloadAction<boolean>) => {
   switch (action.type) {

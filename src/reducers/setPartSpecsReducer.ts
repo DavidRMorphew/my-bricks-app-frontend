@@ -1,4 +1,4 @@
-import { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 import { SetPartSpec } from "../components/LegoParts/types";
 
 const setPartSpecsReducer = (

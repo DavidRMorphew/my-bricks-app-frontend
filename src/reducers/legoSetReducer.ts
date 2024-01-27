@@ -1,5 +1,5 @@
 import { LegoSet } from "../components/LegoSets/types";
-import { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 const legoSetReducer = (
   state: LegoSet[] = [],
@@ -15,7 +15,7 @@ const legoSetReducer = (
   }
 };
 
-const updateSetIfFound = (state: LegoSet[], payload: LegoSet) => {
+const updateSetIfFound = (state: LegoSet[], payload: LegoSet): LegoSet[] => {
   const setForUpdate = state.find((set) => set.id === payload.id);
   if (setForUpdate) {
     const updatedSet = { ...setForUpdate, owned: payload.owned };
