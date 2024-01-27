@@ -1,28 +1,34 @@
-import { ChangeEventHandler, MouseEventHandler, useDeferredValue } from "react";
-import { useState } from "react";
+import {
+  type ChangeEventHandler,
+  type MouseEventHandler,
+  useCallback,
+  useDeferredValue,
+  useState,
+} from "react";
+import { Switch, Route } from "react-router-dom";
 import FilterInputComponent from "../components/FilterInputComponent";
 import LegoSetCards from "../components/LegoSets/LegoSetCards";
 import LegoSetShowContainer from "./LegoSetShowContainer";
 import PotentialBuildSelection from "../components/PotentialBuilds/PotentialBuildSelection";
 import PotentialBuildSetsResults from "../components/PotentialBuilds/PotentialBuildSetsResults";
-import { Switch, Route } from "react-router-dom";
 
 const LegoSetsContainer = () => {
   const [filterTerm, setFilterTerm] = useState("");
 
   const deferredFilterTerm = useDeferredValue(filterTerm);
 
-  const handleFilterInputOnChange: ChangeEventHandler<HTMLInputElement> = (
-    e
-  ) => {
-    setFilterTerm(e.target.value);
-  };
+  const handleFilterInputOnChange: ChangeEventHandler<HTMLInputElement> =
+    useCallback(
+      (e) => {
+        setFilterTerm(e.target.value);
+      },
+      [setFilterTerm]
+    );
 
-  const handleFilterInputClearOnClick: MouseEventHandler<
-    HTMLButtonElement
-  > = () => {
-    setFilterTerm("");
-  };
+  const handleFilterInputClearOnClick: MouseEventHandler<HTMLButtonElement> =
+    useCallback(() => {
+      setFilterTerm("");
+    }, [setFilterTerm]);
 
   return (
     <Switch>
