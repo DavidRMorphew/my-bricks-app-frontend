@@ -10,7 +10,11 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
 
 export const renderWithProviders = (
   ui: ReactElement,
-  { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {}
+  {
+    preloadedState = {},
+    store = setupStore(preloadedState),
+    ...renderOptions
+  }: ExtendedRenderOptions = {}
 ) => {
   const Wrapper = ({ children }: PropsWithChildren<unknown>): JSX.Element => (
     <Provider store={store}>{children}</Provider>
