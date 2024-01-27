@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect } from "react";
-import { ConnectedProps, connect } from "react-redux";
+import { type ConnectedProps, connect } from "react-redux";
 import { fetchLegoSets } from "./actions/legoSetActions";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
