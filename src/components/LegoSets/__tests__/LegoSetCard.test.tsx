@@ -1,13 +1,14 @@
+import { describe, expect, it, vi } from "vitest";
 import { screen, render } from "@testing-library/react";
 import { textLabels } from "../../../constants";
 import { mockLegoSet } from "../../../mocks/mockLegoData";
 import userEvent from "@testing-library/user-event";
 
-const mockChangedOwnedStatus = jest.fn();
-const mockUseHistoryPush = jest.fn();
+const mockChangedOwnedStatus = vi.fn();
+const mockUseHistoryPush = vi.fn();
 const mockLegoSetNotOwned = { ...mockLegoSet, owned: false };
 
-jest.mock("react-router-dom", () => ({
+vi.mock("react-router-dom", () => ({
   useHistory: () => ({ push: mockUseHistoryPush }),
 }));
 import LegoSetCard from "../LegoSetCard";
