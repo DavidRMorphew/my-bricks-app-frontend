@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from "vitest";
 import { screen, render } from "@testing-library/react";
 import { textLabels } from "../../../constants";
 import { mockLegoSet } from "../../../mocks/mockLegoData";
@@ -5,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import LegoSetShowCard from "../LegoSetShowCard";
 import Button from "../../Shared/ButtonComponent";
 
-const mockChangedOwnedStatus = jest.fn();
+const mockChangedOwnedStatus = vi.fn();
 
 describe("LegoSetShowCard component", () => {
   it("As a user, I expect to see appropriate LegoSet information on page load", () => {
@@ -55,8 +56,8 @@ describe("LegoSetShowCard component", () => {
     expect(mockChangedOwnedStatus).toHaveBeenCalledWith(mockLegoSet.id);
   });
   it("As a user, I expect a new window tab to open to a given url if I click to see the building instructions", async () => {
-    const windowOpenSpy = jest.spyOn(window, "open");
-    windowOpenSpy.mockImplementation(jest.fn());
+    const windowOpenSpy = vi.spyOn(window, "open");
+    windowOpenSpy.mockImplementation(vi.fn());
     render(
       <LegoSetShowCard legoSet={mockLegoSet}>
         {textLabels.ownedLabel}

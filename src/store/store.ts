@@ -1,9 +1,12 @@
 import { rootReducer } from "../reducers/index";
 import { configureStore } from "@reduxjs/toolkit";
 
-export const setupStore = () =>
+// TODO: address TS error with reducer type implementation
+export const setupStore = (preloadedState?: Partial<RootState>) =>
   configureStore({
     reducer: rootReducer,
+    //@ts-expect-error @ts-ignore
+    preloadedState,
   });
 
 export type RootState = ReturnType<typeof rootReducer>;

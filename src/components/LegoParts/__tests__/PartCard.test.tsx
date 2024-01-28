@@ -1,4 +1,5 @@
 import PartCard from "../PartCard";
+import { describe, expect, it } from "vitest";
 import { screen, render } from "@testing-library/react";
 import { textLabels } from "../../../constants";
 import type { Part } from "../types";
@@ -17,7 +18,7 @@ describe("PartCard", () => {
     render(<PartCard part={mockPart} partQuantity={mockPartQuantity} />);
 
     const nameAndColorText = screen.getByTestId(
-      `${mockPart.partNumber}-part-name-and-color`
+      `${mockPart.id}-part-name-and-color`
     );
     expect(nameAndColorText).toHaveTextContent(
       `${textLabels.partNameLabel}${mockPart.name}`
@@ -31,7 +32,7 @@ describe("PartCard", () => {
     render(<PartCard part={mockPart} partQuantity={mockPartQuantity} />);
 
     expect(
-      screen.getByTestId(`${mockPart.partNumber}-part-quantity`)
+      screen.getByTestId(`${mockPart.id}-part-quantity`)
     ).toHaveTextContent(`${textLabels.partQuantityLabel}${mockPartQuantity}`);
   });
 });

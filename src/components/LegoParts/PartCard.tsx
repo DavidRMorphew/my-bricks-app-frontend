@@ -8,7 +8,7 @@ interface PartCardProps {
 }
 
 const PartCard = ({ part, partQuantity }: PartCardProps) => (
-  <div>
+  <div data-testid={`part-card-${part.id}`}>
     <Card className="my-4 border-dark card-deck-part-card">
       <Card.Header as="h4">
         {textLabels.partNumberLabel}
@@ -18,14 +18,14 @@ const PartCard = ({ part, partQuantity }: PartCardProps) => (
         <Card.Img src={part.imageUrl} alt={`Part Image for ${part.name}`} />
       )}
       <Card.Body>
-        <Card.Text data-testid={`${part.partNumber}-part-name-and-color`}>
+        <Card.Text data-testid={`${part.id}-part-name-and-color`}>
           <strong>{textLabels.partNameLabel}</strong>
           {part.name}
           <br></br>
           <strong>{textLabels.partColorLabel}</strong>
           {part.color}
         </Card.Text>
-        <Card.Text data-testid={`${part.partNumber}-part-quantity`}>
+        <Card.Text data-testid={`${part.id}-part-quantity`}>
           <strong>{textLabels.partQuantityLabel}</strong>
           {partQuantity}
         </Card.Text>

@@ -1,15 +1,15 @@
 import "@testing-library/jest-dom";
-import "@testing-library/jest-dom/jest-globals";
+import { afterAll, afterEach, expect, vi } from "vitest";
 import { cleanup } from "@testing-library/react";
 import * as matchers from "@testing-library/jest-dom/matchers";
 
 expect.extend(matchers);
 
 afterAll(() => {
-  jest.resetModules();
+  vi.resetModules();
 });
 
 afterEach(() => {
-  jest.resetAllMocks();
+  vi.resetAllMocks();
   cleanup();
 });

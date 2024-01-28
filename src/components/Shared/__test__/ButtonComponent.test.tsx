@@ -1,8 +1,9 @@
 import Button from "../ButtonComponent";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, it, vi } from "vitest";
 import { screen, render } from "@testing-library/react";
 
-const mockOnClickHandler = jest.fn();
+const mockOnClickHandler = vi.fn();
 
 describe("ButtonComponent", () => {
   it("As a user, I expect the button component to be disabled if the disabled prop is passed in", () => {

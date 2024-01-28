@@ -1,4 +1,4 @@
-import { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 import { Part } from "../components/LegoParts/types";
 
 const partReducer = (state = [], action: PayloadAction<Part[]>) => {
